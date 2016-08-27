@@ -1,0 +1,169 @@
+@media (max-width: 800px) {
+	/* Login */
+	#title-container{
+		margin: 0 auto;
+
+	}
+
+	/* Principal */
+	
+	body{
+		padding-top: 80px;
+	}
+
+
+	.menu-bar{
+		display: block;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		z-index: 1000;
+		background-color: #023859;
+	}
+	.menu-bar .bt-menu{
+		display: block;
+		padding: 20px;
+		color:white;
+		overflow: hidden;
+		font-size: 25px;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	.menu-bar span{
+		float:right;
+		font-size: 20px;
+	}
+
+	header nav{
+		width: 80%;
+		position: fixed;
+		right: 100%;
+		margin: 0;
+		top:75px;
+		overflow: scroll;
+		height: calc(100% - 75px); /*se restan los 75px iniciales del menu*/
+
+	}
+
+	header nav ul li{
+		display: block;
+		border-bottom: 1px solid rgba(255,255,255,.5)
+
+	}
+
+	header nav ul li a{
+		display: block;
+	}
+
+	header nav ul li .children{
+		width: 100%;
+		position: relative;
+	}
+
+
+	header nav ul li .children li a{
+		margin-left: 20px;
+	}
+
+	header nav ul li:hover .children{
+		display: none;
+	}
+
+	header nav ul .control-top{
+		width: 100%;
+		float: left;
+	}
+}
+
+
+@media (max-width: 800px) {
+	/* Login */
+	#title-container{
+		margin: 0 auto;
+
+	}
+
+	/* Principal */
+	
+	body{
+		padding-top: 80px;
+	}
+
+
+	.menu-bar{
+		display: block;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		background-color: #023859;
+	}
+	.menu-bar .bt-menu{
+		display: block;
+		padding: 20px;
+		color:white;
+		overflow: hidden;
+		font-size: 25px;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	.menu-bar span{
+		float:right;
+		font-size: 20px;
+	}
+
+	header nav{
+		width: 60%;
+		position: fixed;
+		right: 100%;
+		margin: 0;
+		top:75px;
+		overflow: scroll;
+		height: calc(100% - 75px); /*se restan los 75px iniciales del menu*/
+
+	}
+
+	header nav ul li{
+		display: block;
+		border-bottom: 1px solid rgba(255,255,255,.5)
+
+	}
+
+	header nav ul li a{
+		display: block;
+	}
+
+	header nav ul li .children{
+		width: 100%;
+		position: relative;
+	}
+
+
+	header nav ul li .children li a{
+		margin-left: 20px;
+	}
+
+	header nav ul li:hover .children{
+		display: none;
+	}
+
+	header nav ul .control-top{
+		width: 100%;
+		float: left;
+	}
+
+
+}
+
+@media (max-width: 935px) {
+	/* Add Alumn*/
+
+	#alumnSearch{
+		width: 100%;
+	}
+
+	#alumnList{
+		width: 100%;
+	}
+}

@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Aliadas
+        psr4_prefix: Aliadas
+        src_path: app
