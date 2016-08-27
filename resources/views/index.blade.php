@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/aliadas.css') }}">
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::asset('css/responsive.css') }}"/> 
 
-	<title>Ingreso - Aliadas en Cadena</title>
+	<title>Aliadas en Cadena - Ingreso</title>
 </head>
 <body id ="registro">
 <div class="index">

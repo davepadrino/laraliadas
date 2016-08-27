@@ -14,7 +14,9 @@
 
 Route::get('/', 'Index@index'); 
 Route::get('/principal', 'Index@principal'); 
-Route::get('/agregar_curso', 'Index@add_course'); 
+Route::get('/agregar-curso', 'Index@add_course'); 
+Route::get('/editar-usuario', 'Index@edit_user'); 
+Route::get('/cursos', 'Index@course'); 
 
 
 

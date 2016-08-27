@@ -16,13 +16,25 @@ class Index extends Controller {
 	{
 		return  view('index');
 	}
+
 	public function principal()
 	{
 		return  view('principal');
 	}
+
 	public function add_course()
 	{
 		return  view('add_course');
+	}
+
+	public function edit_user()
+	{
+		return view('edit_user');
+	}
+
+	public function course()
+	{
+		return  view('course');
 	}
 
 	/**
