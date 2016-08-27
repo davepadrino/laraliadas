@@ -21,3 +21,14 @@ Thank you for considering contributing to the Laravel framework! The contributio
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
+
+
+- En los templates debo mostrar un nombre personalizado por cada página
+- Hacer los templates para el resto de las vistas
+- Delimitar las rutas
+- Establecer los controladores
+- Diseñar el modelo 
+- Empezar a trabajar con Index.php, luego el resto
+
