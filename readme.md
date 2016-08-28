@@ -34,9 +34,11 @@ BE:
 - Delimitar las rutas
 - Establecer los controladores
 
-BD:
-users*
-sedes*
-personas*
-cursos*
-persona_cursos
+
+- En los templates debo mostrar un nombre personalizado por cada página
+- Hacer los templates para el resto de las vistas
+- Delimitar las rutas
+- Establecer los controladores
+- Diseñar el modelo 
+- Empezar a trabajar con Index.php, luego el resto
+
