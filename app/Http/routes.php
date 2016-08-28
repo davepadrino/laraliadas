@@ -13,9 +13,11 @@
 
 
 Route::get('/', 'Index@index'); 
+Route::get('/recuperar-contraseña', 'Index@recover_psw'); 
 Route::get('/principal', 'Index@principal'); 
 Route::get('/agregar-curso', 'Index@add_course'); 
 Route::get('/editar-usuario', 'Index@edit_user'); 
+Route::get('/editar-curso', 'Index@edit_course'); 
 Route::get('/cursos', 'Index@course'); 
 
 

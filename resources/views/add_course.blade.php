@@ -17,11 +17,10 @@
 								<input type="text" class="form-control" name="nameCourse" placeholder="Nombre" required>
 							</td>
 						</tr>
-
 						<tr>
 							<td>
 								<label for = "courseType" >Tipo de Curso</label>
-								<select class="form-control" name = "courseType">
+								<select class="form-control" name = "courseType" required>
 									<option value="" disabled selected="selected">Seleccione...</option>
 									<option value="emprendedoras">Mujeres Emprendedoras</option>
 									<option value="talleres">Escuela Taller</option>
@@ -31,11 +30,30 @@
 						</tr>
 						<tr>
 							<td>
-								<label for = "startDate" >Fecha de Inicio</label>
+								<label for = "courseState">Estado</label>
+								<select class="form-control" name = "courseState">
+									<option value="Sin iniciar" selected="selected">Sin iniciar</option>
+									<option value="En curso">En Curso</option>
+									<option value="Finalizado">Finalizado</option>
+								</select> 
+							</td>
+						</tr>						
+						<tr>
+							<td>
+								<label for = "startDate">Fecha de Inicio</label>
 		                        <span class="glyphicon glyphicon-calendar"></span>
 			                    <input type='date' class="form-control" />
 							</td>
 						</tr>
+						<tr>
+							<td>
+								<label for = "descriptionCourse" >Descripción de Curso</label>
+								<textarea rows="4" cols="50" class="form-control" name="descriptionCourse" placeholder="Describe brevemente el curso...">
+
+								</textarea>
+
+							</td>
+						</tr>						
 						<tr>
 							<td>
 								<button type="submit" class="btn btn-primary"> Agregar Curso </button>

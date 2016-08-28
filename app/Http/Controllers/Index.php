@@ -32,9 +32,19 @@ class Index extends Controller {
 		return view('edit_user');
 	}
 
+	public function edit_course()
+	{
+		return view('edit_course');
+	}
+
 	public function course()
 	{
 		return  view('course');
+	}
+
+	public function recover_psw()
+	{
+		return  view('recover_password');
 	}
 
 	/**

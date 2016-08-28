@@ -21,3 +21,22 @@ Thank you for considering contributing to the Laravel framework! The contributio
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
+# Tareas
+FE:
+- Arreglar vista de agregar alumnos
+
+BE:
+- Diseñar el modelo *
+- Empezar a trabajar con Index.php (creacion de usuarios)
+- Layouts (cursos (routing))
+- Delimitar las rutas
+- Establecer los controladores
+
+BD:
+users*
+sedes*
+personas*
+cursos*
+persona_cursos

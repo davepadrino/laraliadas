@@ -19,17 +19,17 @@
 		<div id="menu-fijo" class="row">
 			<div class="logo col-md-3 col-md-3">
 				<div>
-					<a href="principal.html">
+					<a href="principal">
 						<img src="{{ URL::asset('img/logo.jpg') }}" alt="Logo" /> 
 					</a>
 				</div>
 			</div>
 			<div class="col-md-5 col-md-5">	
 			    <div class="input-group">
+			      <input type="text" class="form-control" placeholder="Buscar alumno...">
 			      <span class="input-group-btn">
 			        <button class="btn btn-default" type="button">Buscar</button>
 			      </span>
-			      <input type="text" class="form-control" placeholder="Buscar alumno...">
 			    </div>
 			</div>
 			<div class="col-md-4 col-md-4">
@@ -43,8 +43,8 @@
 		</div>
 		<nav>
 			<ul>
-				<li><a href="principal.html"><span class="glyphicon glyphicon-glyphicon glyphicon-home"></span> Inicio </a></li>
-				<li><a href="add_course.html"><span class="glyphicon  glyphicon-new-window"></span>
+				<li><a href="principal"><span class="glyphicon glyphicon-glyphicon glyphicon-home"></span> Inicio </a></li>
+				<li><a href="agregar-curso"><span class="glyphicon  glyphicon-new-window"></span>
 				Agregar Curso </a></li>		
 				<li id ="sm1" class="submenu">
 					<a href="#">
@@ -82,8 +82,8 @@
 
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="../app/js/aliadas.js"></script>
-	<script type="text/javascript" src="../app/css/js/bootstrap.min.js"></script>	
+	<script type="text/javascript" src="{{ URL::asset('js/aliadas.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>	
 
 </body>
 </html>
