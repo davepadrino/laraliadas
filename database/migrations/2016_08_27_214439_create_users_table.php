@@ -14,18 +14,20 @@ class CreateUsersTable extends Migration {
 	{
 		Schema::create('users', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
 			$table->increments('id');
 			$table->string('name');
 			$table->string('email')->unique();
 			$table->string('password', 60);
 			$table->rememberToken();
-			$table->timestamps();
-
-			$table->string('lastname');
-			$table->date('fecha_nacimiento');
+			$table->nullableTimestamps();
 			$table->string('tipo_usuario');
 			$table->integer('sede_id')->unsigned();
-			$table->foreign('sede_id')->references('id')->on('sedes');
+		});
+
+		Schema::table('users', function(Blueprint $table)
+		{
+			$table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
 		});
 	}
 

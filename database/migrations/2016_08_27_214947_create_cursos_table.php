@@ -22,8 +22,8 @@ class CreateCursosTable extends Migration {
 			$table->string('estado_curso');
 			$table->string('descripcion_curso');
 			$table->integer('sede_id')->unsigned();
-			$table->foreign('sede_id')->references('id')->on('sedes');
-			$table->timestamps();
+			$table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
+			$table->nullableTimestamps();
 		});
 	}
 

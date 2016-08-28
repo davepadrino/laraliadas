@@ -25,10 +25,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 # Tareas
 FE:
-- Arreglar vista de agregar alumnos
+- Revisar angular en 3 de las vistas
 
 BE:
-- Diseñar el modelo *
+- https://laravel.com/docs/4.2/html FORMS & LARAVEL
+--- manage users
+
+
+
 - Empezar a trabajar con Index.php (creacion de usuarios)
 - Layouts (cursos (routing))
 - Delimitar las rutas
@@ -42,3 +46,7 @@ BE:
 - Diseñar el modelo 
 - Empezar a trabajar con Index.php, luego el resto
 
+# Importante
+- Se deben crear primero las tablas base antes que las que dependen de ellas
+- La tabla "migrations" lleva registro de las migraciones
+- Para algunas cosas deben usarse "nullableTimestamp"

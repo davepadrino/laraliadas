@@ -23,7 +23,7 @@ class CreatePersonasTable extends Migration {
 			$table->string('email_persona');
 			$table->string('direccion_persona');
 			$table->date('fecha_nacimiento_persona');
-			$table->timestamps();
+			$table->nullableTimestamps();
 		});
 	}
 

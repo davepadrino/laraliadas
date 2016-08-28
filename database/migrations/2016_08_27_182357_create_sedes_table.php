@@ -14,10 +14,11 @@ class CreateSedesTable extends Migration {
 	{
 		Schema::create('sedes', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
 			$table->increments('id');
 			$table->string('nombre_sede');
 			$table->string('ciudad_sede');
-			$table->timestamps();
+			$table->nullableTimestamps();
 		});
 	}
 

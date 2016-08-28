@@ -20,6 +20,8 @@ Route::get('/editar-usuario', 'Index@edit_user');
 Route::get('/editar-curso', 'Index@edit_course'); 
 Route::get('/cursos', 'Index@course'); 
 
+Route::resource('/admin', 'userController');
+
 
 
 
