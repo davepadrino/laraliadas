@@ -28,25 +28,23 @@ FE:
 - Revisar angular en 3 de las vistas
 
 BE:
-- https://laravel.com/docs/4.2/html FORMS & LARAVEL
---- manage users
+- https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
+# Pendiente Short Term
+- Editar el elemento, solo se queda en el ultimo
+- Mostrar Span cuando haya error
+- No se puede eliminar el usuario admin
 
-
-- Empezar a trabajar con Index.php (creacion de usuarios)
+# Pendiente Mid Term
 - Layouts (cursos (routing))
 - Delimitar las rutas
 - Establecer los controladores
-
-
-- En los templates debo mostrar un nombre personalizado por cada página
-- Hacer los templates para el resto de las vistas
-- Delimitar las rutas
-- Establecer los controladores
-- Diseñar el modelo 
 - Empezar a trabajar con Index.php, luego el resto
 
 # Importante
 - Se deben crear primero las tablas base antes que las que dependen de ellas
 - La tabla "migrations" lleva registro de las migraciones
 - Para algunas cosas deben usarse "nullableTimestamp"
+- http://stackoverflow.com/questions/28214499/laravel-5-not-finding-css-files
+- Instalar componentes para formularios https://laravelcollective.com/docs/5.0/html
+- Info en modales http://www.easylaravelbook.com/blog/2016/04/11/integrating-a-bootstrap-modal-into-your-laravel-application/

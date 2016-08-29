@@ -21,14 +21,16 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 60);
 			$table->rememberToken();
 			$table->nullableTimestamps();
-			$table->string('tipo_usuario');
-			$table->integer('sede_id')->unsigned();
+			$table->string('rol');
+			//$table->integer('sede_id')->unsigned();
 		});
-
+		/*
 		Schema::table('users', function(Blueprint $table)
 		{
 			$table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
 		});
+		*/
+		
 	}
 
 	/**

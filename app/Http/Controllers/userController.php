@@ -2,8 +2,10 @@
 
 use Aliadas\Http\Requests;
 use Aliadas\Http\Controllers\Controller;
-
+use DB;
+use Session;
 use Illuminate\Http\Request;
+use Redirect;
 
 class userController extends Controller {
 
@@ -15,6 +17,8 @@ class userController extends Controller {
 	public function index()
 	{
 		//
+		$users = \Aliadas\user::All();
+		return view('manage_users', compact('users'));
 	}
 
 	/**
@@ -24,17 +28,31 @@ class userController extends Controller {
 	 */
 	public function create()
 	{
-		return view('manage_users');
-	}
+			//return DB::table('sedes')->where('id', '=', '1')->get();
+			//$users = DB::table('users')->get();
+			//return $users; 
+    		return view('manage_users', compact('users'));
+    }
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		return "storeado";
+
+		\Aliadas\user::create([
+			'name'=> $request['name'],
+			'email'=> $request['email'],
+			'password'=> $request['password'],
+			'rol'=> $request['rol'],
+			]);
+			Session::flash('flash_message', 'Usuario creado satisfactoriamente!');
+		$users = \Aliadas\user::All();
+
+
+    	return view('manage_users', compact('users'));
 	}
 
 	/**
@@ -56,7 +74,7 @@ class userController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = \Aliadas\user::find($id);
 	}
 
 	/**
@@ -65,9 +83,14 @@ class userController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		//
+		$user = \Aliadas\user::find($id);
+		$user->fill($request->all());
+		$user-> save();
+		Session::flash('message', 'Usuario Editado Correctamente');
+		return Redirect::to('/admin')->with('message');
+
 	}
 
 	/**
