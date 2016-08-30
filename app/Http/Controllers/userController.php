@@ -74,7 +74,7 @@ class userController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$user = \Aliadas\user::find($id);
+		//
 	}
 
 	/**
@@ -89,8 +89,9 @@ class userController extends Controller {
 		$user->fill($request->all());
 		$user-> save();
 		Session::flash('message', 'Usuario Editado Correctamente');
-		return Redirect::to('/admin')->with('message');
-
+		//return Redirect::to('/admin');
+		//return view('manage_users');
+		return redirect()->back();
 	}
 
 	/**
@@ -101,7 +102,9 @@ class userController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		\Aliadas\user::destroy($id);
+		Session::flash('message', 'Usuario eliminado Correctamente');
+		return redirect()->back();
 	}
 
 }

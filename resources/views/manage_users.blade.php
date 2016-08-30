@@ -19,8 +19,8 @@
 					<h2> Administrar Usuarios </h2>
 				</div>
 				<div class="row">
-					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<div ng-controller="FormController as formCtrl">
+					<div id = "addUsers" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<div>
 							<div>
 								<h3> Crear Usuario</h3>
 							</div>
@@ -68,8 +68,8 @@
 				        </div>
 						
 					</div>
-					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						 <div ng-controller="ListController as listCtrl">
+					<div id = "showUsers" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						 <div>
 						    <h1>Usuarios</h1>
 						        <table class="table table-striped table-hover" >
 						            <thead>
@@ -93,26 +93,26 @@
 						                <td>{{ $user->name }}</td>
 						                <td>{{ $user->email}}</td>
 						                <td>{{ $user->rol}}</td>
-						                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target=".modal_user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-email="{{ $user->email }}"  data-password="{{ $user->password }}"  data-rol="{{ $user->rol }}" value="{{ $user->id }} "></button></td>
+
+						                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalUser{{$user->id}}" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-email="{{ $user->email }}"  data-password="{{ $user->password }}"  data-rol="{{ $user->rol }}"></button></td>
 					                
-						                <td class="text-right"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm " ng-click="listCtrl.removeBrand($index)"></button></td>
+						                <td class="text-right"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteUser{{$user->id}}" ></button></td>
 						            </tbody>
 									@endforeach 
 						        </table>
-								
-								<div class="modal modal_user fade" tabindex="-1" role="dialog">
+								@foreach($users as $user)
+								<div id="modalUser{{$user->id}}" class="modal fade" tabindex="-1" role="dialog">
 									  <div class="modal-dialog" role="document">
 									    <div class="modal-content">
 									      <div class="modal-header">
 									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									        <h4 class="modal-title">Editar Usuario</h4>
+									        <h4 class="modal-title">Editar Usuario: {{ $user-> name }}</h4>
 									      </div>
-									      {!! Form::model($user,['route'=> ['admin.update',$user->id], 'method'=>'put', 'id'=>'id_form'])!!}
 									      <div class="modal-body">
-									      		{!! Form::label($user->id)!!}
+									      {!! Form::model($user,['route'=> ['admin.update',$user->id], 'method'=>'put'])!!}
 
 									      		{!! Form::label('Nombre')!!}
-												{!! Form::text('name',null,['class'=>'form-control', 'id'=>'name'])!!}
+												{!! Form::text('name',$user->name,['class'=>'form-control'])!!}
 
 												{!! Form::label('Email')!!}
 												{!! Form::text('email',null,['class'=>'form-control', 'id'=>'email' ,'readonly'=>'true'])!!}
@@ -137,13 +137,37 @@
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-									        {!! Form::submit('Guardar', ['class'=>'btn btn-primary'])!!}
+									        {!! Form::submit('Editar', ['class'=>'btn btn-primary'])!!}
 									        
 									      </div>
 									     {!! Form::close() !!}
 									    </div><!-- /.modal-content -->
 									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->									
+								</div><!-- /.modal -->	
+								@endforeach	
+
+								@foreach($users as $user)
+								<div id="modalDeleteUser{{$user->id}}" class="modal fade" tabindex="-1" role="dialog">
+									  <div class="modal-dialog" role="document">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									        <h4 class="modal-title">Eliminar Usuario: {{ $user-> name }}</h4>
+									      </div>
+									      {!! Form::open(['route'=> ['admin.update',$user->id], 'method'=>'delete'])!!}
+									      <div class="modal-body">
+									      ¿Desea eliminar el Usuario?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+									        {!! Form::submit('Eliminar', ['class'=>'btn btn btn-danger'])!!}
+									        
+									      </div>
+									     {!! Form::close() !!}
+									    </div><!-- /.modal-content -->
+									</div><!-- /.modal-dialog -->
+								</div><!-- /.modal -->	
+								@endforeach							
 						    </div>
 					</div>
 				</div>
@@ -162,7 +186,6 @@
 				        $("#userPassword").html($(e.relatedTarget).data('password'));
 				        $("#userRol").html($(e.relatedTarget).data('rol'));
 						*/
-				        modal.find('.modal-body #id').val($(e.relatedTarget).data('id'));	
 				        modal.find('.modal-body #name').val($(e.relatedTarget).data('name'));	
 				        modal.find('.modal-body #email').val($(e.relatedTarget).data('email'));	
 				        modal.find('.modal-body #password').val($(e.relatedTarget).data('password'));	

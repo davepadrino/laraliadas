@@ -31,7 +31,7 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- Editar el elemento, solo se queda en el ultimo
+- Validar emails, y cosas por el estilo en server side
 - Mostrar Span cuando haya error
 - No se puede eliminar el usuario admin
 
@@ -48,3 +48,4 @@ BE:
 - http://stackoverflow.com/questions/28214499/laravel-5-not-finding-css-files
 - Instalar componentes para formularios https://laravelcollective.com/docs/5.0/html
 - Info en modales http://www.easylaravelbook.com/blog/2016/04/11/integrating-a-bootstrap-modal-into-your-laravel-application/
+- Un modal por elemento de BD http://stackoverflow.com/questions/32469873/show-bootstrap-modal-when-click-on-href-laravel
