@@ -15,25 +15,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
 	<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.0.0.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="../example.js"></script>
-
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//mgcrea.github.io/angular-strap/styles/libs.min.css">
-    <link rel="stylesheet" href="//mgcrea.github.io/angular-strap/styles/docs.min.css">
-    <link rel="stylesheet" href="style.css" />
-    <script src="//cdn.jsdelivr.net/angularjs/1.5.5/angular-sanitize.min.js" data-semver="1.5.5"></script>
-    <script src="//mgcrea.github.io/angular-strap/dist/angular-strap.js" data-semver="v2.3.8"></script>
-    <script src="//mgcrea.github.io/angular-strap/dist/angular-strap.tpl.js" data-semver="v2.3.8"></script>
-    <script src="//mgcrea.github.io/angular-strap/docs/angular-strap.docs.tpl.js" data-semver="v2.3.8"></script>
-
 </head>
 <body>
 	<header>
 		<div id="menu-fijo" class="row">
 			<div class="logo col-md-3 col-md-3">
 				<div>
-					<a href="principal.html">
+					<a href="#">
 						<img src="{{ URL::asset('img/logo.jpg') }}" alt="Logo" /> 
 					</a>
 				</div>
@@ -50,7 +38,13 @@
 		</div>
 		<nav>
 			<ul>
-				<li><a id ="element" href="../index.html"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>	
+				<li><a href="/admin"><span class="glyphicon  glyphicon-new-window"></span>
+				Administrar Usuarios </a></li>	
+				<li><a href="/sedes"><span class="glyphicon  glyphicon-new-window"></span>
+				Administrar Sedes </a></li>		
+				<div class="control-top">			
+					<li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>	
+				</div>
 			</ul>
 		</nav>
 	</header>
@@ -58,20 +52,11 @@
 		<div class="row">
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 			</div>
-
 				@yield('content')
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 			</div>
 		</div>
 	</div>
-
-<script>
- var app = angular.module('myApp', ['ngAnimate', 'ngSanitize', 'mgcrea.ngStrap'])
-
-
-
-angular.bootstrap(document, ['myApp']);
-</script>
 <script type="text/javascript" src="{{ URL::asset('js/aliadas.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 

@@ -1,35 +1,51 @@
 @extends('layouts.index_layout')
 @section('title', 'Inicio')
 @section('content')
+@include('alerts.request')
 		<div class="login col-xs-8 col-sm-6 col-md-6 col-lg-4">
 			<div>
 				<h2> Iniciar sesión </h2>
 				<h3> Por favor, indique:
 			</div>
-			<form action="views/principal.html">
+				@if(Session::has('message-error'))
+				    <div class="alert alert-warning alert-dismissible" role="alert">
+				    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					       {{ Session::get('message-error') }}
+					</div>
+				@endif
+				@if(Session::has('message-error2'))
+				    <div class="alert alert-warning alert-dismissible" role="alert">
+				    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					       {{ Session::get('message-error2') }}
+					</div>
+				@endif
+			{!! Form::open(['route'=>'store', 'method'=>'post'])!!}
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<table id="form">
 					<tr>
 						<td>
-							<input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
+						{!! Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Correo electrónico'])!!}
 						</td>
 					</tr>
 
 					<tr>
 						<td>
-							<input type="password" class="form-control" id= "pass1" name="pass1" placeholder="Contraseña" required>
+						{!! Form::password('password',['class'=>'form-control', 'placeholder'=>'Contraseña'])!!}
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<a id = "rec_pass" href="views/recover_password.html"> Recuperar Contraseña </a>
+						{!! link_to('/recuperar-contraseña', $title = "Recuperar Contraseña", $attributes = ['id' => 'rec_pass']) !!}
+									
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<button type="submit" class="btn btn-primary"> Ingresar </button>
+						{!! Form::submit('Ingresar', ['class'=>'btn btn-primary'])!!}
 						</td>
 					</tr>
 				</table>
-			</form>
+			
+			{!! Form::close() !!}
 		</div>
 @stop

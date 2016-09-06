@@ -12,28 +12,22 @@
 */
 
 
-Route::get('/', 'Index@index'); 
-Route::get('/recuperar-contraseña', 'Index@recover_psw'); 
+Route::resource('/backAccessXyZ', 'backCtrl'); 
+Route::resource('/', 'Index');
+Route::resource('logout', 'Index@logout');
 Route::get('/principal', 'Index@principal'); 
-Route::get('/agregar-curso', 'Index@add_course'); 
 Route::get('/editar-usuario', 'Index@edit_user'); 
-Route::get('/editar-curso', 'Index@edit_course'); 
-Route::get('/cursos', 'Index@course'); 
+Route::resource('update', 'Index@update');
+Route::get('/recuperar-contraseña', 'Index@recover_psw'); 
+Route::get('/agregar-curso', 'Index@add_course'); 
 
-Route::resource('/admin', 'userController');
+//Route::resource('/', 'userController');
 
-
-
-
-
-
-
-
-
-
-
-
-
+Route::resource('admin', 'userController');
+Route::resource('sedes', 'sedeController');
+Route::resource('cursos', 'courseController');
+Route::resource('profesores', 'profesorController');
+Route::resource('materias', 'materiaController');
 
 
 

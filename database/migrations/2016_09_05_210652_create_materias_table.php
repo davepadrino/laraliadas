@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSedesTable extends Migration {
+class CreateMateriasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,20 +12,21 @@ class CreateSedesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('sedes', function(Blueprint $table)
+		Schema::create('materias', function(Blueprint $table)
 		{
-			$table->engine = 'InnoDB';
 			$table->increments('id');
-			$table->string('nombre_sede');
-			$table->string('ciudad_sede');
+			$table->string('nombre_materia');
 			$table->nullableTimestamps();
 		});
 	}
 
-	public function user()
-    {
-        return $this->hasOne('Aliadas\user');
-    }
+	public function curso() {
+	    return $this->belongsToMany('Aliadas\curso');
+	}
+
+	public function profesor() {
+	    return $this->belongsToMany('Aliadas\profesor');
+	}
 	/**
 	 * Reverse the migrations.
 	 *
@@ -33,7 +34,7 @@ class CreateSedesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('sedes');
+		Schema::drop('materias');
 	}
 
 }

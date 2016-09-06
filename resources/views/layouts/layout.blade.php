@@ -11,7 +11,6 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
 	<title>Aliadas en Cadena - @yield('title') </title>
 </head>
 <body>
@@ -33,7 +32,7 @@
 			    </div>
 			</div>
 			<div class="col-md-4 col-md-4">
-				<div class="control-top">Hola, Usuario</div>
+				<div class="control-top">Hola, {!! Auth::user()->name !!}</div>
 			</div>	
 		</div>	
 		<div class="menu-bar">
@@ -46,13 +45,17 @@
 				<li><a href="principal"><span class="glyphicon glyphicon-glyphicon glyphicon-home"></span> Inicio </a></li>
 				<li><a href="agregar-curso"><span class="glyphicon  glyphicon-new-window"></span>
 				Agregar Curso </a></li>		
+				<li><a href="profesores"><span class="glyphicon glyphicon-education"></span>
+				Profesores </a></li>	
+				<li><a href="materias"><span class="glyphicon glyphicon-book"></span>
+				Materias </a></li>	
 				<li id ="sm1" class="submenu">
 					<a href="#">
 						<span class="glyphicon glyphicon-grain"> Asistencia / Notas
 						<span class="caret"></span>
 					</a>
 					<ul id="childrenSM1" class="children">
-						<li><a href="#">Mujeres Emprendedoras</a></li>
+						<li><a href="#">Emprendedoras en Cadena</a></li>
 						<li><a href="#">Escuela - Taller</a></li>
 						<li><a href="#">Mujeres Hacedoras</a></li>
 					</ul>
@@ -60,17 +63,8 @@
 				</li>
 				<div class="control-top">
 					<ul>
-						<li><a href="manage_users.html"><span class="glyphicon glyphicon-user"></span> Editar Usuarios</a></li>
-						<li id ="sm2" class="submenu">
-							<a href="#">
-								<span class="glyphicon glyphicon-cog"> Configuración
-								<span class="caret"></span></span>	
-							</a>
-							<ul id="childrenSM2" class="children">	
-								<li><a href="edit_user.html"><span class="glyphicon glyphicon-pencil"></span> Editar Usuario</a></li>			
-								<li><a href="../index.html"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>	
-							</ul>	
-						</li>
+						<li><a href="editar-usuario"><span class="glyphicon glyphicon-user"></span> Editar Usuarios</a></li>
+						<li><a href="logout"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>
 					</ul>
 				</div>
 			</ul>
@@ -81,7 +75,6 @@
 	</div>
 
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/aliadas.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>	
 

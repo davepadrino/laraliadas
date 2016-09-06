@@ -6,52 +6,71 @@
 			</div>
 
 			<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+			<!-- mensaje de edicion de usuario-->
+				@if(Session::has('message'))
+				    <div class="alert alert-success alert-dismissible" role="alert">
+				    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					       {{ Session::get('message') }}
+					</div>
+				@endif
+				@if(Session::has('error-message'))
+				    <div class="alert alert-danger alert-dismissible" role="alert">
+				    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					       {{ Session::get('error-message') }}
+					</div>
+				@endif	
+				@if(Session::has('error-message2'))
+				    <div class="alert alert-danger alert-dismissible" role="alert">
+				    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					       {{ Session::get('error-message2') }}
+					</div>
+				@endif			
 				<div>
 					<h3> Editar Mi Usuario</h3>
 				</div>
 				<div class="row">
 					<div class=" col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
 					<div class=" col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<form action="principal.html">
+					{!! Form::model($username,['route'=> ['update.update',$username->id], 'method'=>'put'])!!}
 							<table id="form">
 								<tr>
 				                    <td>
-				                      	<label for="name">Nombre</label>
-				                        <input type="text" class="form-control" name="name" value = "Nombre" required>
+				                    {!! Form::label('Nombre')!!}
+									{!! Form::text('name',null,['class'=>'form-control', 'value'=>'$username->name'])!!}
 				                    </td>
 				                </tr>
 								<tr>
 				                    <td>
-				                      	<label for="email">Email</label>
-				                        <input type="email" class="form-control" name="email" value = "usuario@dominio.com" readonly>
+				                    {!! Form::label('Correo Electrónico')!!}
+									{!! Form::text('email',null,['class'=>'form-control', 'readonly'])!!}
 				                    </td>
 				                </tr>				                
 								<tr>
 									<td>
-										<label for="pass1">Escriba Contraseña actual</label>
-										<input type="password" class="form-control" id= "currentPass" name="pass1">
+										{!! Form::label('Contraseña')!!}
+										{!! Form::password('password',['class'=>'form-control', 'required'])!!}
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<label for="newPass1">Indique nueva contraseña</label>
-										<input type="password" class="form-control" id="newPass1" name="newPass1">
+										{!! Form::label('Indique nueva contraseña')!!}
+										{!! Form::password('password',['class'=>'form-control', 'id'=> 'newPass1', 'name' => 'newPass1'])!!}
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<label for="newPass2">Indique nuevamente Contraseña</label>
-										<input type="password" class="form-control" id="newPass2" name="newPass2">
+									{!! Form::label('Indique nuevamente contraseña')!!}
+									{!! Form::password('password',['class'=>'form-control', 'id'=> 'newPass2', 'name' => 'newPass2'])!!}
 										<span id="confirmMessage">  </span>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<button type="submit" class="btn btn-primary"> Aceptar </button>
+									{!! Form::submit('Editar Usuario', ['class'=>'btn btn-primary'])!!}
 									</td>
 								</tr>
 							</table>
-						</form>
+							{!! Form::close() !!}
 					</div>
 					<div class=" col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
 				</div>

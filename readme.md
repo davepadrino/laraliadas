@@ -23,23 +23,56 @@ Thank you for considering contributing to the Laravel framework! The contributio
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Tareas
 FE:
-- Revisar angular en 3 de las vistas
+- 
 
 BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- Validar emails, y cosas por el estilo en server side
-- Mostrar Span cuando haya error
-- No se puede eliminar el usuario admin
+- Controladores:
+-- cursos **
+-- sede**
+-- index **
+-- usuarios **
+-- personas
+-- profesores **
+-- materias **
+
+1 Sede - M users
+N personas - M cursos
+M prof - N MATERIAS
+n materia -  1 curso
+
+
+
+
+- unique emails en profesores
+- Mostrar nombre de sedes y no ID
+- Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
+- Mostrar en cada vista de cada tipo de curso solo cursos de su tipo
+- Al elegir un curso (de principal o de las vistas de cada curso) abrir una nueva vista con info de ese curso
+- Crear/editar/eliminar alumnos con Ajax
 
 # Pendiente Mid Term
-- Layouts (cursos (routing))
-- Delimitar las rutas
-- Establecer los controladores
-- Empezar a trabajar con Index.php, luego el resto
+- Establecer sesiones
+- Enviar correo de reestablecimiento de contraseña en lugar de editar contraseña manualmente por el admin
+- Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
+
 
 # Importante
 - Se deben crear primero las tablas base antes que las que dependen de ellas
@@ -49,3 +82,6 @@ BE:
 - Instalar componentes para formularios https://laravelcollective.com/docs/5.0/html
 - Info en modales http://www.easylaravelbook.com/blog/2016/04/11/integrating-a-bootstrap-modal-into-your-laravel-application/
 - Un modal por elemento de BD http://stackoverflow.com/questions/32469873/show-bootstrap-modal-when-click-on-href-laravel
+- Select actualizandose con datos de la BD http://stackoverflow.com/questions/28801664/formselect-from-database-model-in-laravel
+- Many2many relations
+http://www.easylaravelbook.com/blog/2016/04/06/introducing-laravel-many-to-many-relations/

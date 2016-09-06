@@ -21,10 +21,12 @@ class CreateCursosTable extends Migration {
 			$table->string('tipo_curso');
 			$table->string('estado_curso');
 			$table->string('descripcion_curso');
-			$table->integer('sede_id')->unsigned();
-			$table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
+			$table->string('sede_course');	
 			$table->nullableTimestamps();
 		});
+	}
+	public function curso() {
+	    return $this->belongsToMany('Aliadas\materia');
 	}
 
 	/**

@@ -6,16 +6,23 @@
 				<h2> Recuperar Contraseña </h2>
 			</div>
 			<div>
-				<form name = "passRecover" action="../index.html">
+			{!! Form::open(['route'=>'index', 'method'=>'post'])!!}
+				<!-- <form name = "passRecover" action="../index.html"> -->
 					<table id="form">
 						<tr>
 							<td>
-								<input type="email" class="form-control" placeholder="Escriba Cuenta de correo electronico" required>
+							{!! Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Escriba cuenta de correo electronico asociada'])!!}
+								<!-- <input type="email" class="form-control" placeholder="Escriba cuenta de correo electronico asociada" required> -->
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<button type="submit" class="btn btn-primary"> Ingresar </button>
+							{!! Form::submit('Enviar', ['class'=>'btn btn-primary'])!!}
+							</td>
+						</tr>
+						<tr>
+							<td>
+							{!! link_to('/', "Volver", $attributes = ['id' => 'rec_pass', 'class'=> 'btn btn-danger', 'style' => 'color:white']) !!}
 							</td>
 						</tr>
 					</table>

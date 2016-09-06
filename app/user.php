@@ -24,7 +24,7 @@ class user extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password','rol'];
+	protected $fillable = ['name', 'email', 'password','rol', 'sede'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -33,6 +33,9 @@ class user extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+
+	
+	// Para no tener que colocarle el bcrypt al password cada vez que se cree
 	public function setPasswordAttribute($valor){
 		if(!empty($valor)){
 			$this->attributes['password'] = \Hash::make($valor);

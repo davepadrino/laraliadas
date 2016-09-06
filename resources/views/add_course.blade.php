@@ -9,54 +9,68 @@
 				<div>
 					<h2> Crear Curso </h2>
 				</div>
-				<form action="add_alumn.html">
+				{!! Form::open(['route'=>'cursos.store', 'method'=>'post'])!!}
 					<table id="form">
 						<tr>
 							<td>
-								<label for = "nameCourse" >Nombre de Curso</label>
-								<input type="text" class="form-control" name="nameCourse" placeholder="Nombre" required>
+							{!! Form::label('Nombre de Curso')!!}
+							{!! Form::text('name',null,['class'=>'form-control', 'placeholder'=>'Nombre', 'required'])!!}
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<label for = "courseType" >Tipo de Curso</label>
-								<select class="form-control" name = "courseType" required>
-									<option value="" disabled selected="selected">Seleccione...</option>
-									<option value="emprendedoras">Mujeres Emprendedoras</option>
-									<option value="talleres">Escuela Taller</option>
-									<option value="hacedoras">Mujeres Hacedoras</option>
-								</select> 
-							</td>
+							{!! Form::label('Tipos de Curso')!!}
+							{!! Form::select('type',
+								array(
+								'Emprendedoras en Cadena' => 'Emprendedoras en Cadena',
+								'Escuela Taller' => 'Escuela Taller',
+								'Mujeres Hacedoras' => 'Mujeres Hacedoras'), null, ['class'=>'form-control', 'id'=>'type']
+                        	)!!}
+
 						</tr>
 						<tr>
 							<td>
-								<label for = "courseState">Estado</label>
-								<select class="form-control" name = "courseState">
-									<option value="Sin iniciar" selected="selected">Sin iniciar</option>
-									<option value="En curso">En Curso</option>
-									<option value="Finalizado">Finalizado</option>
-								</select> 
+							{!! Form::label('Estado de Curso')!!}
+							{!! Form::select('state',
+								array(
+								'Sin iniciar' => 'Sin iniciar',
+								'En curso' => 'En curso',
+								'Finalizado' => 'Finalizado'), null, ['class'=>'form-control', 'id'=>'state']
+                        	)!!}
 							</td>
 						</tr>						
 						<tr>
 							<td>
-								<label for = "startDate">Fecha de Inicio</label>
-		                        <span class="glyphicon glyphicon-calendar"></span>
-			                    <input type='date' class="form-control" />
+							{!! Form::label('Fecha de Inicio')!!}
+							{!! Form::date('startDate', \Carbon\Carbon::now(),['class'=>'form-control', 'id'=>'startDate'] )!!}
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<label for = "descriptionCourse" >Descripción de Curso</label>
-								<textarea rows="4" cols="50" class="form-control" name="descriptionCourse" placeholder="Describe brevemente el curso...">
-
-								</textarea>
+							{!! Form::label('Fecha de Fin')!!}
+							{!! Form::date('endDate', null,['class'=>'form-control', 'id'=>'startDate'] )!!}
+							</td>
+						</tr>
+						<tr>
+							<td>
+							{!! Form::label('Sede')!!}					
+							{!! Form::select('sede_course',
+								$data, 
+								 null, ['class'=>'form-control', 'id'=>'sede_course']
+                        	)!!}		
+							</td>
+						</tr>
+						<tr>
+							<td>
+							{!! Form::label('Descripción de Curso')!!}
+							<textarea rows="4" cols="50" class="form-control" name="descriptionCourse" placeholder="Describe brevemente el curso...">
+							</textarea>
 
 							</td>
 						</tr>						
 						<tr>
 							<td>
-								<button type="submit" class="btn btn-primary"> Agregar Curso </button>
+							{!! Form::submit('Agregar Curso', ['class'=>'btn btn-primary'])!!}	
 							</td>
 						</tr>
 
