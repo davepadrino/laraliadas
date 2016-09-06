@@ -24,7 +24,7 @@ class user extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password','rol', 'sede'];
+	protected $fillable = ['name', 'email', 'password','rol', 'sede_id'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -42,4 +42,15 @@ class user extends Model implements AuthenticatableContract, CanResetPasswordCon
 		}
 	}
 
+	public function sede() {
+	    return $this->belongsTo('Aliadas\sede'); //sede_id para todos los belongsTO
+	}
+
+	public function curso() {
+	    return $this->hasMany('Aliadas\curso'); //sede_id para todos los belongsTO
+	}
+
+	public function materia() {
+	    return $this->hasMany('Aliadas\materia'); //sede_id para todos los belongsTO
+	}
 }

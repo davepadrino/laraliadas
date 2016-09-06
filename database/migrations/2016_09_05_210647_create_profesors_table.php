@@ -18,13 +18,16 @@ class CreateProfesorsTable extends Migration {
 			$table->string('nombre_profesor');
 			$table->integer('ci_profesor');
 			$table->string('numero_telefonico_profesor');
-			$table->string('email_profesor');
+			$table->string('email_profesor')->unique();
 			$table->nullableTimestamps();
+			$table->integer('user_id')->unsigned();
+
+			$table->foreign('user_id')
+					->references('id')
+					->on('users');
 		});
 	}
-	public function materia() {
-	    return $this->belongsToMany('Aliadas\materia', 'sede');
-	}
+
 	/**
 	 * Reverse the migrations.
 	 *

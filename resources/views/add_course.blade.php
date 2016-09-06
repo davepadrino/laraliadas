@@ -54,9 +54,9 @@
 						<tr>
 							<td>
 							{!! Form::label('Sede')!!}					
-							{!! Form::select('sede_course',
+							{!! Form::select('sede_id',
 								$data, 
-								 null, ['class'=>'form-control', 'id'=>'sede_course']
+								 null, ['class'=>'form-control', 'id'=>'sede_id']
                         	)!!}		
 							</td>
 						</tr>

@@ -136,6 +136,7 @@ class Index extends Controller {
 		$sedes = \Aliadas\sede::All();
 		$data = $sedes->lists('nombre_sede', 'id');
 		$cursos = \Aliadas\curso::All();
+		//$cursos = \Aliadas\curso::where('sede_id', '=', 3)->get();
 		return  view('principal', compact('cursos','data'));
 	}
 

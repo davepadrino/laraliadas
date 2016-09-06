@@ -22,7 +22,12 @@ class CreateUsersTable extends Migration {
 			$table->rememberToken();
 			$table->nullableTimestamps();
 			$table->string('rol');
-			$table->string('sede');			
+			$table->integer('sede_id')->unsigned();
+
+			$table->foreign('sede_id')
+					->references('id')
+					->on('sedes');
+
 		});
 		/*
 		Schema::table('users', function(Blueprint $table)
@@ -32,9 +37,7 @@ class CreateUsersTable extends Migration {
 		*/
 		
 	}
-	public function sede() {
-	    return $this->belongsTo('Aliadas\sede', 'sede');
-	}
+
 	/**
 	 * Reverse the migrations.
 	 *

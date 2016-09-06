@@ -43,7 +43,8 @@ class courseController extends Controller {
 			'estado_curso'=> $request['state'],
 			'incio_curso'=> $request['startDate'],
 			'fin_curso'=> $request['endDate'],
-			'sede_course' => $request['sede_course'],
+			'sede_id' => $request['sede_id'],
+			'user_id' => Auth::user()->id,
 			]);
 		return Redirect::to('/principal');
 	}

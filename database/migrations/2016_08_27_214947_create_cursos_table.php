@@ -21,12 +21,17 @@ class CreateCursosTable extends Migration {
 			$table->string('tipo_curso');
 			$table->string('estado_curso');
 			$table->string('descripcion_curso');
-			$table->string('sede_course');	
 			$table->nullableTimestamps();
+			$table->integer('sede_id')->unsigned();
+			$table->integer('user_id')->unsigned();
+
+			$table->foreign('sede_id')
+					->references('id')
+					->on('sedes');
+			$table->foreign('user_id')
+					->references('id')
+					->on('users');
 		});
-	}
-	public function curso() {
-	    return $this->belongsToMany('Aliadas\materia');
 	}
 
 	/**

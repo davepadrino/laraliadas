@@ -53,13 +53,19 @@ BE:
 -- profesores **
 -- materias **
 
-1 Sede - M users
-N personas - M cursos
-M prof - N MATERIAS
-n materia -  1 curso
+1 Sede(has many) - M users *
+1 Sede (has many) - N Cursos*
+1 usuario(has many) - N cursos*
+1 usuario(has many) - N prof*
+1 usuario(has many) - N materias*
+1 persona(has many) - N materias
+
+M curso(has many) - n materia(belong)*
+M prof(belong) - N MATERIAS(has many)*
+N personas(belong) - M cursos(has many)
 
 
-
+- materias debe terner tipo de curso?
 
 - unique emails en profesores
 - Mostrar nombre de sedes y no ID

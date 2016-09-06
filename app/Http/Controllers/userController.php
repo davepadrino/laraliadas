@@ -52,7 +52,7 @@ class userController extends Controller {
 			'email'=> $request['email'],
 			'password'=> $request['password'],
 			'rol'=> $request['rol'],
-			'sede' => $request['sede'],
+			'sede_id' => $request['sede_id'],
 			]);
 			Session::flash('flash_message', 'Usuario creado satisfactoriamente!');
 		$users = \Aliadas\user::All();

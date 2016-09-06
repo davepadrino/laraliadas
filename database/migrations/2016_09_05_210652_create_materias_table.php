@@ -17,16 +17,15 @@ class CreateMateriasTable extends Migration {
 			$table->increments('id');
 			$table->string('nombre_materia');
 			$table->nullableTimestamps();
+			$table->integer('user_id')->unsigned();
+
+			$table->foreign('user_id')
+					->references('id')
+					->on('users');
 		});
 	}
 
-	public function curso() {
-	    return $this->belongsToMany('Aliadas\curso');
-	}
 
-	public function profesor() {
-	    return $this->belongsToMany('Aliadas\profesor');
-	}
 	/**
 	 * Reverse the migrations.
 	 *

@@ -70,19 +70,19 @@
 						    <h1>Profesores</h1>
 						        <table class="table table-striped table-hover" >
 						            <thead>
-						                <th>Nombre</th>
-						                <th>Correo Electrónico</th>
-						                <th>Editar</th>
-						                <th>Eliminar</th>
+						                <th class="text-center">Nombre</th>
+						                <th class="text-center">Correo Electrónico</th>
+						                <th class="text-center">Editar</th>
+						                <th class="text-center">Eliminar</th>
 						            </thead>
 									@foreach($profs as $prof)
 						            <tbody>
-						                <td>{{ $prof->nombre_profesor }}</td>
-						                <td>{{ $prof->email_profesor }}</td>
+						                <td class="text-center">{{ $prof->nombre_profesor }}</td>
+						                <td class="text-center"> {{ $prof->email_profesor }}</td>
 
-						                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalProf{{$prof->id}}" data-id="{{ $prof->id }}" ></button></td>
+						                <td class="text-center"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalProf{{$prof->id}}" data-id="{{ $prof->id }}" ></button></td>
 					                
-						                <td class="text-right"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteProf{{$prof->id}}" ></button></td>
+						                <td class="text-center"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteProf{{$prof->id}}" ></button></td>
 						            </tbody>
 									@endforeach 
 						        </table>

@@ -71,7 +71,13 @@
 		</nav>
 	</header>
 	<div id="principal">
+		<div class="row">
+			<div class="col-sm-1">
+	    	</div>
 		@yield('content')
+			<div class="col-sm-1">
+	    	</div>
+	    </div>
 	</div>
 
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>

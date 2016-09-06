@@ -30,16 +30,16 @@
 												'Administrador' => 'Administrador',), null, ['class'=>'form-control','placeholder'=>'seleccione']
 				                        	)!!}
 				                        </td>
-				                    </tr>
+				                    </tr>	
 				                    <tr>
 				                        <td>
 				                        	{!! Form::label('Sede')!!}					
 											{!! Form::select('sede',
-												array("General"), 
+												$data, 
 												 null, ['class'=>'form-control', 'id'=>'sede']
 				                        	)!!}
 				                        </td>
-				                    </tr>				                    
+				                    </tr>				                    		                    
 				                    <tr>
 				                        <td>
 								            <div class="addField">

@@ -60,9 +60,9 @@
 				                    <tr>
 				                        <td>
 				                        	{!! Form::label('Sede')!!}					
-											{!! Form::select('sede',
+											{!! Form::select('sede_id',
 												$data, 
-												 null, ['class'=>'form-control', 'id'=>'sede']
+												 null, ['class'=>'form-control', 'id'=>'sede_id']
 				                        	)!!}
 				                        </td>
 				                    </tr>				                    
@@ -86,7 +86,7 @@
 						                <th>Nombre de Usuario</th>
 						                <th>Correo Electrónico</th>
 						                <th>Rol</th>
-						                <th>sede</th>
+						                <th>Sede</th>
 						                <th>Editar</th>
 						                <th>Eliminar</th>
 						            </thead>
@@ -95,7 +95,7 @@
 						                <td>{{ $user->name }}</td>
 						                <td>{{ $user->email }}</td>
 						                <td>{{ $user->rol }}</td>
-						                <td>{{ $user->sede }}</td>
+						                <td>{{ $user->sede->nombre_sede }}</td>
 
 						                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalUser{{$user->id}}" data-id="{{ $user->id }}" ></button></td>
 					                
@@ -131,9 +131,9 @@
 												'Administrador' => 'Administrador'), null, ['class'=>'form-control', 'id'=>'rol']
 				                        	)!!}
 					                        	{!! Form::label('Sede')!!}					
-												{!! Form::select('sede',
+												{!! Form::select('sede_id',
 													$data, 
-													 null, ['class'=>'form-control', 'id'=>'sede']
+													 null, ['class'=>'form-control', 'id'=>'sede_id']
 					                        	)!!}
 									      </div>
 									      <div class="modal-footer">

@@ -39,6 +39,7 @@ class materiaController extends Controller {
 	{
 		\Aliadas\materia::create([
 			'nombre_materia'=> $request['nombre_materia'],
+			'user_id' => Auth::user()->id,
 			]);
 		return redirect()->back();
 	}

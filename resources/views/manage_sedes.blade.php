@@ -47,17 +47,17 @@
 			    <h1>Sedes</h1>
 			        <table class="table table-striped table-hover" >
 			            <thead>
-			                <th>Sede</th>
-			                <th>Ciudad</th>
-			                <th>Editar</th>
-			                <th>Eliminar</th>
+			                <th class="text-center">Sede</th>
+			                <th class="text-center">Ciudad</th>
+			                <th class="text-center">Editar</th>
+			                <th class="text-center">Eliminar</th>
 			            </thead>
 						@foreach($sedes as $sede)
 			            <tbody>
-			                <td>{{ $sede->nombre_sede }}</td>
-			                <td>{{ $sede->ciudad_sede}}</td>
-			                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalSede{{$sede->id}}" data-id="{{ $sede->id }}" data-name="{{ $sede->name }}" data-email="{{ $sede->city }}"></button></td>                
-						    <td class="text-right"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteSede{{$sede->id}}" ></button></td>
+			                <td class="text-center">{{ $sede->nombre_sede }}</td>
+			                <td class="text-center">{{ $sede->ciudad_sede}}</td>
+			                <td class="text-center"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalSede{{$sede->id}}" data-id="{{ $sede->id }}" data-name="{{ $sede->name }}" data-email="{{ $sede->city }}"></button></td>                
+						    <td class="text-center"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteSede{{$sede->id}}" ></button></td>
 					    </tbody>
 						@endforeach 
 					</table>					

@@ -51,19 +51,16 @@
 						 <div>
 						    <h1>Materias</h1>
 						        <table class="table table-striped table-hover" >
-						            <thead>
-						                <th>Nombre</th>
-						                <th>Editar</th>
-						                <th>Eliminar</th>
-
-						            </thead>
+							            <thead>
+							                <th class="text-center">Nombre</th>
+							                <th class="text-center">Editar</th>
+							                <th class="text-center">Eliminar</th>
+							            </thead>
 									@foreach($mats as $mat)
 						            <tbody>
-						                <td>{{ $mat->nombre_materia }}</td>
-
-						                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalMate{{$mat->id}}" data-id="{{ $mat->id }}" ></button></td>
-					                
-						                <td class="text-right"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteMate{{$mat->id}}" ></button></td>
+						                <td class="text-center">{{ $mat->nombre_materia }}</td>
+						                <td class="text-center"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalMate{{$mat->id}}" data-id="{{ $mat->id }}" ></button></td>
+						                <td class="text-center"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteMate{{$mat->id}}" ></button></td>
 						            </tbody>
 									@endforeach 
 						        </table>
