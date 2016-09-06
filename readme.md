@@ -85,3 +85,5 @@ n materia -  1 curso
 - Select actualizandose con datos de la BD http://stackoverflow.com/questions/28801664/formselect-from-database-model-in-laravel
 - Many2many relations
 http://www.easylaravelbook.com/blog/2016/04/06/introducing-laravel-many-to-many-relations/
+- Videos interesantes
+https://laracasts.com/series/laravel-5-fundamentals/episodes/14
