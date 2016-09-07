@@ -14,14 +14,14 @@
 			    <tbody>
 			        <tr>
 		    			<div class="col-md-3 col-md-3">
-			        	    <td><a href="edit_course.html">Curso 1</a></td>
+			        	    <td><a href="#">Curso 1</a></td>
 				            <td>xx/xx/xx</td>
 				            <td>xx/xx/xx</td>
 				        </div>
 			        </tr>
 			        <tr>
 		    			<div class="col-md-3 col-md-3">
-			        	    <td><a href="edit_course.html">Curso 2</a></td>
+			        	    <td><a href="#">Curso 2</a></td>
 				            <td>xx/xx/xx</td>
 				            <td>xx/xx/xx</td>
 				        </div>

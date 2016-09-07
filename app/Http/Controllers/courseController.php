@@ -93,4 +93,16 @@ class courseController extends Controller {
 		//
 	}
 
+
+	public function  emprendedoras(){
+
+	}
+
+	public function  taller(){
+		
+	}
+
+	public function  hacedoras(){
+		
+	}
 }

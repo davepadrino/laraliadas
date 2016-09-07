@@ -1,33 +1,3 @@
-## Laravel PHP Framework
-
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
-
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
-
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
-
-
-
-
-
-
 
 
 
@@ -38,7 +8,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 # Tareas
 FE:
-- 
+- crear usuarios con ajax
+- personalizar las vistas dependiendo del tipo de curso
 
 BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
@@ -53,31 +24,33 @@ BE:
 -- profesores **
 -- materias **
 
+- materias debe terner tipo de curso?
+- Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
+- Mostrar en cada vista de cada tipo de curso solo cursos de su tipo
+- Al elegir un curso (de principal o de las vistas de cada curso) abrir una nueva vista con info de ese curso
+
+
+# Pendiente Mid Term
+- Establecer sesiones
+- Coordinadora crea materias
+- Enviar correo de reestablecimiento de contraseña en lugar de editar contraseña manualmente por el admin
+- Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
+
+
 1 Sede(has many) - M users *
 1 Sede (has many) - N Cursos*
 1 usuario(has many) - N cursos*
 1 usuario(has many) - N prof*
 1 usuario(has many) - N materias*
-1 persona(has many) - N materias
+M persona(has many) - N materias *
 
 M curso(has many) - n materia(belong)*
 M prof(belong) - N MATERIAS(has many)*
-N personas(belong) - M cursos(has many)
+N personas(belong) - M cursos(has many) *
 
 
-- materias debe terner tipo de curso?
 
-- unique emails en profesores
-- Mostrar nombre de sedes y no ID
-- Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
-- Mostrar en cada vista de cada tipo de curso solo cursos de su tipo
-- Al elegir un curso (de principal o de las vistas de cada curso) abrir una nueva vista con info de ese curso
-- Crear/editar/eliminar alumnos con Ajax
 
-# Pendiente Mid Term
-- Establecer sesiones
-- Enviar correo de reestablecimiento de contraseña en lugar de editar contraseña manualmente por el admin
-- Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
 
 
 # Importante

@@ -20,6 +20,9 @@ Route::get('/editar-usuario', 'Index@edit_user');
 Route::resource('update', 'Index@update');
 Route::get('/recuperar-contraseña', 'Index@recover_psw'); 
 Route::get('/agregar-curso', 'Index@add_course'); 
+Route::get('/cursos/emprendedoras-en-cadena', 'courseController@add_course'); 
+Route::get('/cursos/escuela-taller', 'courseController@add_course'); 
+Route::get('/cursos/mujeres-hacedoras', 'courseController@add_course'); 
 
 //Route::resource('/', 'userController');
 
