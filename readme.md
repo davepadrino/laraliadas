@@ -9,19 +9,19 @@ Requisitos
 
 PASOS: 
 
--1. Clonar el repositorio
--2. Situarse en la carpeta donde se encuentra el archivo y ejecutar
-	```composer install```
--3. Luego copiar el archivo .env.example y renombrar ese archivo como .env
--4. Generar la key de la app mediante
-	```php artisan key:generate```
--5. Crear la BD en mysql
--6. Configurar nombre de la bd, usuario y clave de la bd en el archivo .env y en el archivo config/database
--7. Ejecutar dentro de la terminal
+- 1. Clonar el repositorio
+- 2. Situarse en la carpeta donde se encuentra el archivo y ejecutar
+- ```composer install```
+- 3. Luego copiar el archivo .env.example y renombrar ese archivo como .env
+- 4. Generar la key de la app mediante
+  ```php artisan key:generate```
+- 5. Crear la BD en mysql
+- 6. Configurar nombre de la bd, usuario y clave de la bd en el archivo .env y en el archivo config/database
+- 7. Ejecutar dentro de la terminal
 	```php artisan migrate```
--8. Ejecutar dentro de la terminal
+- 8. Ejecutar dentro de la terminal
 	```php artisan serve```
--9. Ahora esta listo solo ve a tu browser favorito y entra en localhost:8000
+- 9. Ahora esta listo solo ve a tu browser favorito y entra en localhost:8000
 
 
 
