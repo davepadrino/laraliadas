@@ -93,3 +93,5 @@ N personas(belong) - M cursos(has many)
 http://www.easylaravelbook.com/blog/2016/04/06/introducing-laravel-many-to-many-relations/
 - Videos interesantes
 https://laracasts.com/series/laravel-5-fundamentals/episodes/14
+- relaciones paso a paso
+https://scotch.io/tutorials/a-guide-to-using-eloquent-orm-in-laravel

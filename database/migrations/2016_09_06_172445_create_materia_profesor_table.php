@@ -16,6 +16,10 @@ class CreateMateriaProfesorTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
+			$table->integer('materia_id');
+			$table->integer('profesor_id');
+
+
 		});
 	}
 

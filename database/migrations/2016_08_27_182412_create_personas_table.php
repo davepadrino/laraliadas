@@ -23,11 +23,7 @@ class CreatePersonasTable extends Migration {
 			$table->string('direccion_persona');
 			$table->date('fecha_nacimiento_persona');
 			$table->nullableTimestamps();
-			$table->integer('materia_id')->unsigned();
 
-			$table->foreign('materia_id')
-					->references('id')
-					->on('materias');
 		});
 	}
 

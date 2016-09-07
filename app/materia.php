@@ -20,6 +20,6 @@ class materia extends Model {
     }  
 	
 	public function persona() {
-	    return $this->belongsTo('Aliadas\persona'); //user_id para todos los belongsTO
+	    return $this->belongsToMany('Aliadas\persona','materia_persona', 'materia_id', 'persona_id'); //user_id para todos los belongsTO
 	}  
 }
