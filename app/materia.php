@@ -11,15 +11,15 @@ class materia extends Model {
 	    return $this->belongsTo('Aliadas\user'); //user_id para todos los belongsTO
 	}
 
-	public function curso() {
+	public function cursos() {
     	return $this->belongsToMany('Aliadas\curso', 'curso_materia', 'materia_id', 'curso_id');
     }
 
-	public function profesor() {
+	public function profesors() {
     	return $this->belongsToMany('Aliadas\profesor', 'materia_profesor', 'materia_id', 'profesor_id');
     }  
 	
-	public function persona() {
+	public function personas() {
 	    return $this->belongsToMany('Aliadas\persona','materia_persona', 'materia_id', 'persona_id'); //user_id para todos los belongsTO
 	}  
 }

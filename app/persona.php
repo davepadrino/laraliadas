@@ -10,7 +10,12 @@ class persona extends Model {
 	
 	public function materias()
     {
-        return $this->belongsToMany('Aliadas\materias','materia_persona', 'persona_id', 'materia_id');
+        return $this->belongsToMany('Aliadas\materia','materia_persona', 'persona_id', 'materia_id');
+    }
+
+	public function cursos()
+    {
+        return $this->belongsToMany('Aliadas\curso','curso_persona', 'persona_id', 'curso_id');
     }
 
 }

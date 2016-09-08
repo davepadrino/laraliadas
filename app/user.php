@@ -46,11 +46,11 @@ class user extends Model implements AuthenticatableContract, CanResetPasswordCon
 	    return $this->belongsTo('Aliadas\sede'); //sede_id para todos los belongsTO
 	}
 
-	public function curso() {
+	public function cursos() {
 	    return $this->hasMany('Aliadas\curso'); //sede_id para todos los belongsTO
 	}
 
-	public function materia() {
+	public function materias() {
 	    return $this->hasMany('Aliadas\materia'); //sede_id para todos los belongsTO
 	}
 }

@@ -20,9 +20,16 @@ Route::get('/editar-usuario', 'Index@edit_user');
 Route::resource('update', 'Index@update');
 Route::get('/recuperar-contraseña', 'Index@recover_psw'); 
 Route::get('/agregar-curso', 'Index@add_course'); 
-Route::get('/cursos/emprendedoras-en-cadena', 'courseController@add_course'); 
-Route::get('/cursos/escuela-taller', 'courseController@add_course'); 
-Route::get('/cursos/mujeres-hacedoras', 'courseController@add_course'); 
+
+Route::get('/cursos/emprendedoras-en-cadena', 'courseController@emprendedoras'); 
+Route::get('/cursos/emprendedoras-en-cadena/{id}', array('as'=>'emprendedoras', 'uses'=>'courseController@emprendedorasNamed')); 
+
+
+Route::get('/cursos/escuela-taller', 'courseController@taller'); 
+Route::get('/cursos/escuela-taller/{id}', array('as'=>'esctaller', 'uses'=>'courseController@tallerNamed')); 
+
+Route::get('/cursos/mujeres-hacedoras', 'courseController@hacedoras'); 
+Route::get('/cursos/mujeres-hacedoras/{id}', array('as'=>'hacedoras', 'uses'=>'courseController@hacedorasNamed'));  
 
 //Route::resource('/', 'userController');
 
@@ -31,6 +38,9 @@ Route::resource('sedes', 'sedeController');
 Route::resource('cursos', 'courseController');
 Route::resource('profesores', 'profesorController');
 Route::resource('materias', 'materiaController');
+Route::get('{id}/personas', array('as'=>'personas', 'uses'=>'personaController@index'));
+//Route::post('{id}/personas', array('as'=>'personas', 'uses'=>'personaController@store'));
+Route::resource('personas', 'personaController');
 
 
 

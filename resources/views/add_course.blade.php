@@ -20,11 +20,11 @@
 						<tr>
 							<td>
 							{!! Form::label('Tipos de Curso')!!}
-							{!! Form::select('type',
+							{!! Form::select('tipo_curso',
 								array(
 								'Emprendedoras en Cadena' => 'Emprendedoras en Cadena',
 								'Escuela Taller' => 'Escuela Taller',
-								'Mujeres Hacedoras' => 'Mujeres Hacedoras'), null, ['class'=>'form-control', 'id'=>'type']
+								'Mujeres Hacedoras' => 'Mujeres Hacedoras'), null, ['class'=>'form-control', 'id'=>'tipo_curso']
                         	)!!}
 
 						</tr>
@@ -62,8 +62,8 @@
 						</tr>
 						<tr>
 							<td>
-							{!! Form::label('Descripción de Curso')!!}
-							<textarea rows="4" cols="50" class="form-control" name="descriptionCourse" placeholder="Describe brevemente el curso...">
+							{!! Form::label('Observaciones de Curso')!!}
+							<textarea class="form-control" name="descriptionCourse" placeholder="Describe brevemente el curso...">
 							</textarea>
 
 							</td>

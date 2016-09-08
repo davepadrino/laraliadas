@@ -16,8 +16,13 @@ class curso extends Model {
 	    return $this->belongsTo('Aliadas\user'); //user_id para todos los belongsTO
 	}
 
-	public function materia() {
+	public function materias() {
         return $this->belongsToMany('Aliadas\materia', 'curso_materia', 'curso_id', 'materia_id');
+    }
+
+	public function personas()
+    {
+        return $this->belongsToMany('Aliadas\persona','curso_persona', 'curso_id', 'persona_id');
     }
 
 

@@ -16,7 +16,7 @@ class CreateSedesTable extends Migration {
 		{
 			$table->engine = 'InnoDB';
 			$table->increments('id');
-			$table->string('nombre_sede');
+			$table->string('nombre_sede')->unique();
 			$table->string('ciudad_sede');
 			$table->nullableTimestamps();
 		});

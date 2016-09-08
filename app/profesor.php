@@ -10,7 +10,7 @@ class profesor extends Model {
 	    return $this->belongsTo('Aliadas\user'); //user_id para todos los belongsTO
 	}
 
-	public function materia() {
+	public function materias() {
     	return $this->belongsToMany('Aliadas\materia', 'materia_profesor', 'profesor_id', 'materia_id');
     }
 }

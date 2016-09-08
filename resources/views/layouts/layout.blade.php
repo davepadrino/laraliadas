@@ -42,12 +42,12 @@
 		</div>
 		<nav>
 			<ul>
-				<li><a href="principal"><span class="glyphicon glyphicon-glyphicon glyphicon-home"></span> Inicio </a></li>
-				<li><a href="agregar-curso"><span class="glyphicon  glyphicon-new-window"></span>
+				<li><a href="/principal"><span class="glyphicon glyphicon-glyphicon glyphicon-home"></span> Inicio </a></li>
+				<li><a href="/agregar-curso"><span class="glyphicon  glyphicon-new-window"></span>
 				Agregar Curso </a></li>		
-				<li><a href="profesores"><span class="glyphicon glyphicon-education"></span>
+				<li><a href="/profesores"><span class="glyphicon glyphicon-education"></span>
 				Profesores </a></li>	
-				<li><a href="materias"><span class="glyphicon glyphicon-book"></span>
+				<li><a href="/materias"><span class="glyphicon glyphicon-book"></span>
 				Materias </a></li>	
 				<li id ="sm1" class="submenu">
 					<a href="#">
@@ -55,16 +55,16 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="childrenSM1" class="children">
-						<li><a href="#">Emprendedoras en Cadena</a></li>
-						<li><a href="#">Escuela - Taller</a></li>
-						<li><a href="#">Mujeres Hacedoras</a></li>
+						<li><a href="/cursos/emprendedoras-en-cadena">Emprendedoras en Cadena</a></li>
+						<li><a href="/cursos/escuela-taller">Escuela - Taller</a></li>
+						<li><a href="/cursos/mujeres-hacedoras">Mujeres Hacedoras</a></li>
 					</ul>
 					</span>
 				</li>
 				<div class="control-top">
 					<ul>
-						<li><a href="editar-usuario"><span class="glyphicon glyphicon-user"></span> Editar Usuarios</a></li>
-						<li><a href="logout"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>
+						<li><a href="/editar-usuario"><span class="glyphicon glyphicon-user"></span> Editar Usuarios</a></li>
+						<li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>
 					</ul>
 				</div>
 			</ul>

@@ -12,8 +12,18 @@
 			    </thead>
 			    <tbody>
 			    @foreach($cursos as $curso)
+
 			        <tr>
+						@if ( $curso->tipo_curso  == 'Emprendedoras en Cadena')
+			        		<td class="text-center"><a href="{{ route('emprendedoras', $curso->id) }}">{{ $curso->nombre_curso }}</a></td>
+						@elseif ( $curso->tipo_curso  == 'Escuela Taller')
+			        		<td class="text-center"><a href="{{ route('esctaller', $curso->id ) }}">{{ $curso->nombre_curso }}</a></td>
+						@else
+			        		<td class="text-center"><a href="{{ route('hacedoras', $curso->id ) }}">{{ $curso->nombre_curso }}</a></td>
+						@endif
+							<!--
 			        	    <td><a href="#">{{ $curso->nombre_curso }}</a></td>
+			        	    -->
 				            <td>{{ $curso->tipo_curso }}</td>
 				           	<td>{{ $curso->sede->nombre_sede }}</td>
 				            <td>{{ $curso->incio_curso }}</td>

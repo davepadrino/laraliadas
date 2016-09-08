@@ -13,4 +13,8 @@ class sede extends Model {
         return $this->hasMany('Aliadas\user');
     }
 
+	public function curso() {
+	    return $this->hasMany('Aliadas\curso'); 
+	}
+
 }

@@ -138,6 +138,7 @@ class Index extends Controller {
 		$cursos = \Aliadas\curso::All();
 		//$cursos = \Aliadas\curso::where('sede_id', '=', 3)->get();
 		return  view('principal', compact('cursos','data'));
+		//return $cursos;
 	}
 
 	public function add_course()

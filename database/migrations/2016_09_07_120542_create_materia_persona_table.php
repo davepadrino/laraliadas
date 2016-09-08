@@ -17,6 +17,8 @@ class CreateMateriaPersonaTable extends Migration {
 			$table->increments('id');
 			$table->integer('materia_id');
 			$table->integer('persona_id');
+			$table->string('calificacion');
+			$table->string('area_proyecto');
 				
 			$table->timestamps();
 		});
