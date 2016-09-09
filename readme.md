@@ -34,7 +34,6 @@ BE:
 # Pendiente Short Term
 - buscar usuarios con ajax
 - Vista Para unir profesor con materia
-- materias debe terner tipo de curso
 - personalizar las vistas dependiendo del tipo de curso
 - Vista para editar y borrar personas
 - Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
@@ -50,6 +49,7 @@ BE:
 - Coordinadora crea materias y ve todas las sedes
 - Enviar correo de reestablecimiento de contraseña en lugar de editar contraseña manualmente por el admin
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
+- TokenMismatch
 
 
 1 Sede(has many) - M users *
@@ -69,6 +69,10 @@ N personas(belong) - M cursos(has many) *
 
 
 # Importante
+-Filezilla
+http://donwebayuda.com/como-subo-mis-archivos-por-ftp-usando-filezilla/
+
+
 - Se deben crear primero las tablas base antes que las que dependen de ellas
 - La tabla "migrations" lleva registro de las migraciones
 - Para algunas cosas deben usarse "nullableTimestamp"
@@ -93,3 +97,6 @@ http://stackoverflow.com/questions/31419865/laravel-relationship-manytomany-pagi
 - Ordenar cursos 
 http://stackoverflow.com/questions/31704309/laravel-5-1-sort-a-table
 
+
+# AJAX
+- http://webslesson.blogspot.com/2016/03/ajax-live-data-search-using-jquery-php-mysql.html

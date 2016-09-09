@@ -44,7 +44,7 @@
 										<td>
 											<label for="search">Buscar Alumno</label>
 											<div class="input-group">
-										      <input type="text" class="form-control" placeholder="Buscar alumno..." name ="search">
+										      <input type="text" class="form-control" placeholder="Buscar alumno..." name ="searchAlumn" id="searchAlumn">
 										      <span class="input-group-btn">
 										        <button class="btn btn-default" type="button">Buscar</button>
 										      </span>
@@ -53,6 +53,7 @@
 									</tr>								
 								</table>
 							</form>
+							<div id="resultAlum">hola</div>
 						</div>
 						<div id ="addAlumnForm">
 							<div>
@@ -171,5 +172,6 @@
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->	
-		@endforeach	
+		@endforeach
+
 @stop
