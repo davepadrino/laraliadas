@@ -16,7 +16,7 @@ class materiaController extends Controller {
 	 */
 	public function index()
 	{
-		$mats = \Aliadas\materia::All();
+		$mats = \Aliadas\materia::paginate(6);
 		return  view('materias', compact('mats'));
 	}
 
@@ -89,6 +89,10 @@ class materiaController extends Controller {
 	 */
 	public function destroy($id)
 	{
+		$materia = \Aliadas\materia::find($id);	
+		//$materia->cursos()->detach();
+		//$materia->personas()->detach();
+		//$materia->profesors()->detach();
 		\Aliadas\materia::destroy($id);
 		Session::flash('message', 'Materia eliminado Correctamente');
 		return redirect()->back();

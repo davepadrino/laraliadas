@@ -23,24 +23,16 @@
 
 			    </thead>
 			    <tbody>
+			    @foreach($alumnos as $alumno)
 					<tr>
 						<td class="text-center">
-							<a href="#">cedula 1</a>
+							<a href="#">{{ $alumno->ci_persona }}</a>
 						</td>
 						<td class="text-center">
 							calificacion 1 / asistencia 1
 						</td>
-					</tr>
-					<tr>
-						<td class="text-center">
-							<a href="#">cedula 2</a>
-						</td>
-						<td class="text-center">
-							califiacacion 2 / asistencia 2
-						</td>
-
-					</tr>
-			    	
+					</tr>	    	
+				@endforeach
 			    </tbody>
 		</table>
 	</div>

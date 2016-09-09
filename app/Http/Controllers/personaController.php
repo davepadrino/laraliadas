@@ -16,11 +16,8 @@ class personaController extends Controller {
 	 */
 	public function index($course_id)
 	{
-		//$alumnos = \Aliadas\persona::All();
-		$alumnos = \Aliadas\curso::find($course_id)->personas;
+		$alumnos = \Aliadas\curso::find($course_id)->personas()->paginate(6);
 		$curso = \Aliadas\curso::find($course_id);
-		//$roles = User::find(1)->roles;
-		//return $curso; 
 		return view('add_alumn', compact('alumnos','curso'));
 	}
 
@@ -44,21 +41,52 @@ class personaController extends Controller {
 	{
 		// Una vez agregadas materias deben incluirse aca para relacionarlas con el alumno y el ID de las materias q verá
 		$curso = \Aliadas\curso::find($request->course_id);
-		$persona = \Aliadas\persona::create([
-			'ci_persona'=> $request['ci_persona'],
-			'nombre_persona'=> $request['nombre_persona'],
-			'numero_telefonico_profesor'=> $request['numero_telefonico_profesor'],
-			'genero_persona'=> $request['genero_persona'],
-			'fecha_nacimiento_persona'=> $request['fecha_nacimiento_persona'],
-			'direccion_persona'=> $request['direccion_persona'],
-			'email_persona'=> $request['email_persona'],
-			]);
+		$alumnos = \Aliadas\curso::find($curso->id)->personas;
+		$alumnos_total = \Aliadas\persona::All();
+		// Validacion de existencia en BD
+		foreach ($alumnos as $alumn) {
+			if($request['ci_persona'] == $alumn->ci_persona){
+				Session::flash('error_message', 'El usuario ya agregado al curso!');
+				return redirect()->back();
+			}
+		}
+		foreach ($alumnos_total as $alumn) {
+			if($request['ci_persona'] == $alumn->ci_persona){
+				Session::flash('error_message', 'Usuario existe en base de datos! Proceda a una búsqueda en la seccion "Buscar Alumno"');
+				return redirect()->back();
+			}
+		}
 
-		$persona->cursos()->attach($curso->id);
-		
+			$persona = \Aliadas\persona::create([
+				'ci_persona'=> $request['ci_persona'],
+				'nombre_persona'=> $request['nombre_persona'],
+				'numero_telefonico_profesor'=> $request['numero_telefonico_profesor'],
+				'genero_persona'=> $request['genero_persona'],
+				'fecha_nacimiento_persona'=> $request['fecha_nacimiento_persona'],
+				'direccion_persona'=> $request['direccion_persona'],
+				'email_persona'=> $request['email_persona'],
+				]);
+			$persona->cursos()->attach($curso->id);	
+			Session::flash('flash_message', 'Usuario creado y agregado al curso!');
+			return redirect()->back();
+			
+				
+
+	}
+
+
+	/**
+	 * delete the specified resource from pivot table.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function delete_course($curso_id, $alumn_id)
+	{	
+		$persona = \Aliadas\persona::find($alumn_id); //obtengo el objeto persona
+		$persona->cursos()->detach($curso_id); //referencio la relacion con curso a traves de "cursos" y elimino la relacion
+		//return "curso ".$curso_id ."alumno: ".$alumn_id;
 		return redirect()->back();
-		//return $request->course_id;
-
 	}
 
 	/**
@@ -102,7 +130,12 @@ class personaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$persona = \Aliadas\persona::find($id);	
+		$persona->cursos()->detach();
+		//$persona->materias()->detach();
+		\Aliadas\persona::destroy($id);
+		Session::flash('message', 'Curso eliminado Correctamente');
+		return redirect()->back();
 	}
 
 }

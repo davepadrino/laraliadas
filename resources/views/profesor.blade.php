@@ -86,6 +86,7 @@
 						            </tbody>
 									@endforeach 
 						        </table>
+						        {!! $profs->render() !!}
 								@foreach($profs as $prof)
 								<div id="modalProf{{$prof->id}}" class="modal fade" tabindex="-1" role="dialog">
 									  <div class="modal-dialog" role="document">

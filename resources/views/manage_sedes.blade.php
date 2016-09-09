@@ -60,7 +60,8 @@
 						    <td class="text-center"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteSede{{$sede->id}}" ></button></td>
 					    </tbody>
 						@endforeach 
-					</table>					
+					</table>	
+					{!! $sedes->render() !!}				
 			</div>
 		</div>	<!-- Final Show Sedes -->
 		<!-- Inicio Modal Edicion -->

@@ -98,6 +98,9 @@ class courseController extends Controller {
 	 */
 	public function destroy($id)
 	{
+		$curso = \Aliadas\curso::find($id);	
+		$curso->personas()->detach();
+		$curso->materias()->detach();
 		\Aliadas\curso::destroy($id);
 		Session::flash('message', 'Curso eliminado Correctamente');
 		return redirect()->back();
@@ -105,19 +108,19 @@ class courseController extends Controller {
 
 
 	public function  emprendedoras(){
-		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Emprendedoras en Cadena')->get();
+		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Emprendedoras en Cadena')->orderBy('created_at', 'desc')->paginate(10);
 		$nombre = "Emprendedoras en Cadena";
 		return view('courses_panel', compact('cursos', 'nombre'));
 	}
 
 	public function  taller(){
-		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Escuela Taller')->get();
+		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Escuela Taller')->orderBy('created_at', 'desc')->paginate(10);
 		$nombre = "Escuela - Taller";
 		return view('courses_panel', compact('cursos', 'nombre'));
 	}
 
 	public function  hacedoras(){
-		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Mujeres Hacedoras')->get();
+		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Mujeres Hacedoras')->orderBy('created_at', 'desc')->paginate(10);
 		$nombre = "Mujeres Hacedoras";
 		return view('courses_panel', compact('cursos', 'nombre'));	
 	}
@@ -127,21 +130,24 @@ class courseController extends Controller {
 		$tipo_curso = "Emprendedoras en Cadena";
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
-		return view('course_info', compact('current_curso', 'tipo_curso'));
+		$alumnos = $current_curso->personas;
+		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos'));
 	}
 
 	public function  tallerNamed($id){
 		$tipo_curso = "Escuela - Taller";
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
-		return view('course_info', compact('current_curso', 'tipo_curso'));	
+		$alumnos = $current_curso->personas;
+		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos'));	
 	}
 
 	public function  hacedorasNamed($id){
 		$tipo_curso = "Mujeres Hacedoras";
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
-		return view('course_info', compact('current_curso', 'tipo_curso'));	
+		$alumnos = $current_curso->personas;
+		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos'));	
 	}
 
 

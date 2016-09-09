@@ -59,6 +59,7 @@
 			    @endforeach
 			    </tbody>
 		    </table>
+		    {!! $cursos->render() !!} 
 		    <!-- Para editar cursos -->
 		    @foreach($cursos as $curso)
 				<div id="modalCourse{{$curso->id}}" class="modal fade" tabindex="-1" role="dialog">

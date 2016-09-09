@@ -64,6 +64,7 @@
 						            </tbody>
 									@endforeach 
 						        </table>
+						        {!! $mats->render() !!}
 								@foreach($mats as $mat)
 								<div id="modalMate{{$mat->id}}" class="modal fade" tabindex="-1" role="dialog">
 									  <div class="modal-dialog" role="document">

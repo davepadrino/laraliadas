@@ -32,11 +32,10 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- borrar persona solo de cursoy no de la tabla persona
-- buscar/crear usuarios con ajax
-- personalizar las vistas dependiendo del tipo de curso
+- buscar usuarios con ajax
 - Vista Para unir profesor con materia
 - materias debe terner tipo de curso
+- personalizar las vistas dependiendo del tipo de curso
 - Vista para editar y borrar personas
 - Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
 
@@ -87,3 +86,10 @@ https://scotch.io/tutorials/a-guide-to-using-eloquent-orm-in-laravel
 - rutas nombradas y pase de parametros
 http://stackoverflow.com/questions/29564167/laravel-5-sending-a-variable-through-an-href-with-a-route-inside
 http://laravel.io/forum/04-01-2014-pass-variable-in-blade-view-to-route
+- agregar multiples parametros a una ruta
+http://stackoverflow.com/questions/31681715/passing-multiple-parameters-to-controller-in-laravel-5
+- Pagination m2m con find de models
+http://stackoverflow.com/questions/31419865/laravel-relationship-manytomany-paginate-issue
+- Ordenar cursos 
+http://stackoverflow.com/questions/31704309/laravel-5-1-sort-a-table
+

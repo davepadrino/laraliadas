@@ -16,7 +16,7 @@ class sedeController extends Controller {
 	 */
 	public function index()
 	{
-		$sedes = \Aliadas\sede::All();
+		$sedes = \Aliadas\sede::paginate(8);;
 		return view('manage_sedes', compact('sedes'));	
 	}
 

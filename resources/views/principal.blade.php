@@ -32,6 +32,7 @@
 			    @endforeach
 			    </tbody>
 		    </table>
+		    {!! $cursos->render() !!}
 	
 
 @stop

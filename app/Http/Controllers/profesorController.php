@@ -16,7 +16,7 @@ class profesorController extends Controller {
 	 */
 	public function index()
 	{
-		$profs = \Aliadas\profesor::All();
+		$profs = \Aliadas\profesor::paginate(6);
 		return  view('profesor', compact('profs'));
 	}
 
@@ -92,6 +92,8 @@ class profesorController extends Controller {
 	 */
 	public function destroy($id)
 	{
+		$profesor = \Aliadas\profesor::find($id);	
+		//$profesor->materias()->detach();
 		\Aliadas\profesor::destroy($id);
 		Session::flash('message', 'Profesor eliminado Correctamente');
 		return redirect()->back();

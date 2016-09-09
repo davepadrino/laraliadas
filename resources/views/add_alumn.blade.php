@@ -1,11 +1,17 @@
 @extends('layouts.layout')
 @section('title', 'Agregar Alumno')
 @section('content')	
+				@if($curso->tipo_curso == 'Emprendedoras en Cadena' )
+					<a href="/cursos/emprendedoras-en-cadena">Volver {{ $curso->tipo_curso}}</a>
+				@elseif ($curso->tipo_curso == 'Escuela Taller')
+					<a href="/cursos/escuela-taller">Volver {{ $curso->tipo_curso}}</a>
+				@else
+					<a href="/cursos/mujeres-hacedoras">Volver {{ $curso->tipo_curso}}</a>				
+				@endif
+				
 				<div>
 					<h2> Agregar Alumnos al curso: {{ $curso->nombre_curso}} </h2>
 				</div>
-				<div class="row">
-					<div id="alumnSearch" class="col-md-6">
 						<!-- Validar Errores en el servidor-->
 						@include('alerts.request')
 						<!-- mensaje de creacion de usuario-->
@@ -21,7 +27,16 @@
 						    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						       {{ Session::get('message') }}
 							</div>
-						@endif	
+						@endif
+						<!-- mensaje de error de usuario-->
+						@if(Session::has('error_message'))
+						    <div class="alert alert-danger alert-dismissible" role="alert">
+						    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						       {{ Session::get('error_message') }}
+							</div>
+						@endif							
+				<div class="row">
+					<div id="alumnSearch" class="col-md-6">
 						<div>
 							<form >
 								<table id="form">
@@ -128,10 +143,33 @@
 					            </tbody>
 					        </table>
 					    </div>
+					    {!! $alumnos->render() !!}
 					</div>
 				<div class="col-md-1">
 				</div>
 				</div>
 			</div>
 		</div>
+		@foreach($alumnos as $alumn)
+			<div id="deleteAlumCourse{{$alumn->id}}" class="modal fade" tabindex="-1" role="dialog">
+			    <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+			             <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title">Remover Usuario: {{ $alumn-> nombre_persona }}</h4>
+					    </div>
+					    {!! Form::open(['route'=> ['personas',$alumn->id], 'method'=>'delete'])!!}
+					        <div class="modal-body">
+						        ¿Desea eliminar el Usuario?<br>
+						        <strong>Observación: </strong>Se eliminará al usuario del Curso mas no de la base de Datos
+						    </div>
+						    <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+								<a href="{{ route('personaDelCurso', ['curso'=>$curso->id,'alumno'=>$alumn->id]) }}" class="btn btn-danger">Eliminar</a>        
+							</div>
+						{!! Form::close() !!}
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->	
+		@endforeach	
 @stop

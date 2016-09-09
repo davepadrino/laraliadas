@@ -39,7 +39,7 @@ Route::resource('cursos', 'courseController');
 Route::resource('profesores', 'profesorController');
 Route::resource('materias', 'materiaController');
 Route::get('{id}/personas', array('as'=>'personas', 'uses'=>'personaController@index'));
-//Route::post('{id}/personas', array('as'=>'personas', 'uses'=>'personaController@store'));
+Route::any('{curso_id}/personas/{alumn_id}', array('as'=>'personaDelCurso', 'uses'=>'personaController@delete_course'));
 Route::resource('personas', 'personaController');
 
 

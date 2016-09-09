@@ -22,7 +22,7 @@ class userController extends Controller {
 	public function index()
 	{
 		//
-		$users = \Aliadas\user::All();
+		$users = \Aliadas\user::paginate(6);
 		$sedes = \Aliadas\sede::All();
 		$data = $sedes->lists('nombre_sede', 'id');
 		return view('manage_users', compact('users','data'));
