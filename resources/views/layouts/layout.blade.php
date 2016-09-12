@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/aliadas.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap.css') }}">
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::asset('css/responsive.css') }}"/> 
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::asset('css/jQuery-ui.css') }}"/> 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -18,18 +19,20 @@
 		<div id="menu-fijo" class="row">
 			<div class="logo col-md-3 col-md-3">
 				<div>
-					<a href="principal">
+					<a href="/principal">
 						<img src="{{ URL::asset('img/logo.jpg') }}" alt="Logo" /> 
 					</a>
 				</div>
 			</div>
 			<div class="col-md-5 col-md-5">	
+			{!! Form::open(['route'=> ['getAlumnosView'], 'method'=>'POST'])!!}
 			    <div class="input-group">
-			      <input type="text" class="form-control" id ="buscar" placeholder="Buscar alumno...">
+			    {!! Form::text('buscar',null,['class'=>'form-control', 'placeholder'=>'Buscar', 'id'=>'buscar'])!!}
 			      <span class="input-group-btn">
-			        <button class="btn btn-default" type="button">Buscar</button>
+			      {!! Form::submit('Buscar', ['class'=>'btn btn-default'])!!}
 			      </span>
 			    </div>
+			{!! Form::close() !!}  
 			</div>
 			<div class="col-md-4 col-md-4">
 				<div class="control-top">Hola, {!! Auth::user()->name !!}</div>
@@ -82,6 +85,7 @@
 
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/aliadas.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/searchBar.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>	
 	<script type="text/javascript" src="{{ URL::asset('js/jquery-ui.js') }}"></script>	
 

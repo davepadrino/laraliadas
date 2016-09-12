@@ -34,18 +34,7 @@
 		    </table>
 		    {!! $cursos->render() !!}
 <script>
-	$(document).ready(function(){
-		//var route = 'http://localhost:8000/'+$('#course_id').val()+'/personas';
-		$('#buscar').autocomplete({
-			source: '{!! URL::route('getAlumnos') !!}',
-			minlength:1,
-			autoFocus: true,
-			select:function(e, ui){
-				alert(ui);
-			}
-		});
 
-	});
 
 
 </script>	

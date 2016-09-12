@@ -100,14 +100,13 @@ class personaController extends Controller {
 			$alumnos->toArray()
 		);
 		*/
-		//$term= $request->term; //jQuery
-		$term= Input::get('searchAlumn'); //jQuery
-		$data = \Aliadas\persona::where('nombre_persona', 'LIKE', '%'.$term.'%')
+		$term= $request->term; //jQuery
+		$data = \Aliadas\persona::where('ci_persona', 'LIKE', '%'.$term.'%')
 		->take(10)
 		->get();
 		$result = array();
 		foreach ($data as $key => $val) {
-			$results[] = ['value'=>$val->nombre_persona];
+			$results[] = ['value'=>$val->ci_persona];
 		}
 		return response()->json($results);
 

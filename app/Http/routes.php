@@ -16,15 +16,8 @@ Route::resource('/backAccessXyZ', 'backCtrl');
 Route::resource('/', 'Index');
 Route::resource('logout', 'Index@logout');
 Route::get('/principal', 'Index@principal'); 
-
-
-/********/
-Route::get('/principal/getAlumnos', array('as'=>'getAlumnos', 'uses'=>'Index@getAlumnos')); 
-/*******/
-
-
-
-
+Route::get('/principal/getAlumnos', array('as'=>'getAlumnosIndex', 'uses'=>'Index@getAlumnos')); 
+Route::any('/principal/getAlumnosView', array('as'=>'getAlumnosView', 'uses'=>'Index@getAlumnosView')); 
 Route::get('/editar-usuario', 'Index@edit_user'); 
 Route::resource('update', 'Index@update');
 Route::get('/recuperar-contraseña', 'Index@recover_psw'); 

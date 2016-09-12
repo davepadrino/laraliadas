@@ -173,16 +173,22 @@ class Index extends Controller {
 
 	public function getAlumnos(Request $request){
 		$term= $request->term; //jQuery
-		//$term= Input::get('#buscar'); //jQuery
-		$data = \Aliadas\persona::where('nombre_persona', 'LIKE', $term.'%')
+		$data = \Aliadas\persona::where('ci_persona', 'LIKE', '%'.$term.'%')
 		->take(10)
 		->get();
-		$result = array();
+		$results = array();
 		foreach ($data as $key => $val) {
-			$results[] = ['value'=>$val->nombre_persona];
+			$results[] = ['value'=>$val->ci_persona];
 		}
-		return response()->json($results);
+		$result = response()->json($results);
 
+		return $result;
+	}
+
+	public function getAlumnosView(Request $request){
+		$result = \Aliadas\persona::where('ci_persona', 'LIKE', $request->buscar)
+		->get();
+		return $result;
 	}
 
 
