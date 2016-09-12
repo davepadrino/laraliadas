@@ -5,6 +5,7 @@ use Aliadas\Http\Controllers\Controller;
 use Auth;
 use Session;
 use Redirect;
+use Input;
 use Illuminate\Http\Request;
 
 class personaController extends Controller {
@@ -89,16 +90,26 @@ class personaController extends Controller {
 		return redirect()->back();
 	}
 
-	public function getAlumnos(){
+	public function getAlumnos(Request $request){
 		/*
 		if(Request::ajax()){
 			return "carga bien";
 		}
-		*/
 		$alumnos = \Aliadas\persona::all();
 		return response()->json(
 			$alumnos->toArray()
 		);
+		*/
+		$term= $request->term; //jQuery
+		$data = \Aliadas\persona::where('nombre_persona', 'LIKE', '%'.$term.'%')
+		->take(10)
+		->get();
+		$result = array();
+		foreach ($data as $key => $val) {
+			$results[] = ['value'=>$val->nombre_persona];
+		}
+		return response()->json($results);
+
 	}
 
 

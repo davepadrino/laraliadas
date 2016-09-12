@@ -40,7 +40,9 @@ Route::resource('profesores', 'profesorController');
 Route::resource('materias', 'materiaController');
 Route::get('{id}/personas', array('as'=>'personas', 'uses'=>'personaController@index'));
 Route::any('{curso_id}/personas/{alumn_id}', array('as'=>'personaDelCurso', 'uses'=>'personaController@delete_course'));
-Route::get('{id}/personas/alumnos', 'personaController@getAlumnos');
+/******/
+Route::get('{id}/personas/alumnos', array('as'=>'getAlumno', 'uses'=>'personaController@getAlumnos'));
+/*******/
 Route::resource('personas', 'personaController');
 
 

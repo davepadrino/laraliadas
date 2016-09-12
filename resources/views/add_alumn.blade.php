@@ -178,18 +178,17 @@
 
 <script>
 	$(document).ready(function(){
+		//var route = 'http://localhost:8000/'+$('#course_id').val()+'/personas';
 		var route = 'http://localhost:8000/'+$('#course_id').val()+'/personas';
-		$('#searchAlumnForm').click(function(){
-			//alert($('#course_id').val());
-			$.get(route, function(data){
-				//console.log(data);
-				$(data).each(function(key, value){
-					//$('resultAlum').append("<p>"+value.alumno+"</p>");
-					$('#resultAlum').append("<p>"+data.ci_persona+"</p>");
-				});
-			}); 			
-
+		$('#searchAlumn').autocomplete({
+			source: '{!! URL::route('getAlumno') !!}',
+			minlength:1,
+			autoFocues: true,
+			select:function(e, ui){
+				alert(ui);
+			}
 		});
+
 	});
 
 
