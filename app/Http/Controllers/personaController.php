@@ -89,6 +89,19 @@ class personaController extends Controller {
 		return redirect()->back();
 	}
 
+	public function getAlumnos(){
+		/*
+		if(Request::ajax()){
+			return "carga bien";
+		}
+		*/
+		$alumnos = \Aliadas\persona::all();
+		return response()->json(
+			$alumnos->toArray()
+		);
+	}
+
+
 	/**
 	 * Display the specified resource.
 	 *

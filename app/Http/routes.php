@@ -40,13 +40,13 @@ Route::resource('profesores', 'profesorController');
 Route::resource('materias', 'materiaController');
 Route::get('{id}/personas', array('as'=>'personas', 'uses'=>'personaController@index'));
 Route::any('{curso_id}/personas/{alumn_id}', array('as'=>'personaDelCurso', 'uses'=>'personaController@delete_course'));
+Route::get('{id}/personas/alumnos', 'personaController@getAlumnos');
 Route::resource('personas', 'personaController');
 
 
 
 
 
-Route::get('home', 'HomeController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -39,6 +39,7 @@
 					<div id="alumnSearch" class="col-md-6">
 						<div>
 							<form >
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<table id="form">
 									<tr>
 										<td>
@@ -46,19 +47,20 @@
 											<div class="input-group">
 										      <input type="text" class="form-control" placeholder="Buscar alumno..." name ="searchAlumn" id="searchAlumn">
 										      <span class="input-group-btn">
-										        <button class="btn btn-default" type="button">Buscar</button>
+										        <button class="btn btn-default" type="button" id="searchAlumnForm">Buscar</button>
 										      </span>
 										    </div>
 										</td>
 									</tr>								
 								</table>
 							</form>
-							<div id="resultAlum">hola</div>
+							<div id="resultAlum"></div>
 						</div>
 						<div id ="addAlumnForm">
 							<div>
 				           	{!! Form::open(['route'=>'personas.store', 'method'=>'post'])!!}
-				           	{!! Form::hidden('course_id', $curso->id) !!}
+				           	<!--{!! Form::hidden('course_id', $curso->id) !!}-->
+				           	<input type="hidden" id="course_id" value="{{ $curso->id }}">
 				                <table id="form">
 				                	<tr>
 				                        <td>
@@ -174,4 +176,22 @@
 			</div><!-- /.modal -->	
 		@endforeach
 
+<script>
+	$(document).ready(function(){
+		var route = 'http://localhost:8000/'+$('#course_id').val()+'/personas';
+		$('#searchAlumnForm').click(function(){
+			//alert($('#course_id').val());
+			$.get(route, function(data){
+				//console.log(data);
+				$(data).each(function(key, value){
+					//$('resultAlum').append("<p>"+value.alumno+"</p>");
+					$('#resultAlum').append("<p>"+data.ci_persona+"</p>");
+				});
+			}); 			
+
+		});
+	});
+
+
+</script>
 @stop

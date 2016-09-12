@@ -32,7 +32,7 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- buscar usuarios con ajax
+- AJAX
 - Vista Para unir profesor con materia
 - personalizar las vistas dependiendo del tipo de curso
 - Vista para editar y borrar personas
