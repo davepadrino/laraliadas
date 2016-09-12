@@ -6,6 +6,7 @@ use Aliadas\Http\Controllers\Controller;
 use Auth;
 use Session;
 use Redirect;
+use Input;
 use Illuminate\Http\Request;
 
 
@@ -168,5 +169,23 @@ class Index extends Controller {
 	{
 		return  view('recover_password');
 	}
+
+
+	public function getAlumnos(Request $request){
+		$term= $request->term; //jQuery
+		//$term= Input::get('#buscar'); //jQuery
+		$data = \Aliadas\persona::where('nombre_persona', 'LIKE', $term.'%')
+		->take(10)
+		->get();
+		$result = array();
+		foreach ($data as $key => $val) {
+			$results[] = ['value'=>$val->nombre_persona];
+		}
+		return response()->json($results);
+
+	}
+
+
+
 
 }

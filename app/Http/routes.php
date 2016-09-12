@@ -16,23 +16,25 @@ Route::resource('/backAccessXyZ', 'backCtrl');
 Route::resource('/', 'Index');
 Route::resource('logout', 'Index@logout');
 Route::get('/principal', 'Index@principal'); 
+
+
+/********/
+Route::get('/principal/getAlumnos', array('as'=>'getAlumnos', 'uses'=>'Index@getAlumnos')); 
+/*******/
+
+
+
+
 Route::get('/editar-usuario', 'Index@edit_user'); 
 Route::resource('update', 'Index@update');
 Route::get('/recuperar-contraseña', 'Index@recover_psw'); 
 Route::get('/agregar-curso', 'Index@add_course'); 
-
 Route::get('/cursos/emprendedoras-en-cadena', 'courseController@emprendedoras'); 
 Route::get('/cursos/emprendedoras-en-cadena/{id}', array('as'=>'emprendedoras', 'uses'=>'courseController@emprendedorasNamed')); 
-
-
 Route::get('/cursos/escuela-taller', 'courseController@taller'); 
 Route::get('/cursos/escuela-taller/{id}', array('as'=>'esctaller', 'uses'=>'courseController@tallerNamed')); 
-
 Route::get('/cursos/mujeres-hacedoras', 'courseController@hacedoras'); 
 Route::get('/cursos/mujeres-hacedoras/{id}', array('as'=>'hacedoras', 'uses'=>'courseController@hacedorasNamed'));  
-
-//Route::resource('/', 'userController');
-
 Route::resource('admin', 'userController');
 Route::resource('sedes', 'sedeController');
 Route::resource('cursos', 'courseController');
@@ -41,7 +43,7 @@ Route::resource('materias', 'materiaController');
 Route::get('{id}/personas', array('as'=>'personas', 'uses'=>'personaController@index'));
 Route::any('{curso_id}/personas/{alumn_id}', array('as'=>'personaDelCurso', 'uses'=>'personaController@delete_course'));
 /******/
-Route::get('{id}/personas/alumnos', array('as'=>'getAlumno', 'uses'=>'personaController@getAlumnos'));
+Route::any('{id}/personas/alumnos', array('as'=>'getAlumno', 'uses'=>'personaController@getAlumnos'));
 /*******/
 Route::resource('personas', 'personaController');
 

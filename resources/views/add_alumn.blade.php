@@ -179,7 +179,7 @@
 <script>
 	$(document).ready(function(){
 		//var route = 'http://localhost:8000/'+$('#course_id').val()+'/personas';
-		var route = 'http://localhost:8000/'+$('#course_id').val()+'/personas';
+		//var route = 'http://localhost:8000/'+$('#course_id').val()+'/personas';
 		$('#searchAlumn').autocomplete({
 			source: '{!! URL::route('getAlumno') !!}',
 			minlength:1,

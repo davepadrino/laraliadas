@@ -10,7 +10,6 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ URL::asset('css/responsive.css') }}"/> 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<title>Aliadas en Cadena - @yield('title') </title>
 </head>
@@ -26,7 +25,7 @@
 			</div>
 			<div class="col-md-5 col-md-5">	
 			    <div class="input-group">
-			      <input type="text" class="form-control" placeholder="Buscar alumno...">
+			      <input type="text" class="form-control" id ="buscar" placeholder="Buscar alumno...">
 			      <span class="input-group-btn">
 			        <button class="btn btn-default" type="button">Buscar</button>
 			      </span>
@@ -84,6 +83,7 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/aliadas.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>	
+	<script type="text/javascript" src="{{ URL::asset('js/jquery-ui.js') }}"></script>	
 
 </body>
 </html>
