@@ -16,7 +16,7 @@ class sedeController extends Controller {
 	 */
 	public function index()
 	{
-		$sedes = \Aliadas\sede::paginate(8);;
+		$sedes = \Aliadas\sede::All();
 		return view('manage_sedes', compact('sedes'));	
 	}
 
@@ -37,12 +37,19 @@ class sedeController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+
+		$sedes = \Aliadas\sede::All();
+		foreach ($sedes as $sede) {
+			if($request['name'] == $sede->nombre_sede){
+				Session::flash('error_message', 'Sede existe en base de datos!');
+				return redirect()->back();
+			}
+		}
 		\Aliadas\sede::create([
 			'nombre_sede'=> $request['name'],
 			'ciudad_sede'=> $request['city'],
 			]);
 			//Session::flash('flash_message', 'Usuario creado satisfactoriamente!');
-		$sedes = \Aliadas\sede::All();
 		return view('manage_sedes', compact('sedes'));	
 	}
 

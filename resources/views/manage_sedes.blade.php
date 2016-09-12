@@ -1,6 +1,12 @@
 @extends('layouts.admin_layout')
 @section('content')	
 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+	@if(Session::has('error_message'))
+	    <div class="alert alert-warning alert-dismissible" role="alert">
+	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	       {{ Session::get('error_message') }}
+		</div>
+	@endif
 	<div>
 		<h2> Administrar Sedes </h2>
 	</div>
@@ -61,8 +67,7 @@
 					    </tbody>
 						@endforeach 
 					</table>	
-					{!! $sedes->render() !!}				
-			</div>
+				</div>
 		</div>	<!-- Final Show Sedes -->
 		<!-- Inicio Modal Edicion -->
 	@foreach($sedes as $sede)
