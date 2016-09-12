@@ -59,8 +59,8 @@
 						<div id ="addAlumnForm">
 							<div>
 				           	{!! Form::open(['route'=>'personas.store', 'method'=>'post'])!!}
-				           	<!--{!! Form::hidden('course_id', $curso->id) !!}-->
-				           	<input type="hidden" id="course_id" value="{{ $curso->id }}">
+				           	<!-- {!! Form::hidden('course_id', $curso->id) !!} -->
+				           	<input type="hidden" id="course_id" name = "course_id" value="{{ $curso->id }}">
 				                <table id="form">
 				                	<tr>
 				                        <td>
