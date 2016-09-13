@@ -85,9 +85,16 @@
 
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/aliadas.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('js/searchBar.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>	
 	<script type="text/javascript" src="{{ URL::asset('js/jquery-ui.js') }}"></script>	
+<script>
+$(document).ready(function(){
+	$('#buscar').autocomplete({
+		source: '{!! URL::route('getAlumnosIndex') !!}'
+	});
+
+});
+</script>	
 
 </body>
 </html>

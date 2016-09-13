@@ -30,6 +30,8 @@ $(document).ready(function(){
 		$('#childrenSM2').slideToggle();
 	});
 
+	
+
 
 });
 		/* Validación de passwords*/

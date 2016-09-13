@@ -32,11 +32,9 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- AJAX
 - Vista Para unir profesor con materia
 - personalizar las vistas dependiendo del tipo de curso
 - Vista para editar y borrar personas
-- Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
 
 
 # Pendiente Mid Term
@@ -47,6 +45,7 @@ BE:
 - una vez iniciado no deberia poder cambiarse la fecha inicio
 - solo la coordinadora puede borrar cursos
 - Coordinadora crea materias y ve todas las sedes
+- Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
 - Enviar correo de reestablecimiento de contraseña en lugar de editar contraseña manualmente por el admin
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
 - TokenMismatch
@@ -96,7 +95,15 @@ http://stackoverflow.com/questions/31681715/passing-multiple-parameters-to-contr
 http://stackoverflow.com/questions/31419865/laravel-relationship-manytomany-paginate-issue
 - Ordenar cursos 
 http://stackoverflow.com/questions/31704309/laravel-5-1-sort-a-table
-
+- Pasar variable de JS a URL
+http://stackoverflow.com/questions/27634285/laravel-4-pass-a-variable-to-route-in-javascript
 
 # AJAX
 - http://webslesson.blogspot.com/2016/03/ajax-live-data-search-using-jquery-php-mysql.html
+
+
+
+
+http://stackoverflow.com/questions/220603/is-there-a-best-practice-for-generating-html-with-javascript
+
+https://www.google.co.ve/search?client=ubuntu&channel=fs&q=concat+html+values+in+html+construction&oq=concat+html+values+in+html+construction&gs_l=serp.3...2413914.2419141.0.2419506.6.6.0.0.0.0.294.587.0j2j1.3.0....0...1c.1.64.serp..3.0.0.uPFeRU-vEm4

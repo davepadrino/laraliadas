@@ -33,9 +33,4 @@
 			    </tbody>
 		    </table>
 		    {!! $cursos->render() !!}
-<script>
-
-
-
-</script>	
 @stop

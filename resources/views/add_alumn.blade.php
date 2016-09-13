@@ -38,27 +38,32 @@
 				<div class="row">
 					<div id="alumnSearch" class="col-md-6">
 						<div>
-							<form >
 							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<table id="form">
 									<tr>
 										<td>
-											<label for="search">Buscar Alumno</label>
+											<h2 class="text-center">Buscar alumno</h2>
 											<div class="input-group">
-										      <input type="text" class="form-control" placeholder="Buscar alumno..." name ="searchAlumn" id="searchAlumn">
-										      <span class="input-group-btn">
-										        <button class="btn btn-default" type="button" id="searchAlumnForm">Buscar</button>
-										      </span>
+											<input type="text" id="searchAlumn" name="searchAlumn" class="form-control" placeholder="Buscar CI...">
 										    </div>
+										    <table class="table">
+										    	<thead>
+										    		<th class="text-center">CI</th>
+										    		<th class="text-center">Agregar</th>
+										    	</thead>
+										    	<tbody>
+										    		<tr id="addToCourse" class="text-center">
+										    		</tr>
+										    	</tbody>
+										    </table>
 										</td>
 									</tr>								
 								</table>
-							</form>
-							<div id="resultAlum"></div>
 						</div>
 						<div id ="addAlumnForm">
 							<div>
 				           	{!! Form::open(['route'=>'personas.store', 'method'=>'post'])!!}
+				           	<h2 class="text-center">Crear alumno</h2>
 				           	<!-- {!! Form::hidden('course_id', $curso->id) !!} -->
 				           	<input type="hidden" id="course_id" name = "course_id" value="{{ $curso->id }}">
 				                <table id="form">
@@ -112,18 +117,8 @@
 
 				             	</div>	
 				             	
-				            </form>
+				            {!! Form::close() !!}
 				            </div>
-				            <div class="addField">
-					            <!--
-					            <button type="button" class="btn btn-primary" ng-click="formCtrl.toggle()"> 
-									Crear Nuevo <span class="glyphicon glyphicon-plus"></span>
-								</button>
-								<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-plus"></span>
-								</button>
-								-->
-
-							</div>
 				        </div>
 					</div>
 					<div id ="alumnList" class="col-md-4">
@@ -154,6 +149,7 @@
 			</div>
 		</div>
 		@foreach($alumnos as $alumn)
+			<input type="hidden" id="person_id" name = "person_id" value="{{ $alumn->id }}">
 			<div id="deleteAlumCourse{{$alumn->id}}" class="modal fade" tabindex="-1" role="dialog">
 			    <div class="modal-dialog" role="document">
 				    <div class="modal-content">
@@ -175,20 +171,41 @@
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->	
 		@endforeach
-
 <script>
 $(document).ready(function(){
+	var instance;
 	$('#searchAlumn').autocomplete({
 		source: '{!! URL::route('getAlumno') !!}',
 		minlength:1,
 		autoFocus: true,
 		select:function(e, ui){
-			alert(ui);
-		}
+			var ci = ui.item.value; 
+			instance = ui.item.value;
+			var url = '{{ route("addAlumno", [$curso->id, ":id"]) }}';
+			url = url.replace(':id', ui.item.value);
+			var enlace = "<a href='"+url+"' class='btn btn-success glyphicon glyphicon-plus'></a>";
+			$('#addToCourse > #ci').remove();
+	        $('#addToCourse > #btn').remove();	        	
+	        $('#addToCourse').append("<td id='ci'>"+ci+"</td>");
+	        $('#addToCourse').append("<td id='btn'>"+enlace+"</td>");
+			}
+	});
+
+	$('#searchAlumn').keyup(function()
+	{
+		var url = '{{ route("addAlumno", [$curso->id, ":id"]) }}';
+		var url = '{{ route("addAlumno", [$curso->id, ":id"]) }}';
+		url = url.replace(':id', $(this).val());
+	    if( !$(this).val() ) {
+	        $('#addToCourse > #ci').remove();
+	        $('#addToCourse > #btn').remove();
+	    }
+	    	//console.log("instance/CI "+instance);
+	    	//console.log("valor de search field "+$(this).val());
+
 	});
 
 });
-
 
 </script>
 @stop

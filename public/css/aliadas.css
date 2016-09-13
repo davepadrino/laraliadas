@@ -199,6 +199,12 @@ header nav ul li .children li a{
 	border-color: #023859;	
 }
 
+#alumnSearch > #addAlumnForm{
+	border: 2px ridge black;
+	border-radius: 10px;
+	border-color: #023859;	
+}
+
 #alumnSearch form input{
 	margin-bottom: 20px;
 }

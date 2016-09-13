@@ -173,7 +173,7 @@ class Index extends Controller {
 
 	public function getAlumnos(Request $request){
 		$term= $request->term; //jQuery
-		$data = \Aliadas\persona::where('ci_persona', 'LIKE', '%'.$term.'%')
+		$data = \Aliadas\persona::where('ci_persona', 'LIKE', $term.'%')
 		->take(10)
 		->get();
 		$results = array();

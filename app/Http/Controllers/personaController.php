@@ -47,13 +47,13 @@ class personaController extends Controller {
 		// Validacion de existencia en BD
 		foreach ($alumnos as $alumn) {
 			if($request['ci_persona'] == $alumn->ci_persona){
-				Session::flash('error_message', 'El usuario ya agregado al curso!');
+				Session::flash('error_message', 'El alumno ya esta inscrito en el curso!');
 				return redirect()->back();
 			}
 		}
 		foreach ($alumnos_total as $alumn) {
 			if($request['ci_persona'] == $alumn->ci_persona){
-				Session::flash('error_message', 'Usuario existe en base de datos! Proceda a una búsqueda en la seccion "Buscar Alumno"');
+				Session::flash('error_message', 'El alumno existe en base de datos! Proceda a una búsqueda en la seccion "Buscar Alumno"');
 				return redirect()->back();
 			}
 		}
@@ -68,7 +68,7 @@ class personaController extends Controller {
 				'email_persona'=> $request['email_persona'],
 				]);
 			$persona->cursos()->attach($curso->id);	
-			Session::flash('flash_message', 'Usuario creado y agregado al curso!');
+			Session::flash('flash_message', 'Alumno ha sido creado e inscrito al curso!');
 			return redirect()->back();
 			
 				
@@ -91,25 +91,34 @@ class personaController extends Controller {
 	}
 
 	public function getAlumnos(Request $request){
-		/*
-		if(Request::ajax()){
-			return "carga bien";
-		}
-		$alumnos = \Aliadas\persona::all();
-		return response()->json(
-			$alumnos->toArray()
-		);
-		*/
 		$term= $request->term; //jQuery
-		$data = \Aliadas\persona::where('ci_persona', 'LIKE', '%'.$term.'%')
+		$data = \Aliadas\persona::where('ci_persona', 'LIKE', $term.'%')
 		->take(10)
 		->get();
-		$result = array();
+		$results = array();
 		foreach ($data as $key => $val) {
 			$results[] = ['value'=>$val->ci_persona];
 		}
 		return response()->json($results);
 
+	}	
+
+	//public function addAlumnos($person_id){
+	public function addAlumnos($curso_id, $ci){
+
+		$persona = \Aliadas\persona::where('ci_persona', 'LIKE', $ci)->get();
+		$persona = $persona[0];
+		$curso = \Aliadas\curso::find($curso_id);
+		$personas_en_curso = $curso->personas;
+		foreach ($personas_en_curso as $pc) {
+			if($persona['ci_persona'] == $pc->ci_persona){
+				Session::flash('error_message', 'El alumno ya esta inscrito en el curso!');
+				return redirect()->back();
+			}
+		}		
+		Session::flash('flash_message', 'Alumno y agregado al curso!');
+		$persona->cursos()->attach($curso->id);
+		return redirect()->back();
 	}
 
 
