@@ -34,13 +34,11 @@ BE:
 # Pendiente Short Term
 - Vista Para unir profesor con materia
 - personalizar las vistas dependiendo del tipo de curso
-- Vista para editar y borrar personas
 
 
 # Pendiente Mid Term
 - Establecer sesiones
 - Permisos del admin para un usuario que pueda ver todos los cursos
-- readonly tipo y sede (SIEMPRE)
 - una vez finalizado solo se puede editar el nombre
 - una vez iniciado no deberia poder cambiarse la fecha inicio
 - solo la coordinadora puede borrar cursos

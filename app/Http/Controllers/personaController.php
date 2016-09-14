@@ -150,9 +150,14 @@ class personaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		//
+		$persona = \Aliadas\persona::find($id);
+		$persona->fill($request->all());
+		$persona-> save();
+		Session::flash('message', 'Alumno Editado Correctamente');
+		//return redirect()->back();
+		return redirect()->back();
 	}
 
 	/**
@@ -167,8 +172,8 @@ class personaController extends Controller {
 		$persona->cursos()->detach();
 		//$persona->materias()->detach();
 		\Aliadas\persona::destroy($id);
-		Session::flash('message', 'Curso eliminado Correctamente');
-		return redirect()->back();
+		Session::flash('Delmessage', 'Alumno eliminado Correctamente');
+		return view('principal');
 	}
 
 }

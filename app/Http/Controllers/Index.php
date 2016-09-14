@@ -185,13 +185,12 @@ class Index extends Controller {
 		return $result;
 	}
 
-	public function getAlumnosView(Request $request){
-		$result = \Aliadas\persona::where('ci_persona', 'LIKE', $request->buscar)
-		->get();
-		return $result;
+	public function getAlumnosView(){
+		$buscar = Input::get('buscar');
+		$data = \Aliadas\persona::where('ci_persona', 'LIKE', $buscar)->get();
+		$data = $data[0]['id'];
+		$result = \Aliadas\persona::find($data);
+		return view('search_results', compact('result'));
 	}
-
-
-
 
 }

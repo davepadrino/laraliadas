@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="col-md-5 col-md-5">	
-			{!! Form::open(['route'=> ['getAlumnosView'], 'method'=>'POST'])!!}
+			{!! Form::open(['route'=> ['getAlumnosView'], 'method'=>'GET'])!!}
 			    <div class="input-group">
 			    {!! Form::text('buscar',null,['class'=>'form-control', 'placeholder'=>'Buscar', 'id'=>'buscar'])!!}
 			      <span class="input-group-btn">
@@ -92,6 +92,7 @@ $(document).ready(function(){
 	$('#buscar').autocomplete({
 		source: '{!! URL::route('getAlumnosIndex') !!}'
 	});
+	console.log($('#buscar').val())
 
 });
 </script>	
