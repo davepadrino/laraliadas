@@ -181,7 +181,7 @@ $(document).ready(function(){
 		select:function(e, ui){
 			var ci = ui.item.value; 
 			instance = ui.item.value;
-			var url = '{{ route("addAlumno", [$curso->id, ":id"]) }}';
+ 			var url = '{{ route("addAlumno", [$curso->id, ":id"]) }}';
 			url = url.replace(':id', ui.item.value);
 			var enlace = "<a href='"+url+"' class='btn btn-success glyphicon glyphicon-plus'></a>";
 			$('#addToCourse > #ci').remove();
@@ -193,7 +193,6 @@ $(document).ready(function(){
 
 	$('#searchAlumn').keyup(function()
 	{
-		var url = '{{ route("addAlumno", [$curso->id, ":id"]) }}';
 		var url = '{{ route("addAlumno", [$curso->id, ":id"]) }}';
 		url = url.replace(':id', $(this).val());
 	    if( !$(this).val() ) {

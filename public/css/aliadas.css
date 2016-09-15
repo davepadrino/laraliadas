@@ -192,8 +192,7 @@ header nav ul li .children li a{
 
 /* Agregar alumno*/	
 
-#alumnSearch{
-	width: 50%;
+#alumnSearch, #matProfSearch{
 	border: 2px ridge black;
 	border-radius: 10px;
 	border-color: #023859;	
@@ -227,6 +226,7 @@ header nav ul li .children li a{
 	width: 50%;
 }
 
+/* Profesor Materia */
 
 /* ADMINISTRADOR */
 

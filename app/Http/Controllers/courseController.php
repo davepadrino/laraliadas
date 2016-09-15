@@ -151,8 +151,39 @@ class courseController extends Controller {
 	}
 
 
+	public function  viewProfMat($curso_id){
+		$current_curso = \Aliadas\curso::find($curso_id);
+		return view('materias_profesores', compact('current_curso'));	
+	}
 
 
+	public function getProf(Request $request){
+		$term= $request->term; //jQuery
+		$data = \Aliadas\profesor::where('nombre_profesor', 'LIKE', $term.'%')
+		->take(10)
+		->get();
+		$results = array();
+		foreach ($data as $key => $val) {
+			$results[] = ['value'=>$val->nombre_profesor];
+		}
+		return response()->json($results);
+	}
+
+	public function getMat(Request $request){
+		$term= $request->term; //jQuery
+		$data = \Aliadas\materia::where('nombre_materia', 'LIKE', $term.'%')
+		->take(10)
+		->get();
+		$results = array();
+		foreach ($data as $key => $val) {
+			$results[] = ['value'=>$val->nombre_materia];
+		}
+		return response()->json($results);
+	}
+
+	public function addProfMat($profName, $matName){
+		return "prof: ".$profName." materia: ".$matName;
+	}	
 
 
 }

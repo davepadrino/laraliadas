@@ -47,8 +47,10 @@
 
 				        <td class="text-center"><button id ="editCourse" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalCourse{{$curso->id}}" data-id="{{ $curso->id }}" ></button></td>
 
-
-				        <td class="text-center"><button id ="addProfMateria" class="btn glyphicon glyphicon-education btn-success btn-sm" type="button"></button></td>
+				        <td class="text-center">
+					        <a id ="addProfMateria" class="btn glyphicon glyphicon-education btn-success btn-sm" type="button" href="{{ route('prof-materia', $curso->id) }}">				        	
+					        </a>
+				        </td>
 
 				        <td class="text-center">
 				       		<a id ="addAlumn" class="btn glyphicon glyphicon-user btn-success btn-sm" type="button" href="{{ route('personas', $curso->id) }}"></a>

@@ -30,6 +30,15 @@ Route::get('/cursos/mujeres-hacedoras', 'courseController@hacedoras');
 Route::get('/cursos/mujeres-hacedoras/{id}', array('as'=>'hacedoras', 'uses'=>'courseController@hacedorasNamed'));  
 Route::resource('admin', 'userController');
 Route::resource('sedes', 'sedeController');
+Route::any('{curso_id}/profesor-materia', array('as'=>'prof-materia', 'uses'=>'courseController@viewProfMat'));
+
+Route::get('/curso/profesor', array('as'=>'getProf', 'uses'=>'courseController@getProf'));
+Route::get('/curso/materia', array('as'=>'getMat', 'uses'=>'courseController@getMat'));
+Route::any('/curso/profMateria/{profName}/{matName}', array('as'=>'addProfMat', 'uses'=>'courseController@addProfMat'));
+
+
+
+
 Route::resource('cursos', 'courseController');
 Route::resource('profesores', 'profesorController');
 Route::resource('materias', 'materiaController');
