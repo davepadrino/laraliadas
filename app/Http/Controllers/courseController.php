@@ -159,12 +159,16 @@ class courseController extends Controller {
 		$curso_materias = $current_curso->materias;
 		$curso_profesores = $current_curso->profesors;
 		$results = array();
+		$z=0;
 		for ($i = 0; $i<count($curso_materias); $i++ ){
 			for ($j = 0; $j<count($curso_profesores); $j++){
 				if ($curso_materias[$i]['pivot']['curso_id'] == $curso_profesores[$j]['pivot']['curso_id']){
 					//echo "si coincide";
-					$results[$j] = ['materia'=>$curso_materias[$i], 
+					//  REVISAR!
+					
+					$results[$z] = ['materia'=>$curso_materias[$i], 
 								'profesor'=>$curso_profesores[$j]];
+					$z++;
 				}
 			}
 		}
