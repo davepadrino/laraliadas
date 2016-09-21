@@ -38,7 +38,7 @@
 				                   	<tr>
 				                        <td>
 				                        	{!! Form::label('Cédula de Identidad')!!}
-											{!! Form::text('ci_profesor',null,['class'=>'form-control'])!!}
+											{!! Form::text('ci_profesor',null,['class'=>'form-control', 'required'])!!}
 				                        </td>
 				                    </tr>
 				                    <tr>

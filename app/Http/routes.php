@@ -34,7 +34,8 @@ Route::any('{curso_id}/profesor-materia', array('as'=>'prof-materia', 'uses'=>'c
 
 Route::get('/curso/profesor', array('as'=>'getProf', 'uses'=>'courseController@getProf'));
 Route::get('/curso/materia', array('as'=>'getMat', 'uses'=>'courseController@getMat'));
-Route::any('/curso/profMateria/{profName}/{matName}', array('as'=>'addProfMat', 'uses'=>'courseController@addProfMat'));
+//Route::any('/curso/profMateria/{profName}/{matName}', array('as'=>'addProfMat', 'uses'=>'courseController@addProfMat'));
+Route::any('/curso/profMateria', array('as'=>'addProfMat', 'uses'=>'courseController@addProfMat'));
 
 
 

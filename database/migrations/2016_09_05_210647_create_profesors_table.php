@@ -16,9 +16,11 @@ class CreateProfesorsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('nombre_profesor');
+			//$table->integer('ci_profesor')->unique();
 			$table->integer('ci_profesor');
 			$table->string('numero_telefonico_profesor');
-			$table->string('email_profesor')->unique();
+			//$table->string('email_profesor')->unique();
+			$table->string('email_profesor');
 			$table->nullableTimestamps();
 			$table->integer('user_id')->unsigned();
 

@@ -22,11 +22,9 @@
 		<table class="table" >
 			    <thead >
 					<th class="text-center">CI</th>
-					<th class="text-center">materia1 / asistencia</th>
-					<th class="text-center">materia2 / asistencia</th>
-					<th class="text-center">materia3 / asistencia</th>
-					<th class="text-center">materia4 / asistencia</th>
-
+					@foreach($materias as $materia)
+					<th class="text-center">{{ $materia->nombre_materia }} / asistencia</th>
+					@endforeach
 			    </thead>
 			    <tbody>
 			    @foreach($alumnos as $alumno)

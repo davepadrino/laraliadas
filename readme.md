@@ -32,7 +32,7 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- Vista Para unir profesor con materia
+- Borrar triple relacion (MARTIRIO)
 - personalizar las vistas dependiendo del tipo de curso
 
 
@@ -48,6 +48,8 @@ BE:
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
 - TokenMismatch
 
+# Final
+- CI y email prof unique
 
 1 Sede(has many) - M users *
 1 Sede (has many) - N Cursos*

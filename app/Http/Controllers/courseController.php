@@ -131,7 +131,8 @@ class courseController extends Controller {
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
 		$alumnos = $current_curso->personas;
-		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos'));
+		$materias = $current_curso->materias;
+		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));
 	}
 
 	public function  tallerNamed($id){
@@ -139,7 +140,8 @@ class courseController extends Controller {
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
 		$alumnos = $current_curso->personas;
-		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos'));	
+		$materias = $current_curso->materias;
+		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));	
 	}
 
 	public function  hacedorasNamed($id){
@@ -147,13 +149,32 @@ class courseController extends Controller {
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
 		$alumnos = $current_curso->personas;
-		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos'));	
+		$materias = $current_curso->materias;
+		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));	
 	}
 
 
 	public function  viewProfMat($curso_id){
 		$current_curso = \Aliadas\curso::find($curso_id);
-		return view('materias_profesores', compact('current_curso'));	
+		$curso_materias = $current_curso->materias;
+		$curso_profesores = $current_curso->profesors;
+		$results = array();
+		for ($i = 0; $i<count($curso_materias); $i++ ){
+			for ($j = 0; $j<count($curso_profesores); $j++){
+				if ($curso_materias[$i]['pivot']['curso_id'] == $curso_profesores[$j]['pivot']['curso_id']){
+					//echo "si coincide";
+					$results[$j] = ['materia'=>$curso_materias[$i], 
+								'profesor'=>$curso_profesores[$j]];
+				}
+			}
+		}
+		//return $results[0]['materia']['nombre_materia'];
+
+		//$curso_prof = $current_curso->profesors;
+		//$materias_profesores = $current_curso->materias;
+		return view('materias_profesores', compact('current_curso','results'));	
+		//return $curso_materia;
+
 	}
 
 
@@ -181,9 +202,25 @@ class courseController extends Controller {
 		return response()->json($results);
 	}
 
+	/*
 	public function addProfMat($profName, $matName){
 		return "prof: ".$profName." materia: ".$matName;
 	}	
+	*/
+	public function addProfMat(Request $request){
+		$curso = \Aliadas\curso::find($request->course_id); 
+		$profesor = \Aliadas\profesor::where('nombre_profesor', 'LIKE', $request->profName.'%')
+		->get();
+		$profesor = $profesor[0];
+		$materia = \Aliadas\materia::where('nombre_materia', 'LIKE', $request->matName.'%')
+		->get();
+		$materia = $materia[0];
+		$curso->materias()->attach($materia['id']);
+		$curso->profesors()->attach($profesor['id']);
+		$profesor->materias()->attach($materia['id']);
+		return redirect()->back();
+	}	
+
 
 
 }
