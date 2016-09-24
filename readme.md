@@ -32,8 +32,13 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- Borrar triple relacion (MARTIRIO)
+- agregar materias despues de agregar alumnos y pegar alumnos con materias
+- tabla de control de materias 
+-- http://stackoverflow.com/questions/3402295/html-table-with-horizontal-scrolling-first-column-fixed
+-- http://stackoverflow.com/questions/21777483/how-to-add-horizontal-scroll-bar-to-specific-columns-of-html-table-without-using **
+-- http://stackoverflow.com/questions/19794211/horizontal-scroll-on-overflow-of-table
 - personalizar las vistas dependiendo del tipo de curso
+- Barras de busqueda de alumno
 
 
 # Pendiente Mid Term
@@ -97,6 +102,8 @@ http://stackoverflow.com/questions/31419865/laravel-relationship-manytomany-pagi
 http://stackoverflow.com/questions/31704309/laravel-5-1-sort-a-table
 - Pasar variable de JS a URL
 http://stackoverflow.com/questions/27634285/laravel-4-pass-a-variable-to-route-in-javascript
+- Problema de la triple tabla pivot
+http://stackoverflow.com/questions/28580441/laravel-how-to-insert-data-in-case-of-three-way-pivot-table-using-attach-method
 
 # AJAX
 - http://webslesson.blogspot.com/2016/03/ajax-live-data-search-using-jquery-php-mysql.html

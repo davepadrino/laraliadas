@@ -226,8 +226,10 @@ header nav ul li .children li a{
 	width: 50%;
 }
 
-/* Profesor Materia */
-
+/* Courses info */
+.califications{
+	overflow: scroll;
+}
 /* ADMINISTRADOR */
 
 

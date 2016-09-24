@@ -5,6 +5,7 @@ use Aliadas\Http\Controllers\Controller;
 use Auth;
 use Session;
 use Redirect;
+use DB;
 use Illuminate\Http\Request;
 
 class courseController extends Controller {
@@ -127,57 +128,72 @@ class courseController extends Controller {
 
 
 	public function  emprendedorasNamed($id){
+		$materias = array();
 		$tipo_curso = "Emprendedoras en Cadena";
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
 		$alumnos = $current_curso->personas;
-		$materias = $current_curso->materias;
+		$results = DB::table('curso_materia_profesors')
+			->where('curso_id', $current_curso->id)
+			->get();
+		for($i=0; $i<count($results); $i++){
+			$materia_id = $results[$i]->materia_id;
+			$materia_obj = \Aliadas\materia::find($materia_id);
+			$materias[$i] = $materia_obj;
+		}
 		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));
 	}
 
 	public function  tallerNamed($id){
+		$materias = array();		
 		$tipo_curso = "Escuela - Taller";
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
 		$alumnos = $current_curso->personas;
-		$materias = $current_curso->materias;
+		$results = DB::table('curso_materia_profesors')
+			->where('curso_id', $current_curso->id)
+			->get();
+		for($i=0; $i<count($results); $i++){
+			$materia_id = $results[$i]->materia_id;
+			$materia_obj = \Aliadas\materia::find($materia_id);
+			$materias[$i] = $materia_obj;
+		}		
 		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));	
 	}
 
 	public function  hacedorasNamed($id){
+		$materias = array();		
 		$tipo_curso = "Mujeres Hacedoras";
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
 		$alumnos = $current_curso->personas;
-		$materias = $current_curso->materias;
+		$results = DB::table('curso_materia_profesors')
+			->where('curso_id', $current_curso->id)
+			->get();
+		for($i=0; $i<count($results); $i++){
+			$materia_id = $results[$i]->materia_id;
+			$materia_obj = \Aliadas\materia::find($materia_id);
+			$materias[$i] = $materia_obj;
+		}		
 		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));	
 	}
 
 
 	public function  viewProfMat($curso_id){
 		$current_curso = \Aliadas\curso::find($curso_id);
-		$curso_materias = $current_curso->materias;
-		$curso_profesores = $current_curso->profesors;
-		$results = array();
 		$z=0;
-		for ($i = 0; $i<count($curso_materias); $i++ ){
-			for ($j = 0; $j<count($curso_profesores); $j++){
-				if ($curso_materias[$i]['pivot']['curso_id'] == $curso_profesores[$j]['pivot']['curso_id']){
-					//echo "si coincide";
-					//  REVISAR!
-					
-					$results[$z] = ['materia'=>$curso_materias[$i], 
-								'profesor'=>$curso_profesores[$j]];
-					$z++;
-				}
-			}
+		$results = DB::table('curso_materia_profesors')->where('curso_id', $curso_id)->paginate(7);
+		for ($i = 0; $i<count($results); $i++ ){
+			$id = $results[$i]->id;
+			$materia_id = $results[$i]->materia_id;
+			$profesor_id = $results[$i]->profesor_id;
+			$materia_obj = \Aliadas\materia::find($materia_id);
+			$profesor_obj = \Aliadas\profesor::find($profesor_id);
+			$results[$i] = ['id' => $id,
+							'materia'=>$materia_obj, 
+							'profesor'=>$profesor_obj ];
 		}
-		//return $results[0]['materia']['nombre_materia'];
-
-		//$curso_prof = $current_curso->profesors;
-		//$materias_profesores = $current_curso->materias;
-		return view('materias_profesores', compact('current_curso','results'));	
-		//return $curso_materia;
+		return view('materias_profesores', compact('current_curso','results'));
 
 	}
 
@@ -206,12 +222,9 @@ class courseController extends Controller {
 		return response()->json($results);
 	}
 
-	/*
-	public function addProfMat($profName, $matName){
-		return "prof: ".$profName." materia: ".$matName;
-	}	
-	*/
+
 	public function addProfMat(Request $request){
+		$data = array();
 		$curso = \Aliadas\curso::find($request->course_id); 
 		$profesor = \Aliadas\profesor::where('nombre_profesor', 'LIKE', $request->profName.'%')
 		->get();
@@ -222,7 +235,24 @@ class courseController extends Controller {
 		$curso->materias()->attach($materia['id']);
 		$curso->profesors()->attach($profesor['id']);
 		$profesor->materias()->attach($materia['id']);
+		/* Para insertar data en la tabla pivot */
+		$data['curso_id'] = $curso->id;
+		$data['profesor_id'] = $profesor['id'];
+		$data['materia_id'] = $materia['id'];
+		/* Validar que la dupla no se repita en el curso */
+		$result = DB::table('curso_materia_profesors')
+		->where('curso_id', $curso->id)
+		->where('profesor_id', $profesor['id'])
+		->where('materia_id', $materia['id'])
+		->get();
+		if(count($result) == 0){
+			DB::table('curso_materia_profesors')->insert($data);
+			Session::flash('addSuccess', 'Registro añadido Correctamente');
+		}else{
+			Session::flash('addFail', 'Registro ya existente en el curso');
+		}
 		return redirect()->back();
+
 	}	
 
 

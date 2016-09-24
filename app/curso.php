@@ -28,4 +28,5 @@ class curso extends Model {
 	public function profesors() {
     	return $this->belongsToMany('Aliadas\profesor', 'curso_profesor', 'curso_id', 'profesor_id');
     }  
+
 }

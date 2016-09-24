@@ -19,11 +19,11 @@
 		</div>
 	</div>
 	<div>
-		<table class="table" >
+		<table class="table califications" style="overflow:scroll" >
 			    <thead >
 					<th class="text-center">CI</th>
 					@foreach($materias as $materia)
-					<th class="text-center">{{ $materia->nombre_materia }} / asistencia</th>
+					<th class="text-center">{{ $materia['nombre_materia'] }} / asistencia</th>
 					@endforeach
 			    </thead>
 			    <tbody>
@@ -31,7 +31,6 @@
 					<tr>
 						<td class="text-center">
 							<a href="/getAlumnosView?buscar={{$alumno->ci_persona}}">{{ $alumno->ci_persona }}</a>
-
 						</td>
 						<td class="text-center">
 							calificacion 1 / asistencia 1
@@ -40,6 +39,7 @@
 				@endforeach
 			    </tbody>
 		</table>
+
 	</div>
 			
 @stop

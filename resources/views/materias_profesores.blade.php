@@ -1,6 +1,19 @@
 @extends('layouts.layout')
 @section('title', 'Agregar Profesor-Materia')
 @section('content')
+<!-- mensaje de creacion de usuario-->
+@if(Session::has('addSuccess'))
+    <div class="alert alert-success alert-dismissible" role="alert">
+    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       {{ Session::get('addSuccess') }}
+	</div>
+@endif
+@if(Session::has('addFail'))
+    <div class="alert alert-danger alert-dismissible" role="alert">
+    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       {{ Session::get('addFail') }}
+	</div>
+@endif
 @if($current_curso->tipo_curso == 'Emprendedoras en Cadena' )
 		<h2><a href="/cursos/emprendedoras-en-cadena">{{ $current_curso->tipo_curso }}</a>: {{ $current_curso->nombre_curso }} </h2>
 @elseif ($current_curso->tipo_curso == 'Escuela Taller')
@@ -71,18 +84,41 @@
 	                <th class="text-center"> Materia</th>
 	                <th class="text-center"> Remover de curso</th>
 	            </thead>
+				@foreach($results as $res)
 	            <tbody>
-					@foreach($results as $res)
-		            <tbody>
-		                <td class="text-center">{{ $res['profesor']['nombre_profesor'] }}</td>
-		                <td class="text-center"> {{ $res['materia']['nombre_materia'] }}</td>
-		                <td class="text-center"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteProfMat" ></button></td>
-		            </tbody>
-					@endforeach 
+	                <td class="text-center">{{ $res['profesor']['nombre_profesor'] }}</td>
+	                <td class="text-center"> {{ $res['materia']['nombre_materia'] }}</td>
+	                <td class="text-center"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteProfMat{{ $res['id'] }}" ></button></td>
 	            </tbody>
+				@endforeach 
 	        </table>
+	        {!! $results->render() !!}
 	    </div>
 	</div>
+
+	@foreach($results as $res)
+	<input type="hidden" id="person_id" name = "person_id" value="{{ $res['id'] }}">
+	<div id="modalDeleteProfMat{{ $res['id'] }}" class="modal fade" tabindex="-1" role="dialog">
+	    <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+	             <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">Remover relación: {{ $res['profesor']['nombre_profesor'] }} - {{ $res['materia']['nombre_materia'] }}</h4>
+			    </div>
+			    {!! Form::open(['route'=> ['addProfMat', $res['id']], 'method'=>'delete'])!!}
+			        <div class="modal-body">
+				        ¿Desea eliminar el Usuario?<br>
+				        <strong>Observación: </strong>Se eliminará la relación del Curso mas no el curso, la materia o el profesor de la Base de Datos
+				    </div>
+				    <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<a href="{{ route('personaDelCurso', $res['id']) }}" class="btn btn-danger">Eliminar</a>        
+					</div>
+				{!! Form::close() !!}
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->	
+	@endforeach
 <script>
 $(document).ready(function(){
 	var prof_instance;
