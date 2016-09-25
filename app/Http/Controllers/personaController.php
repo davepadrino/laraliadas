@@ -103,7 +103,6 @@ class personaController extends Controller {
 
 	}	
 
-	//public function addAlumnos($person_id){
 	public function addAlumnos($curso_id, $ci){
 
 		$persona = \Aliadas\persona::where('ci_persona', 'LIKE', $ci)->get();
@@ -117,6 +116,11 @@ class personaController extends Controller {
 			}
 		}		
 		Session::flash('flash_message', 'Alumno y agregado al curso!');
+		$persona = \Aliadas\persona::find($persona['id']);
+		$materias = $curso->materias;
+		foreach ($materias as $materia) {
+			$persona->materias()->attach($materia);
+		}
 		$persona->cursos()->attach($curso->id);
 		return redirect()->back();
 	}
@@ -170,7 +174,7 @@ class personaController extends Controller {
 	{
 		$persona = \Aliadas\persona::find($id);	
 		$persona->cursos()->detach();
-		//$persona->materias()->detach();
+		$persona->materias()->detach();
 		\Aliadas\persona::destroy($id);
 		Session::flash('Delmessage', 'Alumno eliminado Correctamente');
 		return view('principal');

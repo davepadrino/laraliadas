@@ -19,27 +19,31 @@
 		</div>
 	</div>
 	<div>
-		<table class="table califications" style="overflow:scroll" >
+		<table class="table califications">
 			    <thead >
 					<th class="text-center">CI</th>
 					@foreach($materias as $materia)
-					<th class="text-center">{{ $materia['nombre_materia'] }} / asistencia</th>
+					<th class="text-center">{{ $materia->nombre_materia }} </th>
 					@endforeach
 			    </thead>
-			    <tbody>
+			    <tbody >
 			    @foreach($alumnos as $alumno)
 					<tr>
-						<td class="text-center">
+						<td class="text-center" >
 							<a href="/getAlumnosView?buscar={{$alumno->ci_persona}}">{{ $alumno->ci_persona }}</a>
 						</td>
+						@foreach($materias as $materia)
 						<td class="text-center">
-							calificacion 1 / asistencia 1
+							calif1 / asist1
 						</td>
+						@endforeach
 					</tr>	    	
 				@endforeach
 			    </tbody>
 		</table>
 
 	</div>
+
+
 			
 @stop

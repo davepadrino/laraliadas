@@ -6,6 +6,7 @@ use Auth;
 use Session;
 use Redirect;
 use DB;
+use Input;
 use Illuminate\Http\Request;
 
 class courseController extends Controller {
@@ -133,13 +134,22 @@ class courseController extends Controller {
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
 		$alumnos = $current_curso->personas;
-		$results = DB::table('curso_materia_profesors')
-			->where('curso_id', $current_curso->id)
-			->get();
-		for($i=0; $i<count($results); $i++){
-			$materia_id = $results[$i]->materia_id;
-			$materia_obj = \Aliadas\materia::find($materia_id);
-			$materias[$i] = $materia_obj;
+		$materias = $current_curso->materias;
+		/* Enlazar materias-alumnos */
+		foreach ($alumnos as $alumno) {
+			foreach ($materias as $materia) {
+				$data = array();
+				$data['persona_id'] = $alumno->id;
+				$data['materia_id'] = $materia->id;
+				/* Validar que la dupla no se repita en el curso */		
+				$result = DB::table('materia_persona')
+				->where('persona_id', $alumno->id)
+				->where('materia_id', $materia->id)
+				->get();
+				if(count($result) == 0){
+					DB::table('materia_persona')->insert($data);
+				}
+			}
 		}
 		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));
 	}
@@ -150,13 +160,22 @@ class courseController extends Controller {
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
 		$alumnos = $current_curso->personas;
-		$results = DB::table('curso_materia_profesors')
-			->where('curso_id', $current_curso->id)
-			->get();
-		for($i=0; $i<count($results); $i++){
-			$materia_id = $results[$i]->materia_id;
-			$materia_obj = \Aliadas\materia::find($materia_id);
-			$materias[$i] = $materia_obj;
+		$materias = $current_curso->materias;
+		/* Enlazar materias-alumnos */
+		foreach ($alumnos as $alumno) {
+			foreach ($materias as $materia) {
+				$data = array();
+				$data['persona_id'] = $alumno->id;
+				$data['materia_id'] = $materia->id;
+				/* Validar que la dupla no se repita en el curso */		
+				$result = DB::table('materia_persona')
+				->where('persona_id', $alumno->id)
+				->where('materia_id', $materia->id)
+				->get();
+				if(count($result) == 0){
+					DB::table('materia_persona')->insert($data);
+				}
+			}
 		}		
 		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));	
 	}
@@ -167,13 +186,22 @@ class courseController extends Controller {
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
 		$alumnos = $current_curso->personas;
-		$results = DB::table('curso_materia_profesors')
-			->where('curso_id', $current_curso->id)
-			->get();
-		for($i=0; $i<count($results); $i++){
-			$materia_id = $results[$i]->materia_id;
-			$materia_obj = \Aliadas\materia::find($materia_id);
-			$materias[$i] = $materia_obj;
+		$materias = $current_curso->materias;	
+		/* Enlazar materias-alumnos */
+		foreach ($alumnos as $alumno) {
+			foreach ($materias as $materia) {
+				$data = array();
+				$data['persona_id'] = $alumno->id;
+				$data['materia_id'] = $materia->id;
+				/* Validar que la dupla no se repita en el curso */		
+				$result = DB::table('materia_persona')
+				->where('persona_id', $alumno->id)
+				->where('materia_id', $materia->id)
+				->get();
+				if(count($result) == 0){
+					DB::table('materia_persona')->insert($data);
+				}
+			}
 		}		
 		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));	
 	}
@@ -194,7 +222,6 @@ class courseController extends Controller {
 							'profesor'=>$profesor_obj ];
 		}
 		return view('materias_profesores', compact('current_curso','results'));
-
 	}
 
 
@@ -232,14 +259,31 @@ class courseController extends Controller {
 		$materia = \Aliadas\materia::where('nombre_materia', 'LIKE', $request->matName.'%')
 		->get();
 		$materia = $materia[0];
-		$curso->materias()->attach($materia['id']);
-		$curso->profesors()->attach($profesor['id']);
-		$profesor->materias()->attach($materia['id']);
-		/* Para insertar data en la tabla pivot */
+		/*****************************************/
+		/* Arreglo de profesores en el curso */
+		$profesoresArray = array();
+		foreach ($curso->profesors as $cp) {
+			$profesoresArray[] = $cp->id;
+		}
+		/* Si el prof no esta en el curso se agrega */
+		if (!in_array($profesor['id'], $profesoresArray)){
+			$curso->profesors()->attach($profesor['id']);
+		}
+		/* Arreglo de materias en el curso */
+		$materiasArray = array();
+		foreach ($curso->materias as $cm) {
+			$materiasArray[] = $cm->id;
+		}
+		/* Si la materia no esta en el curso se agrega */
+		if (!in_array($materia['id'], $materiasArray)){
+			$curso->materias()->attach($materia['id']);
+		}
+		/*****************************************/
+		/* Para insertar data en la tabla pivot */		
 		$data['curso_id'] = $curso->id;
 		$data['profesor_id'] = $profesor['id'];
 		$data['materia_id'] = $materia['id'];
-		/* Validar que la dupla no se repita en el curso */
+		/* Validar que la dupla no se repita en el curso */		
 		$result = DB::table('curso_materia_profesors')
 		->where('curso_id', $curso->id)
 		->where('profesor_id', $profesor['id'])
@@ -251,10 +295,17 @@ class courseController extends Controller {
 		}else{
 			Session::flash('addFail', 'Registro ya existente en el curso');
 		}
+		
 		return redirect()->back();
-
 	}	
 
+	public function delProfMat($id){
+		$relation = DB::table('curso_materia_profesors')
+		->where('id', $id)
+		->delete();
+		Session::flash('delMessage', 'Relación eliminada correctamente');
+		return redirect()->back();
+	}		
 
 
 }

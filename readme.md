@@ -32,13 +32,15 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- agregar materias despues de agregar alumnos y pegar alumnos con materias
+- Busqueda de alumno por cedula en "agregar alumno" **
+
+- Ver la forma de editar los campos en las materias
+- Opcional: ver posibilidad de descargar PDF 
 - tabla de control de materias 
 -- http://stackoverflow.com/questions/3402295/html-table-with-horizontal-scrolling-first-column-fixed
 -- http://stackoverflow.com/questions/21777483/how-to-add-horizontal-scroll-bar-to-specific-columns-of-html-table-without-using **
 -- http://stackoverflow.com/questions/19794211/horizontal-scroll-on-overflow-of-table
 - personalizar las vistas dependiendo del tipo de curso
-- Barras de busqueda de alumno
 
 
 # Pendiente Mid Term

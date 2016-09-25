@@ -228,8 +228,12 @@ header nav ul li .children li a{
 
 /* Courses info */
 .califications{
-	overflow: scroll;
+	overflow-x: scroll;
+	width:100%; 
+	display:inline-block;
 }
+
+
 /* ADMINISTRADOR */
 
 

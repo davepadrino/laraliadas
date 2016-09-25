@@ -3,15 +3,27 @@
 @section('content')	
 				@if($curso->tipo_curso == 'Emprendedoras en Cadena' )
 					<a href="/cursos/emprendedoras-en-cadena">Volver {{ $curso->tipo_curso}}</a>
+					<div>
+						<h2> Agregar Alumnos al curso: 
+							<a href="/cursos/emprendedoras-en-cadena/{{ $curso->id }}">{{ $curso->nombre_curso}} </a>
+						</h2>
+					</div>
 				@elseif ($curso->tipo_curso == 'Escuela Taller')
 					<a href="/cursos/escuela-taller">Volver {{ $curso->tipo_curso}}</a>
+					<div>
+						<h2> Agregar Alumnos al curso: 
+							<a href="/cursos/escuela-taller/{{ $curso->id }}">{{ $curso->nombre_curso}} </a>
+						</h2>
+					</div>
 				@else
-					<a href="/cursos/mujeres-hacedoras">Volver {{ $curso->tipo_curso}}</a>				
+					<a href="/cursos/mujeres-hacedoras">Volver {{ $curso->tipo_curso}}</a>	
+					<div>
+						<h2> Agregar Alumnos al curso: 
+							<a href="/cursos/mujeres-hacedoras/{{ $curso->id }}">{{ $curso->nombre_curso}} </a>
+						</h2>
+					</div>			
 				@endif
 				
-				<div>
-					<h2> Agregar Alumnos al curso: {{ $curso->nombre_curso}} </h2>
-				</div>
 						<!-- Validar Errores en el servidor-->
 						@include('alerts.request')
 						<!-- mensaje de creacion de usuario-->
@@ -176,7 +188,6 @@ $(document).ready(function(){
 	var instance;
 	$('#searchAlumn').autocomplete({
 		source: '{!! URL::route('getAlumno') !!}',
-		minlength:1,
 		autoFocus: true,
 		select:function(e, ui){
 			var ci = ui.item.value; 

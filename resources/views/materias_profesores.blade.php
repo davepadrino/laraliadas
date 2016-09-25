@@ -14,12 +14,22 @@
        {{ Session::get('addFail') }}
 	</div>
 @endif
+@if(Session::has('delMessage'))
+    <div class="alert alert-success alert-dismissible" role="alert">
+    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       {{ Session::get('delMessage') }}
+	</div>
+@endif
 @if($current_curso->tipo_curso == 'Emprendedoras en Cadena' )
-		<h2><a href="/cursos/emprendedoras-en-cadena">{{ $current_curso->tipo_curso }}</a>: {{ $current_curso->nombre_curso }} </h2>
+		<h2>
+			<a href="/cursos/emprendedoras-en-cadena">{{ $current_curso->tipo_curso }}</a>: <a href="/cursos/emprendedoras-en-cadena/{{ $current_curso->id }}">{{ $current_curso->nombre_curso }}</a> 
+		</h2>
 @elseif ($current_curso->tipo_curso == 'Escuela Taller')
-	<h2><a href="/cursos/escuela-taller">{{ $current_curso->tipo_curso }}</a>: {{ $current_curso->nombre_curso }} </h2>	
+	<h2><a href="/cursos/escuela-taller">{{ $current_curso->tipo_curso }}</a>: <a href="/cursos/escuela-taller/{{ $current_curso->id }}">{{ $current_curso->nombre_curso }}</a>  
+	</h2>	
 @else
-	<h2><a href="/cursos/mujeres-hacedoras">{{ $current_curso->tipo_curso }}</a>: {{ $current_curso->nombre_curso }} </h2>
+	<h2><a href="/cursos/mujeres-hacedoras">{{ $current_curso->tipo_curso }}</a>: <a href="/cursos/mujeres-hacedoras/{{ $current_curso->id }}">{{ $current_curso->nombre_curso }}</a> 
+	</h2>
 @endif
 
 <div class="row">
@@ -105,14 +115,14 @@
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			        <h4 class="modal-title">Remover relación: {{ $res['profesor']['nombre_profesor'] }} - {{ $res['materia']['nombre_materia'] }}</h4>
 			    </div>
-			    {!! Form::open(['route'=> ['addProfMat', $res['id']], 'method'=>'delete'])!!}
+			    {!! Form::open(['route'=> ['delProfMat', $res['id']], 'method'=>'delete'])!!}
 			        <div class="modal-body">
 				        ¿Desea eliminar el Usuario?<br>
 				        <strong>Observación: </strong>Se eliminará la relación del Curso mas no el curso, la materia o el profesor de la Base de Datos
 				    </div>
 				    <div class="modal-footer">
 				        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-						<a href="{{ route('personaDelCurso', $res['id']) }}" class="btn btn-danger">Eliminar</a>        
+						<a href="{{ route('delProfMat', $res['id']) }}" class="btn btn-danger">Eliminar</a>        
 					</div>
 				{!! Form::close() !!}
 			</div><!-- /.modal-content -->
@@ -132,12 +142,6 @@ $(document).ready(function(){
 		select:function(e, ui){
 			var prof = ui.item.value; 
 			prof_instance = ui.item.value;
-			/*
-			$('#PMToCourse > #profName').remove();
-	        $('#PMToCourse > #matName').remove();	        	
-	        $('#PMToCourse > #btn2').remove();	        	
-	        $('#PMToCourse').append("<td id='profName'>"+prof+"</td>");
-			*/
 			$('#searchMat').prop('disabled', false);
 			$('#profName').val(prof_instance);
 	        console.log(prof_instance);
@@ -156,14 +160,6 @@ $(document).ready(function(){
 			url = url.replace(':id1', prof_instance);
 			url = url.replace(':id2', mat_instance);
 			var enlace = "<a href='"+url+"' class='btn btn-success glyphicon glyphicon-plus'></a>";
-			//$('#PMToCourse > #profName').remove();
-			/*
-	        $('#PMToCourse > #matName').remove();	        	
-	        $('#PMToCourse > #btn2').remove();	        	
-	        //$('#PMToCourse').append("<td id='profName'>"+prof+"</td>");
-	        $('#PMToCourse').append("<td id='matName'>"+mat+"</td>");
-	        $('#PMToCourse').append("<td id='btn2'>"+enlace+"</td>");
-	        */
 	        $('#matName').val(mat_instance);
 	        console.log(mat_instance);
 	        console.log(url);
