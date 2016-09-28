@@ -34,6 +34,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/aliadas.js') }}"></script>
 
+
 </body>
 </html>
 

@@ -32,10 +32,10 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- Busqueda de alumno por cedula en "agregar alumno" **
+- Busqueda de alumno por cedula en "agregar alumno" **, sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso
 
+- Opcional: loading messages when submitting
 - Ver la forma de editar los campos en las materias
-- Opcional: ver posibilidad de descargar PDF 
 - tabla de control de materias 
 -- http://stackoverflow.com/questions/3402295/html-table-with-horizontal-scrolling-first-column-fixed
 -- http://stackoverflow.com/questions/21777483/how-to-add-horizontal-scroll-bar-to-specific-columns-of-html-table-without-using **
@@ -106,6 +106,7 @@ http://stackoverflow.com/questions/31704309/laravel-5-1-sort-a-table
 http://stackoverflow.com/questions/27634285/laravel-4-pass-a-variable-to-route-in-javascript
 - Problema de la triple tabla pivot
 http://stackoverflow.com/questions/28580441/laravel-how-to-insert-data-in-case-of-three-way-pivot-table-using-attach-method
+- Descargar en PDF http://ngiriraj.com/pages/htmltable_export/demo.php
 
 # AJAX
 - http://webslesson.blogspot.com/2016/03/ajax-live-data-search-using-jquery-php-mysql.html

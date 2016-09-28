@@ -19,7 +19,7 @@
 		</div>
 	</div>
 	<div>
-		<table class="table califications">
+		<table id="notasTable" class="table califications">
 			    <thead >
 					<th class="text-center">CI</th>
 					@foreach($materias as $materia)
@@ -41,9 +41,8 @@
 				@endforeach
 			    </tbody>
 		</table>
+		<a id="downloadPDF" class="btn btn-info" onClick ="$('#notasTable').tableExport({type:'pdf',escape:'false'});" href="#" target="_blank">Descargar</a>
 
 	</div>
 
-
-			
 @stop

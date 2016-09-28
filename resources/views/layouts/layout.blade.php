@@ -87,6 +87,11 @@
 	<script type="text/javascript" src="{{ URL::asset('js/aliadas.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>	
 	<script type="text/javascript" src="{{ URL::asset('js/jquery-ui.js') }}"></script>	
+	<script type="text/javascript" src="{{ URL::asset('js/tableExport.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/jquery.base64.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/jspdf/libs/sprintf.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/jspdf/jspdf.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/jspdf/libs/base64.js') }}"></script>
 <script>
 $(document).ready(function(){
 	$('#buscar').autocomplete({
