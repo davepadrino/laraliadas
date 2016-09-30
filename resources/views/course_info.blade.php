@@ -64,18 +64,18 @@
 				             <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						        <h4 class="modal-title">Editar relación: {{ $alumno-> nombre_persona }}-{{ $materia-> nombre_materia }}</h4>
-						    </div>
-						    {!! Form::model(['route'=> ['califMateria',$alumno->id], 'method'=>'delete'])!!}
+						    </div>    
+						    {!! Form::model([$materia,$alumno], array('route' => array('califMateria', $materia->id,$alumno->id, 'method'=>'put')))!!}
 						        <div class="modal-body">
 							        Información<br>
 							        {!! Form::label('Nota')!!}
-									{!! Form::text('nota_materia',0,['class'=>'form-control', 'placeholder'=>'Nota'])!!}
+									{!! Form::text('nota_materia','',['class'=>'form-control', 'placeholder'=>'Nota'])!!}
 							        {!! Form::label('Asistencia')!!}
-									{!! Form::text('asistencia',0,['class'=>'form-control', 'placeholder'=>'Asistencia'])!!}
+									{!! Form::text('asistencia','',['class'=>'form-control', 'placeholder'=>'Asistencia'])!!}
 							    </div>
 							    <div class="modal-footer">
 							        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-									<a href="{{ route('califMateria', ['materia'=>$materia->id,'alumno'=>$alumno->id]) }}" class="btn btn-primary">Guardar</a>        
+							        <button type="submit" class="btn btn-primary">Guardar</a>       
 								</div>
 							{!! Form::close() !!}
 						</div><!-- /.modal-content -->
@@ -92,13 +92,13 @@
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					        <h4 class="modal-title">Calificaciones finales de {{ $alumno-> nombre_persona }} en el curso {{ $current_curso-> nombre_curso }}</h4>
 					    </div>
-					    {!! Form::model(['route'=> ['califCurso',['curso'=>$current_curso->id,'alumno'=>$alumno->id]], 'method'=>'put'])!!}
+					    {!! Form::model([$current_curso,$alumno], array('route' => array('califCurso', $current_curso->id,$alumno->id, 'method'=>'put')))!!}
 					        <div class="modal-body">
 						        Información final del curso<br>
-						        {!! Form::label('Nota')!!}
-								{!! Form::text('nota_materia',0,['class'=>'form-control', 'placeholder'=>'Nota'])!!}
+						        {!! Form::label('Nota Final')!!}
+								{!! Form::text('nota_final','',['class'=>'form-control', 'placeholder'=>'Nota Final'])!!}
 						        {!! Form::label('Asistencia')!!}
-								{!! Form::text('asistencia',0,['class'=>'form-control', 'placeholder'=>'Asistencia'])!!}
+								{!! Form::text('asistencia','',['class'=>'form-control', 'placeholder'=>'Asistencia Final'])!!}
 						    </div>
 						    <div class="modal-footer">
 						        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

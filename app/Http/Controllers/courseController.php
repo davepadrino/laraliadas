@@ -266,16 +266,39 @@ class courseController extends Controller {
 	}
 
 	public function califMateria(Request $request, $materia_id, $alumn_id){
+		$data = array();
 		$alumno = \Aliadas\persona::find($alumn_id);
 		$materia = \Aliadas\materia::find($materia_id);
-		//echo $request->nota_materia;
-		echo " ";
-		return "alumno ".$alumno." materia ".$materia. "NOTA: ".$request->nota_materia;
+		$data['persona_id'] = $alumno->id;
+		$data['materia_id'] = $materia->id;
+		$data['calificacion'] = $request->nota_materia;
+		$data['asistencia'] = $request->asistencia;
+		$result = DB::table('materia_persona')
+		->where('persona_id', $alumno->id)
+		->where('materia_id', $materia->id)
+		->get();
+		//DB::table('materia_persona')->insert($data);
+		return redirect()->back();
+		//return $data;
+		//return "alumno ".$alumno." materia ".$materia. "NOTA: ".$request->nota_materia." Asistencias: ".$request->asistencia;
 	}
 
-	public function califCurso($course_id, $alumn_id){
+	public function califCurso(Request $request, $course_id, $alumn_id){
+		$data = array();
 		$alumno = \Aliadas\persona::find($alumn_id);
-		return redirect()->back();
+		$curso = \Aliadas\curso::find($course_id);
+		$data['persona_id'] = $alumno->id;
+		$data['curso_id'] = $curso->id;
+		$data['nota_final'] = $request->nota_final;
+		$data['asistencia'] = $request->asistencia;
+		$result = DB::table('curso_persona')
+		->where('persona_id', $alumno->id)
+		->where('curso_id', $curso->id)
+		->get();
+		//DB::table('curso_persona')->insert($data);
+		//return redirect()->back();
+		return $data;
+		//return "alumno ".$alumno." materia ".$materia. "NOTA: ".$request->nota_materia." Asistencias: ".$request->asistencia;
 	}		
 
 

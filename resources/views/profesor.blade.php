@@ -72,7 +72,7 @@
 						            <thead>
 						                <th class="text-center">Nombre</th>
 						                <th class="text-center">Correo Electrónico</th>
-						                <th class="text-center">Editar</th>
+						                <th class="text-center">Ver/Editar</th>
 						                <th class="text-center">Eliminar</th>
 						            </thead>
 									@foreach($profs as $prof)
