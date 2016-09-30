@@ -31,12 +31,12 @@ Route::get('/cursos/mujeres-hacedoras/{id}', array('as'=>'hacedoras', 'uses'=>'c
 Route::resource('admin', 'userController');
 Route::resource('sedes', 'sedeController');
 Route::any('{curso_id}/profesor-materia', array('as'=>'prof-materia', 'uses'=>'courseController@viewProfMat'));
-
 Route::get('/curso/profesor', array('as'=>'getProf', 'uses'=>'courseController@getProf'));
 Route::get('/curso/materia', array('as'=>'getMat', 'uses'=>'courseController@getMat'));
 Route::any('/curso/profMateria', array('as'=>'addProfMat', 'uses'=>'courseController@addProfMat'));
 Route::any('/curso/delProfMateria/{id}', array('as'=>'delProfMat', 'uses'=>'courseController@delProfMat'));
-
+Route::any('/curso/calificacion/{materia_id}/{alumn_id}', array('as'=>'califMateria', 'uses'=>'courseController@califMateria'));
+Route::any('/curso/calificacion/{course_id}/{alumn_id}', array('as'=>'califCurso', 'uses'=>'courseController@califCurso'));
 
 
 
@@ -51,9 +51,6 @@ Route::get('/personas/alumnos', array('as'=>'getAlumno', 'uses'=>'personaControl
 Route::any('{curso_id}/personas/addAlumn/{ci}', array('as'=>'addAlumno', 
 								'uses'=>'personaController@addAlumnos'));
 Route::resource('personas', 'personaController');
-
-
-
 
 
 

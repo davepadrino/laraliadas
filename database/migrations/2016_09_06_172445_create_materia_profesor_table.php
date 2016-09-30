@@ -15,7 +15,7 @@ class CreateMateriaProfesorTable extends Migration {
 		Schema::create('materia_profesor', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamps();
+			$table->nullableTimestamps();
 			$table->integer('materia_id');
 			$table->integer('profesor_id');
 

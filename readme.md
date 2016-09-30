@@ -34,6 +34,7 @@ BE:
 # Pendiente Short Term
 - Busqueda de alumno por cedula en "agregar alumno" **, sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso
 
+- TERINAR VISTA DE INFO_CURSO, NO SE PASAN VALORES AL HACER SUBMIT
 - Opcional: loading messages when submitting
 - Ver la forma de editar los campos en las materias
 - tabla de control de materias 

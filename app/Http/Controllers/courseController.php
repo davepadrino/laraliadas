@@ -12,26 +12,6 @@ use Illuminate\Http\Request;
 class courseController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
@@ -49,28 +29,6 @@ class courseController extends Controller {
 			'user_id' => Auth::user()->id,
 			]);
 		return Redirect::to('/principal');
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
 	}
 
 	/**
@@ -304,6 +262,19 @@ class courseController extends Controller {
 		->where('id', $id)
 		->delete();
 		Session::flash('delMessage', 'Relación eliminada correctamente');
+		return redirect()->back();
+	}
+
+	public function califMateria(Request $request, $materia_id, $alumn_id){
+		$alumno = \Aliadas\persona::find($alumn_id);
+		$materia = \Aliadas\materia::find($materia_id);
+		//echo $request->nota_materia;
+		echo " ";
+		return "alumno ".$alumno." materia ".$materia. "NOTA: ".$request->nota_materia;
+	}
+
+	public function califCurso($course_id, $alumn_id){
+		$alumno = \Aliadas\persona::find($alumn_id);
 		return redirect()->back();
 	}		
 

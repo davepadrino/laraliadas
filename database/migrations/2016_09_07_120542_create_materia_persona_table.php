@@ -18,9 +18,10 @@ class CreateMateriaPersonaTable extends Migration {
 			$table->integer('materia_id');
 			$table->integer('persona_id');
 			$table->string('calificacion');
+			$table->string('asistencia');
 			$table->string('area_proyecto');
 				
-			$table->timestamps();
+			$table->nullableTimestamps();
 		});
 	}
 

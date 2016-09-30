@@ -17,7 +17,7 @@ class CreateCursoMateriaTable extends Migration {
 			$table->increments('id');
 			$table->integer('curso_id');
 			$table->integer('materia_id');				
-			$table->timestamps();
+			$table->nullableTimestamps();
 		});
 	}
 

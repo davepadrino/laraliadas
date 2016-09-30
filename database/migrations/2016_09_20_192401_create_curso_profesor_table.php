@@ -17,7 +17,7 @@ class CreateCursoProfesorTable extends Migration {
 			$table->increments('id');
 			$table->integer('curso_id');
 			$table->integer('profesor_id');
-			$table->timestamps();
+			$table->nullableTimestamps();
 		});
 	}
 
