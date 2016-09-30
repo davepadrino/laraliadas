@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 @section('title', 'Resultado de Búsqueda')
 @section('content')	
-<h2>Resultado de Búsqueda</h2>
 <!-- mensaje de edicion de usuario-->
 @if(Session::has('message'))
     <div class="alert alert-success alert-dismissible" role="alert">
@@ -15,18 +14,113 @@
        {{ Session::get('Delmessage') }}
 	</div>
 @endif
+
+<div class="container well">
+	<div class= "page-header">
+		<h2>{{ $result->nombre_persona}}</h2>
+	</div>
+	<div class="col-md-6">
+		<br>
+		<dl>
+			<dt>Cédula</dt>
+			<dd>
+				{{$result->ci_persona}}
+			</dd>
+			<br>
+
+		    <dt>Género</dt>
+		    <dd>
+		    	{{ $result->genero_persona }}
+		    </dd>
+		    <br>
+		    <dt>Fecha de Nacimiento</dt>
+		    <dd>
+		        {{ $result->fecha_nacimiento_persona }}
+		        &nbsp;
+		    </dd>
+		    <br>
+
+		    <dt> Dirección </dt>
+		    <dd>
+		    	{{ $result-> direccion_persona }}
+		    </dd>
+		    <br>
+
+		    <dt>Número telefónico</dt>
+		    <dd>
+		        {{ $result->numero_telefonico_persona }}
+		        &nbsp;
+		    </dd>
+		    <br>
+
+		    <dt>Correo electrónico</dt>
+		    <dd>
+		        {{ $result->email_persona }}
+		        &nbsp;
+		    </dd>
+		    <br>
+	    </dl>
+    </div>
+    <div class="col-md-6">
+		<table class="table">
+
+		    <thead>
+			    <th>Cursos</th>
+			    <th>Nota</th>
+		    </thead>
+		    <tbody>
+		    <tr>
+		       	<td>
+		       	@foreach( $result->cursos as $curso)
+				    @if($curso->tipo_curso == 'Emprendedoras en Cadena' )
+		       			<li><a href="{{ route('emprendedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>
+					@elseif ($curso->tipo_curso == 'Escuela Taller')
+						<li><a href="{{ route('esctaller', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
+					@else
+						<li><a href="{{ route('hacedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
+					@endif
+		       	@endforeach
+		       	</td>
+		       	<td>
+		       		<p> 0 </p>
+		       	</td>      
+
+		        
+		    </tr>
+		    </tbody>
+		    </table>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<button type="button" class="btn btn-primary btn-lg"  type="button" data-toggle="modal" data-target="#modalEditPerson">
+	<span class="glyphicon glyphicon-pencil"></span>
+</button>
+
+<button type="button" class="btn btn-danger btn-lg"  type="button" data-toggle="modal" data-target="#modalRemovePerson">
+	<span class="glyphicon glyphicon-remove"></span>
+</button>
+</div>
+
+<!--
 <table class="table">
+
     <thead>
-	    <th>Cédula de Identidad</th>
-	    <th>Nombre y Apellido</th>
 	    <th>Cursos</th>
+	    <th>Nota</th>
 	    <th>Editar</th>
 	    <th>Eliminar</th>
     </thead>
     <tbody>
     <tr>
-        <td>{{ $result->ci_persona }}</td>
-       	<td>{{ $result->nombre_persona }}</td>
        	<td>
        	@foreach( $result->cursos as $curso)
 		    @if($curso->tipo_curso == 'Emprendedoras en Cadena' )
@@ -37,7 +131,9 @@
 				<li><a href="{{ route('hacedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
 			@endif
        	@endforeach
-       	</td>      
+       	</td>
+       	<td>
+       		<p> 0 </p>      
         <td>
         	<button type="button" class="btn btn-primary"  type="button" data-toggle="modal" data-target="#modalEditPerson">
         		<span class="glyphicon glyphicon-pencil"></span>
@@ -51,6 +147,7 @@
     </tr>
     </tbody>
     </table>
+    -->
     <div id="modalEditPerson" class="modal fade" tabindex="-1" role="dialog">
 	    <div class="modal-dialog" role="document">
 	  		<div class="modal-content">
