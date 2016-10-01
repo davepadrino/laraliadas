@@ -34,18 +34,17 @@ BE:
 # Pendiente Short Term
 - Busqueda de alumno por cedula en "agregar alumno" **, sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso
 
+- personalizar las vistas dependiendo del tipo de curso
 - Filtros en busqueda de cursos, profesores, materias
 - Opcional: loading messages when submitting
-- Ver la forma de editar los campos en las materias
-- tabla de control de materias 
 -- http://stackoverflow.com/questions/3402295/html-table-with-horizontal-scrolling-first-column-fixed
 -- http://stackoverflow.com/questions/21777483/how-to-add-horizontal-scroll-bar-to-specific-columns-of-html-table-without-using **
 -- http://stackoverflow.com/questions/19794211/horizontal-scroll-on-overflow-of-table
-- personalizar las vistas dependiendo del tipo de curso
 
 
 # Pendiente Mid Term
-- Establecer sesiones
+- Plugin mejorado para descargar PDF
+- Establecer sesiones y averiguar duracion de las sesiones
 - Permisos del admin para un usuario que pueda ver todos los cursos
 - una vez finalizado solo se puede editar el nombre
 - una vez iniciado no deberia poder cambiarse la fecha inicio

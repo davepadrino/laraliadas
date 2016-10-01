@@ -36,28 +36,35 @@
 							</a>
 						</td>
 						@foreach($materias as $materia)
-						<td class="text-center">
-							<a href="#" data-target="#editNote{{$alumno->id}}-{{$materia->id}}" data-toggle="modal">
-								calif1 / asist1 {{ $alumno->nombre_persona }}
-							</a>
-						</td>
+							@foreach($recordsArray as $record)
+								@if($record->persona_id == $alumno->id && $record->materia_id == $materia->id)
+								<td class="text-center">
+									<a href="#" data-target="#editNote{{$alumno->id}}-{{$materia->id}}" data-toggle="modal">
+										{{ $record->calificacion }}
+									</a>
+								</td>
+								@endif
+							@endforeach
 						@endforeach
-						<td class="text-center">
-							<a href="#" data-target="#editNoteC{{$alumno->id}}-{{$current_curso->id}}" data-toggle="modal">
-								calif Final / asist Final {{ $alumno->nombre_persona }}
-							</a>
-						</td>
-				@endforeach
-
+						@foreach($courseArray as $course)
+							@if($course->persona_id == $alumno->id)
+							<td class="text-center">
+								<a href="#" data-target="#editNoteC{{$alumno->id}}-{{$current_curso->id}}" data-toggle="modal">
+									{{ $course->nota_final }}
+								</a>
+							</td>
+							@endif
+						@endforeach
 					</tr>	    	
+				@endforeach
 			    </tbody>
 		</table>
 		<a id="downloadPDF" class="btn btn-info" onClick ="$('#notasTable').tableExport({type:'pdf',escape:'false'});" href="#" target="_blank">Descargar</a>
-
 	</div>
-		@foreach($alumnos as $alumno)
-			@foreach($materias as $materia)
-				<input type="hidden" id="person_id" name = "person_id" value="{{ $alumno->id }}">
+	@foreach($alumnos as $alumno)
+		@foreach($materias as $materia)
+			@foreach($recordsArray as $record)
+				@if($record->persona_id == $alumno->id && $record->materia_id == $materia->id)
 				<div id="editNote{{$alumno->id}}-{{$materia->id}}" class="modal fade" tabindex="-1" role="dialog">
 				    <div class="modal-dialog modal-sm" role="document">
 					    <div class="modal-content">
@@ -69,9 +76,9 @@
 						        <div class="modal-body">
 							        Información<br>
 							        {!! Form::label('Nota')!!}
-									{!! Form::text('nota_materia','',['class'=>'form-control', 'placeholder'=>'Nota'])!!}
+									{!! Form::text('nota_materia',$record->calificacion,['class'=>'form-control', 'placeholder'=>'Nota'])!!}
 							        {!! Form::label('Asistencia')!!}
-									{!! Form::text('asistencia','',['class'=>'form-control', 'placeholder'=>'Asistencia'])!!}
+									{!! Form::text('asistencia',$record->asistencia,['class'=>'form-control', 'placeholder'=>'Asistencia'])!!}
 							    </div>
 							    <div class="modal-footer">
 							        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -81,33 +88,37 @@
 						</div><!-- /.modal-content -->
 					</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->	
+				@endif
 			@endforeach
-		@endforeach	
-		@foreach($alumnos as $alumno)
-			<input type="hidden" id="person_id" name = "person_id" value="{{ $alumno->id }}">
+		@endforeach
+	@endforeach	
+	@foreach($alumnos as $alumno)
+		@foreach($courseArray as $course)
+			@if($course->persona_id == $alumno->id)
 			<div id="editNoteC{{$alumno->id}}-{{$current_curso->id}}" class="modal fade" tabindex="-1" role="dialog">
 			    <div class="modal-dialog modal-sm" role="document">
 				    <div class="modal-content">
 			             <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        <h4 class="modal-title">Calificaciones finales de {{ $alumno-> nombre_persona }} en el curso {{ $current_curso-> nombre_curso }}</h4>
+					        <h4 class="modal-title">Calificación final de {{ $alumno-> nombre_persona }} en el curso {{ $current_curso-> nombre_curso }}</h4>
 					    </div>
 					    {!! Form::model([$current_curso,$alumno], array('route' => array('califCurso', $current_curso->id,$alumno->id, 'method'=>'put')))!!}
 					        <div class="modal-body">
-						        Información final del curso<br>
 						        {!! Form::label('Nota Final')!!}
-								{!! Form::text('nota_final','',['class'=>'form-control', 'placeholder'=>'Nota Final'])!!}
-						        {!! Form::label('Asistencia')!!}
-								{!! Form::text('asistencia','',['class'=>'form-control', 'placeholder'=>'Asistencia Final'])!!}
+								{!! Form::text('nota_final',$course->nota_final,['class'=>'form-control', 'placeholder'=>'Nota Final'])!!}
+						        {!! Form::label('Asistencia Final del Curso')!!}
+								{!! Form::text('asistencia',$course->asistencia,['class'=>'form-control', 'placeholder'=>'Asistencia Final'])!!}
 						    </div>
 						    <div class="modal-footer">
 						        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-								<button type="submit" class="btn btn-primary">Guardar</a>        
+								<button type="submit" class="btn btn-primary">Guardar</a>
 							</div>
 						{!! Form::close() !!}
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->	
+			@endif
 		@endforeach
+	@endforeach
 
 @stop

@@ -35,8 +35,8 @@ Route::get('/curso/profesor', array('as'=>'getProf', 'uses'=>'courseController@g
 Route::get('/curso/materia', array('as'=>'getMat', 'uses'=>'courseController@getMat'));
 Route::any('/curso/profMateria', array('as'=>'addProfMat', 'uses'=>'courseController@addProfMat'));
 Route::any('/curso/delProfMateria/{id}', array('as'=>'delProfMat', 'uses'=>'courseController@delProfMat'));
-Route::any('/curso/calificacion/{materia_id}/{alumn_id}', array('as'=>'califMateria', 'uses'=>'courseController@califMateria'));
-Route::any('/curso/calificacion/{course_id}/{alumn_id}', array('as'=>'califCurso', 'uses'=>'courseController@califCurso'));
+Route::any('/curso/materia-alumno/{materia_id}/{alumn_id}', array('as'=>'califMateria', 'uses'=>'courseController@califMateria'));
+Route::any('/curso/curso-alumno/{course_id}/{alumn_id}', array('as'=>'califCurso', 'uses'=>'courseController@califCurso'));
 
 
 

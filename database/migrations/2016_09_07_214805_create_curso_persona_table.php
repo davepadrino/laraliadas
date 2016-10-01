@@ -17,7 +17,7 @@ class CreateCursoPersonaTable extends Migration {
 			$table->increments('id');
 			$table->integer('curso_id');
 			$table->integer('persona_id');
-			$table->string('nota_final');
+			$table->string('nota_final')->default("0");
 			$table->string('asistencia');
 			$table->nullableTimestamps();
 		});

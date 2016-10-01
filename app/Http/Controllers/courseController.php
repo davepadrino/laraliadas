@@ -87,7 +87,8 @@ class courseController extends Controller {
 
 
 	public function  emprendedorasNamed($id){
-		$materias = array();
+		$recordsArray = array();
+		$courseArray = array();
 		$tipo_curso = "Emprendedoras en Cadena";
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
@@ -104,16 +105,30 @@ class courseController extends Controller {
 				->where('persona_id', $alumno->id)
 				->where('materia_id', $materia->id)
 				->get();
-				if(count($result) == 0){
+				if(count($result) == 0){ // Verifica que el registro NO esté
 					DB::table('materia_persona')->insert($data);
+					$result = DB::table('materia_persona')
+					->where('persona_id', $alumno->id)
+					->where('materia_id', $materia->id)
+					->get();
+					$recordsArray[] = $result[0];
+				}else{ // en caso que si esté
+					$recordsArray[] = $result[0];
 				}
 			}
+			$result2 = DB::table('curso_persona')
+				->where('curso_id', $current_curso->id)
+				->where('persona_id', $alumno->id)
+				->get();
+			$courseArray[] = $result2[0];
 		}
-		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));
+		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));
+		//return $recordsArray;
 	}
 
 	public function  tallerNamed($id){
-		$materias = array();		
+		$recordsArray = array();
+		$courseArray = array();
 		$tipo_curso = "Escuela - Taller";
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
@@ -130,16 +145,29 @@ class courseController extends Controller {
 				->where('persona_id', $alumno->id)
 				->where('materia_id', $materia->id)
 				->get();
-				if(count($result) == 0){
+				if(count($result) == 0){ // Verifica que el registro NO esté
 					DB::table('materia_persona')->insert($data);
+					$result = DB::table('materia_persona')
+					->where('persona_id', $alumno->id)
+					->where('materia_id', $materia->id)
+					->get();
+					$recordsArray[] = $result[0];
+				}else{ // en caso que si esté
+					$recordsArray[] = $result[0];
 				}
 			}
+			$result2 = DB::table('curso_persona')
+				->where('curso_id', $current_curso->id)
+				->where('persona_id', $alumno->id)
+				->get();
+			$courseArray[] = $result2[0];
 		}		
-		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));	
+		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));	
 	}
 
 	public function  hacedorasNamed($id){
-		$materias = array();		
+		$recordsArray = array();	
+		$courseArray = array();	
 		$tipo_curso = "Mujeres Hacedoras";
 		$current_curso = \Aliadas\curso::find($id);
 		$nombre_curso = $current_curso['nombre_curso'];
@@ -156,12 +184,24 @@ class courseController extends Controller {
 				->where('persona_id', $alumno->id)
 				->where('materia_id', $materia->id)
 				->get();
-				if(count($result) == 0){
+				if(count($result) == 0){ // Verifica que el registro NO esté
 					DB::table('materia_persona')->insert($data);
+					$result = DB::table('materia_persona')
+					->where('persona_id', $alumno->id)
+					->where('materia_id', $materia->id)
+					->get();
+					$recordsArray[] = $result[0];
+				}else{ // en caso que si esté
+					$recordsArray[] = $result[0];
 				}
 			}
+			$result2 = DB::table('curso_persona')
+				->where('curso_id', $current_curso->id)
+				->where('persona_id', $alumno->id)
+				->get();
+			$courseArray[] = $result2[0];			
 		}		
-		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias'));	
+		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));	
 	}
 
 
@@ -269,17 +309,11 @@ class courseController extends Controller {
 		$data = array();
 		$alumno = \Aliadas\persona::find($alumn_id);
 		$materia = \Aliadas\materia::find($materia_id);
-		$data['persona_id'] = $alumno->id;
-		$data['materia_id'] = $materia->id;
-		$data['calificacion'] = $request->nota_materia;
-		$data['asistencia'] = $request->asistencia;
 		$result = DB::table('materia_persona')
 		->where('persona_id', $alumno->id)
 		->where('materia_id', $materia->id)
-		->get();
-		//DB::table('materia_persona')->insert($data);
+		->update(['calificacion' => $request->nota_materia, 'asistencia' => $request->asistencia]); //Falta asistencia
 		return redirect()->back();
-		//return $data;
 		//return "alumno ".$alumno." materia ".$materia. "NOTA: ".$request->nota_materia." Asistencias: ".$request->asistencia;
 	}
 
@@ -287,17 +321,12 @@ class courseController extends Controller {
 		$data = array();
 		$alumno = \Aliadas\persona::find($alumn_id);
 		$curso = \Aliadas\curso::find($course_id);
-		$data['persona_id'] = $alumno->id;
-		$data['curso_id'] = $curso->id;
-		$data['nota_final'] = $request->nota_final;
-		$data['asistencia'] = $request->asistencia;
+		//$data['asistencia'] = $request->asistencia;
 		$result = DB::table('curso_persona')
 		->where('persona_id', $alumno->id)
 		->where('curso_id', $curso->id)
-		->get();
-		//DB::table('curso_persona')->insert($data);
-		//return redirect()->back();
-		return $data;
+		->update(['nota_final' => $request->nota_final, 'asistencia' => $request->asistencia]); //Falta asistencia
+		return redirect()->back();
 		//return "alumno ".$alumno." materia ".$materia. "NOTA: ".$request->nota_materia." Asistencias: ".$request->asistencia;
 	}		
 
