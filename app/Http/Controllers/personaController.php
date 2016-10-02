@@ -61,7 +61,7 @@ class personaController extends Controller {
 			$persona = \Aliadas\persona::create([
 				'ci_persona'=> $request['ci_persona'],
 				'nombre_persona'=> $request['nombre_persona'],
-				'numero_telefonico_profesor'=> $request['numero_telefonico_profesor'],
+				'numero_telefonico_persona'=> $request['numero_telefonico_persona'],
 				'genero_persona'=> $request['genero_persona'],
 				'fecha_nacimiento_persona'=> $request['fecha_nacimiento_persona'],
 				'direccion_persona'=> $request['direccion_persona'],

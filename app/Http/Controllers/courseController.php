@@ -18,17 +18,24 @@ class courseController extends Controller {
 	 */
 	public function store(Request $request)
 	{	
-    	$cursos = \Aliadas\curso::All();
-		\Aliadas\curso::create([
-			'nombre_curso'=> $request['name'],
-			'tipo_curso'=> $request['tipo_curso'],
-			'estado_curso'=> $request['state'],
-			'incio_curso'=> $request['startDate'],
-			'fin_curso'=> $request['endDate'],
-			'sede_id' => $request['sede_id'],
-			'user_id' => Auth::user()->id,
-			]);
-		return Redirect::to('/principal');
+
+		if(strtotime($request['endDate']) < strtotime($request['startDate']) ){
+			Session::flash('date_validator', 'Fecha de finalización debe ser mayor que fecha de inicio');
+			return redirect()->back();
+
+		}else{
+			$cursos = \Aliadas\curso::All();
+			\Aliadas\curso::create([
+				'nombre_curso'=> $request['name'],
+				'tipo_curso'=> $request['tipo_curso'],
+				'estado_curso'=> $request['state'],
+				'incio_curso'=> $request['startDate'],
+				'fin_curso'=> $request['endDate'],
+				'sede_id' => $request['sede_id'],
+				'user_id' => Auth::user()->id,
+				]);
+			return Redirect::to('/principal');
+		}
 	}
 
 	/**

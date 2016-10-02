@@ -25,7 +25,6 @@ PASOS:
 
 
 
-
 # Tareas
 
 BE:
@@ -33,7 +32,11 @@ BE:
 
 # Pendiente Short Term
 - Busqueda de alumno por cedula en "agregar alumno" **, sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso
-
+- Cuando termine el curso según fecha de finalizado , cambiar estado de curso a finalizado
+- Buscar profesores también en la barra de busqueda para poder tener una vista donde ve el número de teléfono,correo , etc
+- plugin de calendario
+- formato de fechas
+- vista de info de los profesores 
 - personalizar las vistas dependiendo del tipo de curso
 - Filtros en busqueda de cursos, profesores, materias
 - Opcional: loading messages when submitting
@@ -46,14 +49,15 @@ BE:
 - Plugin mejorado para descargar PDF
 - Establecer sesiones y averiguar duracion de las sesiones
 - Permisos del admin para un usuario que pueda ver todos los cursos
-- una vez finalizado solo se puede editar el nombre
-- una vez iniciado no deberia poder cambiarse la fecha inicio
-- solo la coordinadora puede borrar cursos
+- Una vez finalizado el curso solo se puede editar el nombre
+- Una vez iniciado no deberia poder cambiarse la fecha inicio
+- Solo la coordinadora puede borrar cursos
 - Coordinadora crea materias y ve todas las sedes
 - Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
 - Enviar correo de reestablecimiento de contraseña en lugar de editar contraseña manualmente por el admin
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
 - TokenMismatch
+- Cambiar status del curso a finalizado cuando culmine la fecha de finalizacion
 
 # Final
 - CI y email prof unique

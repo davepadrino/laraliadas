@@ -9,6 +9,12 @@
 				<div>
 					<h2> Crear Curso </h2>
 				</div>
+					@if(Session::has('date_validator'))
+		    			<div class="alert alert-warning alert-dismissible" role="alert">
+				    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				       {{ Session::get('date_validator') }}
+						</div>
+					@endif
 				{!! Form::open(['route'=>'cursos.store', 'method'=>'post'])!!}
 					<table id="form">
 						<tr>

@@ -6,7 +6,7 @@ class curso extends Model {
 
 	//
 	protected $table = 'cursos';
-	protected $fillable = ['nombre_curso', 'incio_curso', 'fin_curso','tipo_curso','estado_curso','descripcion_curso', 'sede_id', 'user_id'];
+	protected $fillable = ['nombre_curso', 'inicio_curso', 'fin_curso','tipo_curso','estado_curso','descripcion_curso', 'sede_id', 'user_id'];
 	
 	public function sede() {
 	    return $this->belongsTo('Aliadas\sede'); //sede_id para todos los belongsTO
