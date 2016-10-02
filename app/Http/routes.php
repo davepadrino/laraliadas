@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,8 +9,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-
 Route::resource('/backAccessXyZ', 'backCtrl'); 
 Route::resource('/', 'Index');
 Route::resource('logout', 'Index@logout');
@@ -37,9 +34,6 @@ Route::any('/curso/profMateria', array('as'=>'addProfMat', 'uses'=>'courseContro
 Route::any('/curso/delProfMateria/{id}', array('as'=>'delProfMat', 'uses'=>'courseController@delProfMat'));
 Route::any('/curso/materia-alumno/{materia_id}/{alumn_id}', array('as'=>'califMateria', 'uses'=>'courseController@califMateria'));
 Route::any('/curso/curso-alumno/{course_id}/{alumn_id}', array('as'=>'califCurso', 'uses'=>'courseController@califCurso'));
-
-
-
 Route::resource('cursos', 'courseController');
 Route::resource('profesores', 'profesorController');
 Route::resource('materias', 'materiaController');
@@ -51,9 +45,6 @@ Route::get('/personas/alumnos', array('as'=>'getAlumno', 'uses'=>'personaControl
 Route::any('{curso_id}/personas/addAlumn/{ci}', array('as'=>'addAlumno', 
 								'uses'=>'personaController@addAlumnos'));
 Route::resource('personas', 'personaController');
-
-
-
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

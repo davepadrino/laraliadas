@@ -48,7 +48,10 @@
 						<tr>
 							<td>
 							{!! Form::label('Fecha de Inicio')!!}
-							{!! Form::date('startDate', \Carbon\Carbon::now(),['class'=>'form-control', 'id'=>'startDate'] )!!}
+								<div class="input-group input-append date" id="datePicker">
+				                    {!! Form::date('startDate', \Carbon\Carbon::now(),['class'=>'form-control', 'id'=>'startDate'] )!!} 
+				                 	<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                				</div>
 							</td>
 						</tr>
 						<tr>
@@ -88,4 +91,14 @@
 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 			</div>
 		</div>
+
+<script>
+	$(document).ready(function() {
+	    $('#datePicker')
+
+	        .datepicker({
+	            format: 'dd/mm/yyyy'
+	    })
+	});
+</script>
 @stop
