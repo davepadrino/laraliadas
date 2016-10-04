@@ -31,11 +31,10 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
+- Arreglar la persistencia del número de telefono de los profesores
 - Busqueda de alumno por cedula en "agregar alumno" **, sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso
 - Cuando termine el curso según fecha de finalizado , cambiar estado de curso a finalizado
 - Buscar profesores también en la barra de busqueda para poder tener una vista donde ve el número de teléfono,correo , etc
-- plugin de calendario
-- formato de fechas
 - vista de info de los profesores 
 - personalizar las vistas dependiendo del tipo de curso
 - Filtros en busqueda de cursos, profesores, materias
