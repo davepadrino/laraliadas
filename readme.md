@@ -74,7 +74,16 @@ M prof(belong) - N MATERIAS(has many)*
 N personas(belong) - M cursos(has many) *
 
 
+# Problemas con el calendario
 
+- aliadas.css alarga el calendario. en la linea 44 modificando el estilo de tr
+esto afecta a
+1. Inicio de sesión
+2. Tabla de cursos actuales
+3. Probablemente todas las tablas , no es algo TAN relevante.. 
+
+- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+- <script type="text/javascript" src="public/js/jquery-ui.js"></script>
 
 
 

@@ -47,17 +47,20 @@
 						</tr>						
 						<tr>
 							<td>
-							{!! Form::label('Fecha de Inicio')!!}
+								{!! Form::label('Fecha de Inicio')!!}
 								<div class="input-group input-append date" id="datePicker">
-				                    {!! Form::date('startDate', \Carbon\Carbon::now(),['class'=>'form-control', 'id'=>'startDate'] )!!} 
+				                    {!! Form::date('startDate',\Carbon\Carbon::now(),['class'=>'form-control', 'id'=>'startDate','type'=> 'text'] )!!} 
 				                 	<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                 				</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
-							{!! Form::label('Fecha de Fin')!!}
-							{!! Form::date('endDate', null,['class'=>'form-control', 'id'=>'startDate'] )!!}
+								{!! Form::label('Fecha de Fin')!!}
+								<div class="input-group input-append date" id="datePicker">
+				                    {!! Form::date('endDate', null,['class'=>'form-control', 'id'=>'startDate', 'type' => 'text'] )!!}
+				                 	<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                				</div>
 							</td>
 						</tr>
 						<tr>
@@ -95,7 +98,6 @@
 <script>
 	$(document).ready(function() {
 	    $('#datePicker')
-
 	        .datepicker({
 	            format: 'dd/mm/yyyy'
 	    })
