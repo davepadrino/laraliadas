@@ -47,27 +47,18 @@
 						</tr>						
 						<tr>
 							<td>
-<<<<<<< HEAD
 								{!! Form::label('Fecha de Inicio')!!}
 								<div class="input-group input-append date" id="datePicker">
-				                    {!! Form::date('startDate',\Carbon\Carbon::now(),['class'=>'form-control', 'id'=>'startDate','type'=> 'text'] )!!} 
+				                    {!! Form::text('startDate',\Carbon\Carbon::now(),['class'=>'form-control', 'id'=>'startDate','type'=> 'text'] )!!} 
 				                 	<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                 				</div>
 							</td>
-=======
-							{!! Form::label('Fecha de Inicio')!!}
-							<div class="input-group date datePicker" >
-								{!! Form::date('startDate', ' ',['class'=>'form-control', 'id'=>'startDate'] )!!}
-			                    <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-			                </div>
-				        </td>
->>>>>>> 0304ce85fa97cffb98ecaf450166812541acee9b
 						</tr>
 						<tr>
 							<td>
 								{!! Form::label('Fecha de Fin')!!}
-								<div class="input-group input-append date" id="datePicker">
-				                    {!! Form::date('endDate', null,['class'=>'form-control', 'id'=>'startDate', 'type' => 'text'] )!!}
+								<div class="input-group input-append date" id="datePicker2">
+				                    {!! Form::text('endDate', null,['class'=>'form-control', 'id'=>'startDate', 'type' => 'text'] )!!}
 				                 	<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                 				</div>
 							</td>
@@ -105,14 +96,13 @@
 		</div>
 <script>
 	$(document).ready(function() {
-<<<<<<< HEAD
 	    $('#datePicker')
-=======
-	    $('.datePicker')
-
->>>>>>> 0304ce85fa97cffb98ecaf450166812541acee9b
 	        .datepicker({
-	            format: 'dd/mm/yyyy'
+	            format: 'dd-mm-yyyy'
+	    })
+	   	$('#datePicker2')
+	        .datepicker({
+	            format: 'dd-mm-yyyy'
 	    })
 	});
 </script>
