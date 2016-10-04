@@ -17,5 +17,4 @@ class profesor extends Model {
 	public function cursos() {
     	return $this->belongsToMany('Aliadas\curso', 'curso_profesor', 'profesor_id', 'curso_id');
     }
-
 }

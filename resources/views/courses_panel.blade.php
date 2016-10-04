@@ -43,7 +43,7 @@
 
 				        <td class="text-center">{{ $curso->sede->nombre_sede }}</td>
 				        <td class="text-center">{{ $curso->estado_curso}}</td>
-				        <td class="text-center"> {{ $curso->incio_curso }} / {{ $curso->fin_curso }}</td>
+				        <td class="text-center"> {{ Carbon\Carbon::parse($curso->incio_curso )->format('d/m/Y') }} / {{ Carbon\Carbon::parse($curso->fin_curso)->format('d/m/Y') }}</td>
 
 				        <td class="text-center"><button id ="editCourse" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalCourse{{$curso->id}}" data-id="{{ $curso->id }}" ></button></td>
 
@@ -77,10 +77,17 @@
 									{!! Form::text('nombre_curso',$curso->nombre_curso,['class'=>'form-control'])!!}
 
 									{!! Form::label('Fecha de inicio')!!}
-									{!! Form::date('incio_curso',$curso->inicio_curso,['class'=>'form-control', 'id'=>'incio_curso'])!!}
+									<div class="input-group input-append date datePicker">
+										{!! Form::date('incio_curso',Carbon\Carbon::parse($curso->incio_curso )->format('d/m/Y'),['class'=>'form-control', 'id'=>'incio_curso'])!!}
+										<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+									</div>
 
 									{!! Form::label('Fecha de fin')!!}
-									{!! Form::date('fin_curso',$curso->fin_curso,['class'=>'form-control', 'id'=>'fin_curso'])!!}
+									
+									<div class="input-group input-append date datePicker">
+										{!! Form::date('fin_curso',Carbon\Carbon::parse($curso->fin_curso)->format('d/m/Y') ,['class'=>'form-control', 'id'=>'fin_curso'])!!}
+										<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+									</div>
 
 									{!! Form::label('Estado de Curso')!!}
 									{!! Form::select('state',
@@ -134,5 +141,14 @@
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->	
+			<script>
+				$(document).ready(function() {
+						$('.datePicker')
+				        .datepicker({
+				            format: 'dd/mm/yyyy'
+				    	})
+				});
+			</script>
 			@endforeach
+
 @stop

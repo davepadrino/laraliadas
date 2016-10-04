@@ -26,8 +26,8 @@
 			        	    -->
 				            <td>{{ $curso->tipo_curso }}</td>
 				           	<td>{{ $curso->sede->nombre_sede }}</td>
-				            <td>{{ $curso->incio_curso }}</td>
-				            <td>{{ $curso->fin_curso }}</td>
+				            <td>{{ Carbon\Carbon::parse($curso->incio_curso )->format('d/m/Y') }}</td>
+				            <td>{{ Carbon\Carbon::parse($curso->fin_curso)->format('d/m/Y') }}</td>
 			        </tr>
 			    @endforeach
 			    </tbody>

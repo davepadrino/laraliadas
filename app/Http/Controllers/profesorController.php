@@ -40,7 +40,7 @@ class profesorController extends Controller {
 		\Aliadas\profesor::create([
 			'nombre_profesor'=> $request['nombre_profesor'],
 			'ci_profesor'=> $request['ci_profesor'],
-			'numero_telefonico_profesor'=> $request['telef_profesor'],
+			'numero_telefonico_profesor'=> $request['numero_telefonico_profesor'],
 			'email_profesor'=> $request['email_profesor'],
 			'user_id' => Auth::user()->id,
 			]);

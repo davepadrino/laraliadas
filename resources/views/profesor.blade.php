@@ -44,7 +44,7 @@
 				                    <tr>
 				                        <td>
 				                        	{!! Form::label('Número de Teléfono')!!}
-											{!! Form::text('telef_profesor',null,['class'=>'form-control', 'placeholder'=>'04141234567'])!!}				
+											{!! Form::text('numero_telefonico_profesor',null,['class'=>'form-control', 'placeholder'=>'04141234567'])!!}				
 				                        </td>
 				                    </tr>
 				                    <tr>

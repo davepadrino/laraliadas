@@ -8,6 +8,7 @@ use Redirect;
 use DB;
 use Input;
 use Illuminate\Http\Request;
+use DateTime;
 
 class courseController extends Controller {
 
@@ -19,10 +20,12 @@ class courseController extends Controller {
 	public function store(Request $request)
 	{	
 
+		$request['startDate'] = DateTime::createFromFormat('d/m/Y', $request['startDate'] )->format('Y-m-d');
+		$request['endDate'] = DateTime::createFromFormat('d/m/Y', $request['endDate'] )->format('Y-m-d');
+
 		if(strtotime($request['endDate']) < strtotime($request['startDate']) ){
 			Session::flash('date_validator', 'Fecha de finalización debe ser mayor que fecha de inicio');
 			return redirect()->back();
-
 		}else{
 			$cursos = \Aliadas\curso::All();
 			\Aliadas\curso::create([
@@ -46,15 +49,24 @@ class courseController extends Controller {
 	 */
 	public function update($id, Request $request )
 	{
-		$curso = \Aliadas\curso::find($id);		
-		$curso->nombre_curso = $request->nombre_curso;
-		$curso->incio_curso = $request->incio_curso;
-		$curso->fin_curso = $request->fin_curso;
-		$curso->estado_curso = $request->state;
-		$curso->descripcion_curso = $request->descriptionCourse;
-		$curso-> save();
-		Session::flash('flash_message', 'Curso Editado Correctamente');
-		return redirect()->back();
+
+		$request->incio_curso = DateTime::createFromFormat('d/m/Y', $request->incio_curso )->format('Y-m-d');
+		$request->fin_curso = DateTime::createFromFormat('d/m/Y', $request->fin_curso)->format('Y-m-d');
+
+		if(strtotime($request->fin_curso) < strtotime($request->incio_curso)){
+			Session::flash('date_validator', 'Fecha de finalización debe ser mayor que fecha de inicio');
+			return redirect()->back();
+		}else{
+			$curso = \Aliadas\curso::find($id);		
+			$curso->nombre_curso = $request->nombre_curso;
+			$curso->incio_curso = $request->incio_curso;
+			$curso->fin_curso = $request->fin_curso;
+			$curso->estado_curso = $request->state;
+			$curso->descripcion_curso = $request->descriptionCourse;
+			$curso-> save();
+			Session::flash('flash_message', 'Curso Editado Correctamente');
+			return redirect()->back();
+		}
 	}
 
 	/**

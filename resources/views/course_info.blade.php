@@ -10,8 +10,8 @@
 	@endif
 	<div class="row">
 		<div class="col-md-6">
-			<h3>Fecha de Inicio: {{$current_curso-> incio_curso}}</h3>
-			<h3>Fecha de Fin: {{$current_curso-> fin_curso}}</h3>
+			<h3>Fecha de Inicio: {{ Carbon\Carbon::parse($current_curso-> incio_curso )->format('d/m/Y')}}</h3>
+			<h3>Fecha de Fin: {{ Carbon\Carbon::parse($current_curso-> fin_curso)->format('d/m/Y') }}</h3>
 		</div>
 		<div class="col-md-6">
 			<h3>Estado: {{$current_curso-> estado_curso}}</h3>
