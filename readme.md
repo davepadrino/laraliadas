@@ -31,13 +31,13 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- Arreglar la persistencia del número de telefono de los profesores
 - Busqueda de alumno por cedula en "agregar alumno" **, sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso
+- vista de info de los profesores 
+- Filtros en busqueda de cursos, profesores, materias
+- Arreglar la persistencia del número de telefono de los profesores
 - Cuando termine el curso según fecha de finalizado , cambiar estado de curso a finalizado
 - Buscar profesores también en la barra de busqueda para poder tener una vista donde ve el número de teléfono,correo , etc
-- vista de info de los profesores 
 - personalizar las vistas dependiendo del tipo de curso
-- Filtros en busqueda de cursos, profesores, materias
 - Opcional: loading messages when submitting
 -- http://stackoverflow.com/questions/3402295/html-table-with-horizontal-scrolling-first-column-fixed
 -- http://stackoverflow.com/questions/21777483/how-to-add-horizontal-scroll-bar-to-specific-columns-of-html-table-without-using **
@@ -51,7 +51,7 @@ BE:
 - Una vez finalizado el curso solo se puede editar el nombre
 - Una vez iniciado no deberia poder cambiarse la fecha inicio
 - Solo la coordinadora puede borrar cursos
-- Coordinadora crea materias y ve todas las sedes
+- Coordinadora crea materias y profesores y ve todas las sedes
 - Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
 - Enviar correo de reestablecimiento de contraseña en lugar de editar contraseña manualmente por el admin
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
@@ -71,6 +71,8 @@ M persona(has many) - N materias *
 M curso(has many) - n materia(belong)*
 M prof(belong) - N MATERIAS(has many)*
 N personas(belong) - M cursos(has many) *
+
+
 
 
 # Problemas con el calendario
