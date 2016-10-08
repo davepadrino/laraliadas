@@ -7,6 +7,7 @@ use Session;
 use Redirect;
 use Input;
 use Illuminate\Http\Request;
+use DateTime;
 
 class personaController extends Controller {
 
@@ -40,6 +41,7 @@ class personaController extends Controller {
 	//public function store($course_id, Request $request)
 	public function store(Request $request)
 	{
+
 		// Una vez agregadas materias deben incluirse aca para relacionarlas con el alumno y el ID de las materias q verá
 		$curso = \Aliadas\curso::find($request->course_id);
 		$alumnos = \Aliadas\curso::find($curso->id)->personas;
@@ -58,18 +60,20 @@ class personaController extends Controller {
 			}
 		}
 
-			$persona = \Aliadas\persona::create([
-				'ci_persona'=> $request['ci_persona'],
-				'nombre_persona'=> $request['nombre_persona'],
-				'numero_telefonico_persona'=> $request['numero_telefonico_persona'],
-				'genero_persona'=> $request['genero_persona'],
-				'fecha_nacimiento_persona'=> $request['fecha_nacimiento_persona'],
-				'direccion_persona'=> $request['direccion_persona'],
-				'email_persona'=> $request['email_persona'],
-				]);
-			$persona->cursos()->attach($curso->id);	
-			Session::flash('flash_message', 'Alumno ha sido creado e inscrito al curso!');
-			return redirect()->back();
+		$request['fecha_nacimiento_persona'] = DateTime::createFromFormat('d/m/Y', $request['fecha_nacimiento_persona'])->format('Y-m-d');
+
+		$persona = \Aliadas\persona::create([
+			'ci_persona'=> $request['ci_persona'],
+			'nombre_persona'=> $request['nombre_persona'],
+			'numero_telefonico_persona'=> $request['numero_telefonico_persona'],
+			'genero_persona'=> $request['genero_persona'],
+			'fecha_nacimiento_persona'=> $request['fecha_nacimiento_persona'],
+			'direccion_persona'=> $request['direccion_persona'],
+			'email_persona'=> $request['email_persona'],
+			]);
+		$persona->cursos()->attach($curso->id);	
+		Session::flash('flash_message', 'Alumno ha sido creado e inscrito al curso!');
+		return redirect()->back();
 			
 				
 
@@ -156,11 +160,19 @@ class personaController extends Controller {
 	 */
 	public function update($id, Request $request)
 	{
+		$request->fecha_nacimiento_persona = DateTime::createFromFormat('d/m/Y', $request->fecha_nacimiento_persona)->format('Y-m-d');
 		$persona = \Aliadas\persona::find($id);
 		$persona->fill($request->all());
+		$persona->fecha_nacimiento_persona = $request->fecha_nacimiento_persona;
+		/*$persona->ci_persona = $request->ci_persona;
+		$persona->nombre_persona = $request->nombre_persona;
+		$persona->numero_telefonico_persona = $request->numero_telefonico_persona;
+		$persona->genero_persona = $request->genero_persona;
+		$persona->fecha_nacimiento_persona = $request->fecha_nacimiento_persona;
+		$persona->direccion_persona = $request->direccion_persona;
+		$persona->email_persona = $request->email_persona;*/
 		$persona-> save();
 		Session::flash('message', 'Alumno Editado Correctamente');
-		//return redirect()->back();
 		return redirect()->back();
 	}
 

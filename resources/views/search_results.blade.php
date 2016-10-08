@@ -35,8 +35,7 @@
 		    <br>
 		    <dt>Fecha de Nacimiento</dt>
 		    <dd>
-		        {{ $result->fecha_nacimiento_persona }}
-		        &nbsp;
+		    	{{ Carbon\Carbon::parse($result->fecha_nacimiento_persona )->format('d/m/Y') }}
 		    </dd>
 		    <br>
 
@@ -49,14 +48,12 @@
 		    <dt>Número telefónico</dt>
 		    <dd>
 		        {{ $result->numero_telefonico_persona }}
-		        &nbsp;
 		    </dd>
 		    <br>
 
 		    <dt>Correo electrónico</dt>
 		    <dd>
 		        {{ $result->email_persona }}
-		        &nbsp;
 		    </dd>
 		    <br>
 	    </dl>
@@ -165,7 +162,7 @@
 
 						{!! Form::label('Fecha de Nacimiento')!!}
 						<div class="input-group input-append date datePicker">
-						{!! Form::text('fecha_nacimiento_persona',$result->fecha_nacimiento_persona,['class'=>'form-control'])!!}
+						{!! Form::text('fecha_nacimiento_persona',Carbon\Carbon::parse($result->fecha_nacimiento_persona)->format('d/m/Y') ,['class'=>'form-control'])!!}
 							<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                 		</div>
 

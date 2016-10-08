@@ -2,13 +2,13 @@
 @section('title', 'Principal')
 @section('content')
 	<h2>Cursos Actuales</h2>
-			<table class="table" >
+			<table class="table" id="tablaprincipal">
 			    <thead>
-					    <th>Nombre del Curso</th>
+					    <th>Nombre del Curso </p></th>
 					    <th>Tipo del Curso</th>
 					    <th>Sede</th>
-					    <th >Fecha de Inicio</th>
-					    <th >Fecha de Fin</th>
+					    <th>Fecha de Inicio</th>
+					    <th>Fecha de Fin</th>
 			    </thead>
 			    <tbody>
 			    @foreach($cursos as $curso)
