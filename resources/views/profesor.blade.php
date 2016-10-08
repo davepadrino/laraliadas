@@ -107,7 +107,7 @@
 												{!! Form::text('email_profesor',$prof->email_profesor,['class'=>'form-control', 'id'=>'email_profesor'])!!}
 
 					                        	{!! Form::label('Número de Teléfono')!!}	
-												{!! Form::text('telef_profesor',$prof->numero_telefonico_profesor,['class'=>'form-control'])!!}											
+												{!! Form::text('numero_telefonico_profesor',$prof->numero_telefonico_profesor,['class'=>'form-control'])!!}											
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

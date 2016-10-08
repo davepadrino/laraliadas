@@ -102,7 +102,10 @@
 				                    <tr>
 				                        <td>
 				                        {!! Form::label('Fecha de Nacimiento')!!}
-				                        {!! Form::date('fecha_nacimiento_persona',null,['class'=>'form-control'])!!}
+				                        <div class="input-group input-append date datePicker">
+				                       		{!! Form::date('fecha_nacimiento_persona',null,['class'=>'form-control'])!!}
+				                        	<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                						</div>
 				                        </td>
 				                    </tr>
 				                    <tr>
@@ -184,7 +187,8 @@
 			</div><!-- /.modal -->	
 		@endforeach
 <script>
-$(document).ready(function(){
+			
+	$(document).ready(function(){
 	var instance;
 	$('#searchAlumn').autocomplete({
 		source: '{!! URL::route('getAlumno') !!}',
@@ -214,6 +218,10 @@ $(document).ready(function(){
 	    	//console.log("valor de search field "+$(this).val());
 
 	});
+	$('.datePicker')
+	        .datepicker({
+	            format: 'dd/mm/yyyy'
+	    	})
 
 });
 

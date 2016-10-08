@@ -34,9 +34,7 @@ BE:
 - Busqueda de alumno por cedula en "agregar alumno" **, sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso
 - vista de info de los profesores 
 - Filtros en busqueda de cursos, profesores, materias
-- Arreglar la persistencia del número de telefono de los profesores
 - Cuando termine el curso según fecha de finalizado , cambiar estado de curso a finalizado
-- Buscar profesores también en la barra de busqueda para poder tener una vista donde ve el número de teléfono,correo , etc
 - personalizar las vistas dependiendo del tipo de curso
 - Opcional: loading messages when submitting
 -- http://stackoverflow.com/questions/3402295/html-table-with-horizontal-scrolling-first-column-fixed

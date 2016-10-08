@@ -164,7 +164,10 @@
 						{!! Form::text('nombre_persona',$result->nombre_persona,['class'=>'form-control'])!!}
 
 						{!! Form::label('Fecha de Nacimiento')!!}
+						<div class="input-group input-append date datePicker">
 						{!! Form::text('fecha_nacimiento_persona',$result->fecha_nacimiento_persona,['class'=>'form-control'])!!}
+							<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                		</div>
 
 						{!! Form::label('Género')!!}
 						{!! Form::select('genero_persona',array
@@ -209,4 +212,12 @@
 	</div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->	
+<script>
+	$(document).ready(function() {
+			$('.datePicker')
+	        .datepicker({
+	            format: 'dd/mm/yyyy'
+	    	})
+	});
+</script>
 @stop
