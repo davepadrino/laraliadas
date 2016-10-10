@@ -73,12 +73,9 @@ class personaController extends Controller {
 			]);
 		$persona->cursos()->attach($curso->id);	
 		Session::flash('flash_message', 'Alumno ha sido creado e inscrito al curso!');
-		return redirect()->back();
-			
-				
+		return redirect()->back();	
 
 	}
-
 
 	/**
 	 * delete the specified resource from pivot table.

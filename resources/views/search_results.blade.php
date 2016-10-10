@@ -60,7 +60,6 @@
     </div>
     <div class="col-md-6">
 		<table class="table">
-
 		    <thead>
 			    <th>Cursos</th>
 			    <th>Nota</th>
@@ -68,19 +67,23 @@
 		    <tbody>
 		    <tr>
 		       	<td>
-		       	@foreach( $result->cursos as $curso)
-				    @if($curso->tipo_curso == 'Emprendedoras en Cadena' )
-		       			<li><a href="{{ route('emprendedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>
-					@elseif ($curso->tipo_curso == 'Escuela Taller')
-						<li><a href="{{ route('esctaller', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
-					@else
-						<li><a href="{{ route('hacedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
-					@endif
-		       	@endforeach
+			       	@foreach( $result->cursos as $curso)
+					    @if($curso->tipo_curso == 'Emprendedoras en Cadena' )
+			       			<li><a href="{{ route('emprendedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>
+						@elseif ($curso->tipo_curso == 'Escuela Taller')
+							<li><a href="{{ route('esctaller', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
+						@else
+							<li><a href="{{ route('hacedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
+						@endif
 		       	</td>
 		       	<td>
-		       		<p> 0 </p>
-		       	</td>      
+				       	@foreach( $recordsArray as $record)
+				       		@if( $record->curso_id == $curso->id )
+				       		{{ $record->nota_final }}
+				       		@endif
+				       	@endforeach
+				</td>
+			       	@endforeach      
 
 		        
 		    </tr>
@@ -88,6 +91,7 @@
 		    </table>
 
     </div>
+
     <br>
     <br>
     <br>
@@ -98,53 +102,15 @@
     <br>
     <br>
 
-<button type="button" class="btn btn-primary btn-lg"  type="button" data-toggle="modal" data-target="#modalEditPerson">
-	<span class="glyphicon glyphicon-pencil"></span>
-</button>
+	<button type="button" class="btn btn-primary btn-lg"  type="button" data-toggle="modal" data-target="#modalEditPerson">
+		<span class="glyphicon glyphicon-pencil"></span>
+	</button>
 
-<button type="button" class="btn btn-danger btn-lg"  type="button" data-toggle="modal" data-target="#modalRemovePerson">
-	<span class="glyphicon glyphicon-remove"></span>
-</button>
+	<button type="button" class="btn btn-danger btn-lg"  type="button" data-toggle="modal" data-target="#modalRemovePerson">
+		<span class="glyphicon glyphicon-remove"></span>
+	</button>
 </div>
 
-<!--
-<table class="table">
-
-    <thead>
-	    <th>Cursos</th>
-	    <th>Nota</th>
-	    <th>Editar</th>
-	    <th>Eliminar</th>
-    </thead>
-    <tbody>
-    <tr>
-       	<td>
-       	@foreach( $result->cursos as $curso)
-		    @if($curso->tipo_curso == 'Emprendedoras en Cadena' )
-       			<li><a href="{{ route('emprendedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>
-			@elseif ($curso->tipo_curso == 'Escuela Taller')
-				<li><a href="{{ route('esctaller', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
-			@else
-				<li><a href="{{ route('hacedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
-			@endif
-       	@endforeach
-       	</td>
-       	<td>
-       		<p> 0 </p>      
-        <td>
-        	<button type="button" class="btn btn-primary"  type="button" data-toggle="modal" data-target="#modalEditPerson">
-        		<span class="glyphicon glyphicon-pencil"></span>
-        	</button>
-        </td>        
-        <td>
-        	<button type="button" class="btn btn-danger"  type="button" data-toggle="modal" data-target="#modalRemovePerson">
-        		<span class="glyphicon glyphicon-remove"></span>
-        	</button>
-        </td>
-    </tr>
-    </tbody>
-    </table>
-    -->
     <div id="modalEditPerson" class="modal fade" tabindex="-1" role="dialog">
 	    <div class="modal-dialog" role="document">
 	  		<div class="modal-content">
@@ -214,7 +180,7 @@
 			$('.datePicker')
 	        .datepicker({
 	            format: 'dd/mm/yyyy'
-	    	})
+	    	});
 	});
 </script>
 @stop

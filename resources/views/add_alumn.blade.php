@@ -223,7 +223,7 @@
 	$('.datePicker')
 	        .datepicker({
 	            format: 'dd/mm/yyyy'
-	    	});
+	    	})
 
 });
 

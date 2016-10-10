@@ -47,7 +47,6 @@
 						</tr>						
 						<tr>
 							<td>
-							
 								{!! Form::label('Fecha de Inicio')!!}
 								<div class="input-group input-append date datePicker">
 				                    {!! Form::text('startDate',Carbon\Carbon::parse(\Carbon\Carbon::now())->format('d/m/Y'),['class'=>'form-control', 'id'=>'startDate'] )!!} 

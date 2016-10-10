@@ -7,6 +7,7 @@ use Auth;
 use Session;
 use Redirect;
 use Input;
+use DB;
 use Illuminate\Http\Request;
 
 
@@ -190,7 +191,18 @@ class Index extends Controller {
 		$data = \Aliadas\persona::where('ci_persona', 'LIKE', $buscar)->get();
 		$data = $data[0]['id'];
 		$result = \Aliadas\persona::find($data);
-		return view('search_results', compact('result'));
-	}
+		$id_curso =  $result->cursos[0]['id'];
+		$result2 = DB::table('curso_persona')
+				->where('curso_id', $id_curso )
+				->where('persona_id', $data)
+				->get();
+		$recordsArray[] = $result2[0];
 
+		/*[{"id":1,"curso_id":25,"persona_id":9,"nota_final":"A","asistencia":"10","created_at":null,"updated_at":null}]*/
+
+		/*{"id":9,"nombre_persona":"424","ci_persona":424,"genero_persona":"Masculino","numero_telefonico_persona":"2424","email_persona":"user23@gmail.com","direccion_persona":"424","fecha_nacimiento_persona":"2016-10-04","created_at":"2016-10-08 17:43:08","updated_at":"2016-10-08 17:43:08","cursos":[{"id":25,"nombre_curso":"prueba10","incio_curso":"2016-10-08","fin_curso":"2016-10-19","tipo_curso":"Emprendedoras en Cadena","estado_curso":"En curso","descripcion_curso":"","created_at":"2016-10-08 17:33:48","updated_at":"2016-10-08 17:33:48","sede_id":1,"user_id":3,"pivot":{"persona_id":9,"curso_id":25}}]}*/
+
+
+		return view('search_results', compact('result','recordsArray'));
+	}
 }
