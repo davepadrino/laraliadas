@@ -65,31 +65,28 @@
 			    <th>Nota</th>
 		    </thead>
 		    <tbody>
-		    <tr>
-		       	<td>
-			       	@foreach( $result->cursos as $curso)
-					    @if($curso->tipo_curso == 'Emprendedoras en Cadena' )
-			       			<li><a href="{{ route('emprendedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>
-						@elseif ($curso->tipo_curso == 'Escuela Taller')
-							<li><a href="{{ route('esctaller', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
-						@else
-							<li><a href="{{ route('hacedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
-						@endif
-		       	</td>
-		       	<td>
-				       	@foreach( $recordsArray as $record)
-				       		@if( $record->curso_id == $curso->id )
-				       		{{ $record->nota_final }}
-				       		@endif
-				       	@endforeach
-				</td>
-			       	@endforeach      
-
-		        
-		    </tr>
+		    	@foreach( $result->cursos as $curso)
+			    <tr>
+			       	<td>
+				    @if($curso->tipo_curso == 'Emprendedoras en Cadena' )
+		       			<a href="{{ route('emprendedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>
+					@elseif ($curso->tipo_curso == 'Escuela Taller')
+						<a href="{{ route('esctaller', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
+					@else
+						<a href="{{ route('hacedoras', [$curso->id]) }}">{{ $curso->nombre_curso }}</a></li>			
+					@endif
+			       	</td>
+			       	<td>
+			       	@foreach( $recordsArray as $record)
+			       		@if( $record->curso_id == $curso->id )
+			       			{{ $record->nota_final }}
+			       		@endif
+			       	@endforeach
+					</td>  	       
+			    </tr>
+			    @endforeach 
 		    </tbody>
-		    </table>
-
+		</table>
     </div>
 
     <br>

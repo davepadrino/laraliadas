@@ -32,7 +32,6 @@ BE:
 
 # Pendiente Short Term
 - Busqueda de alumno por cedula en "agregar alumno" **, sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso
-- vista de info de los profesores 
 - Filtros en busqueda de cursos, profesores, materias
 - Cuando termine el curso según fecha de finalizado , cambiar estado de curso a finalizado
 - personalizar las vistas dependiendo del tipo de curso

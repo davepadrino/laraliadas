@@ -17,24 +17,24 @@
 
 <div class="container well">
 	<div class= "page-header">
-		<h2>{{ $result->nombre_profesor}}</h2>
+		<h2>{{ $inforPersonal->nombre_profesor}}</h2>
 	</div>
 	<div class="col-md-6">
 		<br>
 		<dl>
 			<dt>Cédula</dt>
 			<dd>
-				{{$result->ci_profesor}}
+				{{$inforPersonal->ci_profesor}}
 			</dd>
 			<br>
 		    <dt>Número telefónico</dt>
 		    <dd>
-		        {{ $result->numero_numero_telefonico_profesor' }}
+		        {{ $inforPersonal->numero_telefonico_profesor }}
 		    </dd>
 		    <br>
 		    <dt>Correo electrónico</dt>
 		    <dd>
-		        {{ $result->email_profesor }}
+		        {{ $inforPersonal->email_profesor }}
 		    </dd>
 		    <br>
 	    </dl>
@@ -42,8 +42,28 @@
     <div class="col-md-6">
 		<table class="table">
 		    <thead>
-			    <th>Materias</th>
+			    <th>Curso</th>
+			    <th>Materia</th>
+
 		    </thead>
+		    <tbody>
+		    @foreach($cursosDados as $cursoDado)
+		    	@foreach($nombreCursos as $nombreCurso)
+		    		@foreach($nombreMaterias as $nombreMateria)
+		    			@if($cursoDado -> curso_id == $nombreCurso->id && $cursoDado -> materia_id == $nombreMateria->id)
+				    <tr>
+				       	<td>
+							{{ $nombreCurso->nombre_curso }}
+				       	</td>
+				       	<td>
+							{{ $nombreMateria->nombre_materia }}
+						</td>
+				    </tr>
+				    	@endif
+		    		@endforeach 
+		    	@endforeach
+		    @endforeach  
+		    </tbody>
 		</table>
 
     </div>

@@ -4,6 +4,7 @@ use Aliadas\Http\Controllers\Controller;
 use Auth;
 use Session;
 use Redirect;
+use DB;
 use Illuminate\Http\Request;
 class profesorController extends Controller {
 	/**
@@ -91,10 +92,19 @@ class profesorController extends Controller {
 	}
 
 	public function view($id){
-		print_r("hola");
-		exit();
-		$result = \Aliadas\profesor::find($id);
+
+		$inforPersonal = \Aliadas\profesor::find($id);
 		//return $result;
-		return view('profesor_view',compact($result));
+		$cursosDados = DB::table('curso_materia_profesors')
+				->where('profesor_id', $id)
+				->get();
+
+		$nombreCursos = \Aliadas\curso::all();
+
+		$nombreMaterias = \Aliadas\materia::all();
+
+
+
+		return view('profesor_view',compact('inforPersonal','cursosDados','nombreCursos','nombreMaterias'));
 	}
 }
