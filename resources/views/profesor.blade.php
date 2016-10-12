@@ -77,7 +77,7 @@
 						            </thead>
 									@foreach($profs as $prof)
 						            <tbody>
-						                <td class="text-center"><a href="{{ route('profesorView',$prof->id) }}">{{ $prof->nombre_profesor}}</a></td>
+						                <td class="text-center"><a href="/profesores/{{$prof->id}}">{{ $prof->nombre_profesor}}</a></td>
 						                <td class="text-center"> {{ $prof->email_profesor }}</td>
 
 

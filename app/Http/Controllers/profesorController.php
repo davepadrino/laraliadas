@@ -50,7 +50,20 @@ class profesorController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$inforPersonal = \Aliadas\profesor::find($id);
+		//return $result;
+		$cursosDados = DB::table('curso_materia_profesors')
+				->select('curso_id','materia_id')
+				->where('profesor_id', $id)
+				->get();
+
+		$nombreCursos = \Aliadas\curso::all();
+
+
+		$nombreMaterias = \Aliadas\materia::all();
+
+
+		return view('profesor_view',compact('inforPersonal','cursosDados','nombreCursos','nombreMaterias'));
 	}
 	/**
 	 * Show the form for editing the specified resource.
@@ -91,20 +104,4 @@ class profesorController extends Controller {
 		return redirect()->back();
 	}
 
-	public function view($id){
-
-		$inforPersonal = \Aliadas\profesor::find($id);
-		//return $result;
-		$cursosDados = DB::table('curso_materia_profesors')
-				->where('profesor_id', $id)
-				->get();
-
-		$nombreCursos = \Aliadas\curso::all();
-
-		$nombreMaterias = \Aliadas\materia::all();
-
-
-
-		return view('profesor_view',compact('inforPersonal','cursosDados','nombreCursos','nombreMaterias'));
-	}
 }

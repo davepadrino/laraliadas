@@ -137,7 +137,7 @@ class Index extends Controller {
 	{
 		$sedes = \Aliadas\sede::All();
 		$data = $sedes->lists('nombre_sede', 'id');
-		$cursos = \Aliadas\curso::orderBy('created_at', 'desc')->paginate(10);
+		$cursos = \Aliadas\curso::orderBy('created_at', 'desc')->paginate(7);
 		
 		//$cursos = \Aliadas\curso::where('sede_id', '=', 3)->get();
 		return  view('principal', compact('cursos','data'));
