@@ -77,8 +77,9 @@
 						            </thead>
 									@foreach($profs as $prof)
 						            <tbody>
-						                <td class="text-center">{{ $prof->nombre_profesor }}</td>
+						                <td class="text-center"><a href="{{ route('profesorView',$prof->id) }}">{{ $prof->nombre_profesor}}</a></td>
 						                <td class="text-center"> {{ $prof->email_profesor }}</td>
+
 
 						                <td class="text-center"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalProf{{$prof->id}}" data-id="{{ $prof->id }}" ></button></td>
 					                

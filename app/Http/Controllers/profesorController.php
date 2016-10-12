@@ -1,14 +1,11 @@
 <?php namespace Aliadas\Http\Controllers;
-
 use Aliadas\Http\Requests;
 use Aliadas\Http\Controllers\Controller;
 use Auth;
 use Session;
 use Redirect;
 use Illuminate\Http\Request;
-
 class profesorController extends Controller {
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -19,7 +16,6 @@ class profesorController extends Controller {
 		$profs = \Aliadas\profesor::paginate(6);
 		return  view('profesor', compact('profs'));
 	}
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -29,7 +25,6 @@ class profesorController extends Controller {
 	{
 		//
 	}
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -46,7 +41,6 @@ class profesorController extends Controller {
 			]);
 		return redirect()->back();
 	}
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -57,7 +51,6 @@ class profesorController extends Controller {
 	{
 		//
 	}
-
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -68,7 +61,6 @@ class profesorController extends Controller {
 	{
 		//
 	}
-
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -83,7 +75,6 @@ class profesorController extends Controller {
 		Session::flash('message', 'Profesor Editado Correctamente');
 		return redirect()->back();
 	}
-
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -99,4 +90,11 @@ class profesorController extends Controller {
 		return redirect()->back();
 	}
 
+	public function view($id){
+		print_r("hola");
+		exit();
+		$result = \Aliadas\profesor::find($id);
+		//return $result;
+		return view('profesor_view',compact($result));
+	}
 }

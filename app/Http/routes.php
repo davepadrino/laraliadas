@@ -36,6 +36,8 @@ Route::any('/curso/materia-alumno/{materia_id}/{alumn_id}', array('as'=>'califMa
 Route::any('/curso/curso-alumno/{course_id}/{alumn_id}', array('as'=>'califCurso', 'uses'=>'courseController@califCurso'));
 Route::resource('cursos', 'courseController');
 Route::resource('profesores', 'profesorController');
+Route::get('/profesores/{id}',array('as'=>'profesorView','uses'=>'profesorController@view'));
+
 Route::resource('materias', 'materiaController');
 Route::get('{id}/personas', array('as'=>'personas', 'uses'=>'personaController@index'));
 Route::get('personas/{id}', array('as'=>'delete-alumn', 'uses'=>'personaController@destroy'));
