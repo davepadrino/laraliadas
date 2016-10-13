@@ -46,7 +46,6 @@ class backCtrl extends Controller {
 	 */
 	public function store(Request $request)
 	{
-
 		\Aliadas\user::create([
 			'name'=> $request['name'],
 			'email'=> $request['email'],

@@ -79,73 +79,73 @@
 						
 					</div>
 					<div id = "showUsers" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						 <div>
+						<div>
 						    <h1>Usuarios</h1>
-						        <table class="table table-striped table-hover" >
-						            <thead>
-						                <th>Nombre de Usuario</th>
-						                <th>Correo Electrónico</th>
-						                <th>Rol</th>
-						                <th>Sede</th>
-						                <th>Editar</th>
-						                <th>Eliminar</th>
-						            </thead>
-									@foreach($users as $user)
-						            <tbody>
-						                <td>{{ $user->name }}</td>
-						                <td>{{ $user->email }}</td>
-						                <td>{{ $user->rol }}</td>
-						                <td>{{ $user->sede->nombre_sede }}</td>
-
-						                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalUser{{$user->id}}" data-id="{{ $user->id }}" ></button></td>
-					                
-						                <td class="text-right"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteUser{{$user->id}}" ></button></td>
-						            </tbody>
-									@endforeach 
-						        </table>
-						        {!! $users->render() !!}
+					        <table class="table table-striped table-hover" >
+					            <thead>
+					                <th>Nombre</th>
+					                <th>Correo Electrónico</th>
+					                <th>Rol</th>
+					                <th>Sede</th>
+					                <th>Editar</th>
+					                <th>Eliminar</th>
+					            </thead>
 								@foreach($users as $user)
-								<div id="modalUser{{$user->id}}" class="modal fade" tabindex="-1" role="dialog">
-									  <div class="modal-dialog" role="document">
-									    <div class="modal-content">
-									      <div class="modal-header">
-									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									        <h4 class="modal-title">Editar Usuario: {{ $user-> name }}</h4>
-									      </div>
-									      <div class="modal-body">
-									      {!! Form::model($user,['route'=> ['admin.update',$user->id], 'method'=>'put'])!!}
+					            <tbody>
+					                <td>{{ $user->name }}</td>
+					                <td>{{ $user->email }}</td>
+					                <td>{{ $user->rol }}</td>
+					                <td>{{ $user->sede->nombre_sede }}</td>
 
-									      		{!! Form::label('Nombre')!!}
-												{!! Form::text('name',$user->name,['class'=>'form-control'])!!}
+					                <td class="text-right"><button id ="edit" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalUser{{$user->id}}" data-id="{{ $user->id }}" ></button></td>
+				                
+					                <td class="text-right"><button class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDeleteUser{{$user->id}}" ></button></td>
+					            </tbody>
+								@endforeach 
+					        </table>
+					        {!! $users->render() !!}
+							@foreach($users as $user)
+							<div id="modalUser{{$user->id}}" class="modal fade" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								        <h4 class="modal-title">Editar Usuario: {{ $user-> name }}</h4>
+								      </div>
+								      <div class="modal-body">
+								      {!! Form::model($user,['route'=> ['admin.update',$user->id], 'method'=>'put'])!!}
 
-												{!! Form::label('Correo Electrónico')!!}
-												{!! Form::text('email',null,['class'=>'form-control', 'id'=>'email' ,'readonly'=>'true'])!!}
+								      		{!! Form::label('Nombre')!!}
+											{!! Form::text('name',$user->name,['class'=>'form-control'])!!}
 
-												{!! Form::label('Contraseña')!!}
-												{!! Form::password('password',['class'=>'form-control', 'id'=>'password'])!!}
+											{!! Form::label('Correo Electrónico')!!}
+											{!! Form::text('email',null,['class'=>'form-control', 'id'=>'email' ,'readonly'=>'true'])!!}
 
-												{!! Form::label('Rol')!!}
-				                        		{!! Form::select('rol',
-												array(
-												'Especialista Docente' => 'Especialista Docente', 
-												'Coordinadora' => 'Coordinadora',
-												'Administrador' => 'Administrador'), null, ['class'=>'form-control', 'id'=>'rol']
+											{!! Form::label('Contraseña')!!}
+											{!! Form::password('password',['class'=>'form-control', 'id'=>'password'])!!}
+
+											{!! Form::label('Rol')!!}
+			                        		{!! Form::select('rol',
+											array(
+											'Especialista Docente' => 'Especialista Docente', 
+											'Coordinadora' => 'Coordinadora',
+											'Administrador' => 'Administrador'), null, ['class'=>'form-control', 'id'=>'rol']
+			                        	)!!}
+				                        	{!! Form::label('Sede')!!}					
+											{!! Form::select('sede_id',
+												$data, 
+												 null, ['class'=>'form-control', 'id'=>'sede_id']
 				                        	)!!}
-					                        	{!! Form::label('Sede')!!}					
-												{!! Form::select('sede_id',
-													$data, 
-													 null, ['class'=>'form-control', 'id'=>'sede_id']
-					                        	)!!}
-									      </div>
-									      <div class="modal-footer">
-									        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-									        {!! Form::submit('Editar', ['class'=>'btn btn-primary'])!!}
-									        
-									      </div>
-									     {!! Form::close() !!}
-									    </div><!-- /.modal-content -->
-									</div><!-- /.modal-dialog -->
-								</div><!-- /.modal -->	
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+								        {!! Form::submit('Editar', ['class'=>'btn btn-primary'])!!}
+								        
+								      </div>
+								     {!! Form::close() !!}
+								    </div><!-- /.modal-content -->
+								</div><!-- /.modal-dialog -->
+							</div><!-- /.modal -->	
 								@endforeach	
 
 								@foreach($users as $user)

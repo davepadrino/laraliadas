@@ -13,9 +13,7 @@ use Illuminate\Http\Request;
 
 class Index extends Controller {
 
-	public function __construct(){
-		$this->middleware('auth', ['only'=>'admin']);
-	}
+
 	/**
 
 	 * Display a listing of the resource.
@@ -43,7 +41,7 @@ class Index extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(LoginRequest $request)
+	public function store(Request $request)
 	{
 		if(Auth::attempt(['email'=> $request['email'], 'password' => $request['password']])){
 			if(Auth::user()->rol == 'Administrador'){
