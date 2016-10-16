@@ -13,6 +13,28 @@ use DateTime;
 class courseController extends Controller {
 
 	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		//
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		//
+	}
+
+
+
+	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
@@ -40,6 +62,29 @@ class courseController extends Controller {
 			return Redirect::to('/principal');
 		}
 	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		//
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		//
+	}
+
 
 	/**
 	 * Update the specified resource in storage.
@@ -93,13 +138,15 @@ class courseController extends Controller {
 	}
 
 	public function  taller(){
-		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Escuela Taller')->orderBy('created_at', 'desc')->paginate(10);
+		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Escuela Taller')->
+			orderBy('created_at', 'desc')->paginate(10);
 		$nombre = "Escuela - Taller";
 		return view('courses_panel', compact('cursos', 'nombre'));
 	}
 
 	public function  hacedoras(){
-		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Mujeres Hacedoras')->orderBy('created_at', 'desc')->paginate(10);
+		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Mujeres Hacedoras')->
+			orderBy('created_at', 'desc')->paginate(10);
 		$nombre = "Mujeres Hacedoras";
 		return view('courses_panel', compact('cursos', 'nombre'));	
 	}

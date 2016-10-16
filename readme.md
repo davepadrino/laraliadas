@@ -32,13 +32,9 @@ BE:
 
 # Pendiente Short Term
 - Busqueda de alumno por cedula en "agregar alumno" **, sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso
-- Filtros en busqueda de cursos, profesores, materias
 - Cuando termine el curso según fecha de finalizado , cambiar estado de curso a finalizado
 - personalizar las vistas dependiendo del tipo de curso
 - Opcional: loading messages when submitting
--- http://stackoverflow.com/questions/3402295/html-table-with-horizontal-scrolling-first-column-fixed
--- http://stackoverflow.com/questions/21777483/how-to-add-horizontal-scroll-bar-to-specific-columns-of-html-table-without-using **
--- http://stackoverflow.com/questions/19794211/horizontal-scroll-on-overflow-of-table
 
 
 # Pendiente Mid Term
@@ -54,6 +50,7 @@ BE:
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
 - TokenMismatch
 - Cambiar status del curso a finalizado cuando culmine la fecha de finalizacion
+- Agregar todos los archivos .js a un archivo .js
 
 # Final
 - CI y email prof unique
@@ -118,7 +115,11 @@ http://stackoverflow.com/questions/27634285/laravel-4-pass-a-variable-to-route-i
 - Problema de la triple tabla pivot
 http://stackoverflow.com/questions/28580441/laravel-how-to-insert-data-in-case-of-three-way-pivot-table-using-attach-method
 - Descargar en PDF http://ngiriraj.com/pages/htmltable_export/demo.php
-
+- Scroll en las tablas
+how-to-add-horizontal-scroll-bar-to-specific-columns-of-html-table-without-using 
+ http://stackoverflow.com/questions/19794211/horizontal-scroll-on-overflow-of-table
+- jquery filtrado live search
+http://www.designchemical.com/blog/index.php/jquery/live-text-search-function-using-jquery/
 # AJAX
 - http://webslesson.blogspot.com/2016/03/ajax-live-data-search-using-jquery-php-mysql.html
 

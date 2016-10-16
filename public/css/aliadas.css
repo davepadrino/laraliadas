@@ -84,6 +84,9 @@ table {
   top: 3px;
 }
 
+.filterSpace{
+	float:right !important;
+}
 /* hola class="nav navbar-nav menu-options"*/
 
 *{
