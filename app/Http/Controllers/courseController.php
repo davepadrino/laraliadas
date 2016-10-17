@@ -189,7 +189,6 @@ class courseController extends Controller {
 			$courseArray[] = $result2[0];
 		}
 		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));
-		//return $recordsArray;
 	}
 
 	public function  tallerNamed($id){

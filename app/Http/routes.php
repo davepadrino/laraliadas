@@ -9,6 +9,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+
 Route::resource('/backAccessXyZ', 'backCtrl'); 
 
 Route::resource('update', 'Index@update');
@@ -16,13 +18,14 @@ Route::resource('/', 'Index');
 Route::resource('logout', 'Index@logout');
 Route::get('/principal', 'Index@principal'); 
 Route::get('/principal/getAlumnos', array('as'=>'getAlumnosIndex', 'uses'=>'Index@getAlumnos')); 
+
 Route::any('getAlumnosView', array('as'=>'getAlumnosView', 'uses'=>'Index@getAlumnosView')); 
 Route::get('/editar-usuario', 'Index@edit_user'); 
 Route::get('/recuperar-contraseña', 'Index@recover_psw'); 
 Route::get('/agregar-curso', 'Index@add_course');
 
 
-Route::resource('cursos', 'courseController');
+
 Route::get('/cursos/emprendedoras-en-cadena', 'courseController@emprendedoras'); 
 Route::get('/cursos/emprendedoras-en-cadena/{id}', array('as'=>'emprendedoras', 'uses'=>'courseController@emprendedorasNamed')); 
 Route::get('/cursos/escuela-taller', 'courseController@taller'); 
@@ -36,6 +39,7 @@ Route::any('/curso/profMateria', array('as'=>'addProfMat', 'uses'=>'courseContro
 Route::any('/curso/delProfMateria/{id}', array('as'=>'delProfMat', 'uses'=>'courseController@delProfMat'));
 Route::any('/curso/materia-alumno/{materia_id}/{alumn_id}', array('as'=>'califMateria', 'uses'=>'courseController@califMateria'));
 Route::any('/curso/curso-alumno/{course_id}/{alumn_id}', array('as'=>'califCurso', 'uses'=>'courseController@califCurso'));
+Route::resource('cursos', 'courseController');
 
 Route::resource('admin', 'userController');
 
