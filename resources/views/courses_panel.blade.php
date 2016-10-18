@@ -41,7 +41,7 @@
 			    </thead>
 			    <tbody>
 			    @foreach($cursos as $curso)
-			        <tr>
+			        <tr class = "currentMatches">
 				        @if ( $nombre  == 'Emprendedoras en Cadena')
 			        		<td class="text-center"><a href="{{ route('emprendedoras', $curso->id) }}">{{ $curso->nombre_curso }}</a></td>
 
