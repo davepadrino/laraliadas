@@ -14,6 +14,10 @@ use Illuminate\Http\Request;
 class Index extends Controller {
 
 
+	public function __construct(){
+		$this->middleware('auth', ['only'=>'admin']);
+	}
+
 	/**
 
 	 * Display a listing of the resource.
@@ -180,7 +184,8 @@ class Index extends Controller {
 			$results[] = ['value'=>$val->ci_persona];
 		}
 		$result = response()->json($results);
-
+		echo $result;
+		exit();
 		return $result;
 	}
 

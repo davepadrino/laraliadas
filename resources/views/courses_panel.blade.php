@@ -1,7 +1,17 @@
 @extends('layouts.layout')
 @section('title', 'Cursos')
 @section('content')
-	<h2>{{ $nombre }} </h2>
+	<div class="row">
+		<div class="col-md-4">
+			<h2>{{ $nombre }} </h2>
+		</div>
+		<div class="col-md-5 filterSpace">
+	    	<fieldset>
+	       		<input type="text" class="text-input" id="filter" placeholder="Filtrar cursos.." />
+	    	</fieldset>
+		</div>
+	</div>
+	
 	<!-- Validar Errores en el servidor-->
 	@include('alerts.request')
 	<!-- mensaje de creacion de usuario-->
@@ -31,7 +41,7 @@
 			    </thead>
 			    <tbody>
 			    @foreach($cursos as $curso)
-			        <tr>
+			        <tr class = "currentMatches">
 				        @if ( $nombre  == 'Emprendedoras en Cadena')
 			        		<td class="text-center"><a href="{{ route('emprendedoras', $curso->id) }}">{{ $curso->nombre_curso }}</a></td>
 
