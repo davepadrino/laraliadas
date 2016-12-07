@@ -146,7 +146,7 @@
                     	</div>
 			    	<div class="modal-footer">
 				        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-				        {!! Form::submit('Editar', ['class'=>'btn btn-primary'])!!}
+				        {!! Form::submit('Guardar', ['class'=>'btn btn-primary'])!!}
 			    	</div>
 			     	{!! Form::close() !!}
 			</div><!-- /.modal-content -->
@@ -172,12 +172,5 @@
 	</div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->	
-<script>
-	$(document).ready(function() {
-			$('.datePicker')
-	        .datepicker({
-	            format: 'dd/mm/yyyy'
-	    	});
-	});
-</script>
+<script type="text/javascript" src="{{ URL::asset('js/materias/materias.js') }}"></script>
 @stop

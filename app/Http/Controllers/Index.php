@@ -138,20 +138,20 @@ class Index extends Controller {
 		$cursos = \Aliadas\curso::orderBy('created_at', 'desc')->paginate(7);
 		
 		//$cursos = \Aliadas\curso::where('sede_id', '=', 3)->get();
-		return  view('principal', compact('cursos','data'));
+		return  view('principal/principal', compact('cursos','data'));
 	}
 
 	public function add_course()
 	{
 		$sedes = \Aliadas\sede::All();
 		$data = $sedes->lists('nombre_sede', 'id');
-		return  view('add_course', compact('data'));
+		return  view('agregar_curso/add_course', compact('data'));
 	}
 
 	public function edit_user()
 	{
 		$username = Auth::user();
-		return  view('edit_user', compact('username'));
+		return  view('edit_user/edit_user', compact('username'));
 	}
 
 	public function edit_course()
@@ -196,6 +196,6 @@ class Index extends Controller {
 				->get();
 		$recordsArray[] = $result2[0];
 
-		return view('search_results', compact('result','recordsArray'));
+		return view('search_results/search_results', compact('result','recordsArray'));
 	}
 }

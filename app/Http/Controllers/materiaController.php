@@ -17,7 +17,7 @@ class materiaController extends Controller {
 	public function index()
 	{
 		$mats = \Aliadas\materia::paginate(6);
-		return  view('materias', compact('mats'));
+		return  view('materias/materias', compact('mats'));
 	}
 
 	/**

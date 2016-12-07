@@ -95,12 +95,5 @@
 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 			</div>
 		</div>
-<script>
-	$(document).ready(function() {
-			$('.datePicker')
-	        .datepicker({
-	            format: 'dd/mm/yyyy'
-	    	});
-	});
-</script>
+    <script type="text/javascript" src="{{ URL::asset('js/agregar_curso/add_course.js') }}"></script>
 @stop

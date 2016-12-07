@@ -17,7 +17,7 @@ class sedeController extends Controller {
 	public function index()
 	{
 		$sedes = \Aliadas\sede::All();
-		return view('manage_sedes', compact('sedes'));	
+		return view('manage_sedes/manage_sedes', compact('sedes'));	
 	}
 
 	/**
@@ -49,8 +49,9 @@ class sedeController extends Controller {
 			'nombre_sede'=> $request['name'],
 			'ciudad_sede'=> $request['city'],
 			]);
-			//Session::flash('flash_message', 'Usuario creado satisfactoriamente!');
-		return view('manage_sedes', compact('sedes'));	
+			Session::flash('success_message', 'Sede creada satisfactoriamente!');
+		return redirect()->back();
+		//return view('manage_sedes/manage_sedes', compact('sedes'));	
 	}
 
 	/**

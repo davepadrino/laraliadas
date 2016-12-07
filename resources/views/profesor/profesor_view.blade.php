@@ -68,16 +68,6 @@
 
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
 	<button type="button" class="btn btn-primary btn-lg"  type="button" data-toggle="modal" data-target="#modalEditPerson">
 		<span class="glyphicon glyphicon-pencil"></span>
 	</button>
@@ -88,12 +78,6 @@
 </div>
 
 
-<script>
-	$(document).ready(function() {
-			$('.datePicker')
-	        .datepicker({
-	            format: 'dd/mm/yyyy'
-	    	});
-	});
-</script>
+	<script type="text/javascript" src="{{ URL::asset('js/profesor/profesor.js') }}"></script>
+
 @stop

@@ -141,14 +141,6 @@
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->	
-			<script>
-				$(document).ready(function() {
-						$('.datePicker')
-				        .datepicker({
-				            format: 'dd/mm/yyyy'
-				    	});
-				});
-			</script>
-			@endforeach
+	<script type="text/javascript" src="{{ URL::asset('js/materias/materias.js') }}"></script>
 
 @stop

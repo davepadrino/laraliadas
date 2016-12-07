@@ -134,6 +134,7 @@ class courseController extends Controller {
 	public function  emprendedoras(){
 		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Emprendedoras en Cadena')->orderBy('created_at', 'desc')->paginate(10);
 		$nombre = "Emprendedoras en Cadena";
+		echo "#hlsasasasas";
 		return view('courses_panel', compact('cursos', 'nombre'));
 	}
 
@@ -188,7 +189,7 @@ class courseController extends Controller {
 				->get();
 			$courseArray[] = $result2[0];
 		}
-		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));
+		return view('course_info/course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));
 		//return $recordsArray;
 	}
 
@@ -228,7 +229,7 @@ class courseController extends Controller {
 				->get();
 			$courseArray[] = $result2[0];
 		}		
-		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));	
+		return view('course_info/course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));	
 	}
 
 	public function  hacedorasNamed($id){
@@ -267,7 +268,7 @@ class courseController extends Controller {
 				->get();
 			$courseArray[] = $result2[0];			
 		}		
-		return view('course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));	
+		return view('course_info/course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));	
 	}
 
 

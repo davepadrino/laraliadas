@@ -139,7 +139,7 @@
 								      </div>
 								      <div class="modal-footer">
 								        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-								        {!! Form::submit('Editar', ['class'=>'btn btn-primary'])!!}
+								        {!! Form::submit('Guardar', ['class'=>'btn btn-primary'])!!}
 								        
 								      </div>
 								     {!! Form::close() !!}
@@ -174,15 +174,5 @@
 					</div>
 				</div>	
 
-			<script>
-				$(function() {
-				    $('.modal_user').on("show.bs.modal", function (e) {
-						var modal = $(this);
-				        modal.find('.modal-body #name').val($(e.relatedTarget).data('name'));	
-				        modal.find('.modal-body #email').val($(e.relatedTarget).data('email'));	
-				        modal.find('.modal-body #password').val($(e.relatedTarget).data('password'));	
-				        modal.find('.modal-body #rol').val($(e.relatedTarget).data('rol'));	         
-				    });
-				});
-			</script>
+	<script type="text/javascript" src="{{ URL::asset('js/users_admin/manage_users.js') }}"></script>
 @stop
