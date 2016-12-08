@@ -134,22 +134,21 @@ class courseController extends Controller {
 	public function  emprendedoras(){
 		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Emprendedoras en Cadena')->orderBy('created_at', 'desc')->paginate(10);
 		$nombre = "Emprendedoras en Cadena";
-		echo "#hlsasasasas";
-		return view('courses_panel', compact('cursos', 'nombre'));
+		return view('courses_panel/courses_panel', compact('cursos', 'nombre'));
 	}
 
 	public function  taller(){
 		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Escuela Taller')->
 			orderBy('created_at', 'desc')->paginate(10);
 		$nombre = "Escuela - Taller";
-		return view('courses_panel', compact('cursos', 'nombre'));
+		return view('courses_panel/courses_panel', compact('cursos', 'nombre'));
 	}
 
 	public function  hacedoras(){
 		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Mujeres Hacedoras')->
 			orderBy('created_at', 'desc')->paginate(10);
 		$nombre = "Mujeres Hacedoras";
-		return view('courses_panel', compact('cursos', 'nombre'));	
+		return view('courses_panel/courses_panel', compact('cursos', 'nombre'));	
 	}
 
 
@@ -285,7 +284,7 @@ class courseController extends Controller {
 							'materia'=>$materia_obj, 
 							'profesor'=>$profesor_obj ];
 		}
-		return view('materias_profesores', compact('current_curso','results'));
+		return view('materias_profesores/materias_profesores', compact('current_curso','results'));
 	}
 
 
