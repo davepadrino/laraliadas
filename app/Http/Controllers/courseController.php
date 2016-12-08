@@ -328,7 +328,7 @@ class courseController extends Controller {
 		foreach ($curso->profesors as $cp) {
 			$profesoresArray[] = $cp->id;
 		}
-		/* Si el prof no esta en el curso se agrega */
+		/* Si el prof no está en el curso se agrega */
 		if (!in_array($profesor['id'], $profesoresArray)){
 			$curso->profesors()->attach($profesor['id']);
 		}

@@ -14,6 +14,7 @@ class profesorController extends Controller {
 	 */
 	public function index()
 	{
+
 		$profs = \Aliadas\profesor::paginate(6);
 		return  view('profesor/profesor', compact('profs'));
 	}

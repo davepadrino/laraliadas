@@ -28,14 +28,7 @@ class CreateUsersTable extends Migration {
 					->references('id')
 					->on('sedes');
 
-		});
-		/*
-		Schema::table('users', function(Blueprint $table)
-		{
-			$table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
-		});
-		*/
-		
+		});		
 	}
 
 	/**
