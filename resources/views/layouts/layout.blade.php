@@ -115,10 +115,8 @@ $(document).ready(function(){
 		source: '{!! URL::route('getAlumnosIndex') !!}'
 	});
 	console.log($('#buscar').val())
-
 });
 </script>	
 
 </body>
 </html>
-
