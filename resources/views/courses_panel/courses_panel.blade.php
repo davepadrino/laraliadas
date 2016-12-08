@@ -151,6 +151,6 @@
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->	
-	<script type="text/javascript" src="{{ URL::asset('js/materias/materias.js') }}"></script>
-
+			<script type="text/javascript" src="{{ URL::asset('js/materias/materias.js') }}"></script>
+			@endforeach
 @stop
