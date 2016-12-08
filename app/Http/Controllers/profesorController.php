@@ -14,8 +14,9 @@ class profesorController extends Controller {
 	 */
 	public function index()
 	{
-		$profs = \Aliadas\profesor::paginate(3);
-		return  view('profesor', compact('profs'));
+
+		$profs = \Aliadas\profesor::paginate(6);
+		return  view('profesor/profesor', compact('profs'));
 	}
 	/**
 	 * Show the form for creating a new resource.
@@ -63,7 +64,7 @@ class profesorController extends Controller {
 		$nombreMaterias = \Aliadas\materia::all();
 
 
-		return view('profesor_view',compact('inforPersonal','cursosDados','nombreCursos','nombreMaterias'));
+		return view('profesor/profesor_view',compact('inforPersonal','cursosDados','nombreCursos','nombreMaterias'));
 	}
 	/**
 	 * Show the form for editing the specified resource.

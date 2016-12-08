@@ -25,7 +25,7 @@ class userController extends Controller {
 		$users = \Aliadas\user::paginate(6);
 		$sedes = \Aliadas\sede::All();
 		$data = $sedes->lists('nombre_sede', 'id');
-		return view('manage_users', compact('users','data'));
+		return view('users_admin/manage_users', compact('users','data'));
 		//return \Aliadas\user::with('sede')->get();
 
 	}
@@ -37,7 +37,7 @@ class userController extends Controller {
 	 */
 	public function create()
 	{
-    		return view('manage_users', compact('users'));
+    		return view('users_admin/manage_users', compact('users'));
     }
 
 	/**
