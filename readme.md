@@ -31,7 +31,9 @@ BE:
 - https://www.sitepoint.com/crud-create-read-update-delete-laravel-app/
 
 # Pendiente Short Term
-- Busqueda de alumno por cedula en "agregar alumno" **, sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso
+
+- Busqueda de alumno por cedula en "agregar alumno" (sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso) y "buscar alumo" en la barra de búsqueda (PRIORIDAD)
+- Algunas fechas no se ponen en formato correcto sino que sale 16/07/-0001 por ejemplo, especifica donde ...
 - Cuando termine el curso según fecha de finalizado , cambiar estado de curso a finalizado
 - Personalizar las vistas dependiendo del tipo de curso
 - Opcional: loading messages when submitting
