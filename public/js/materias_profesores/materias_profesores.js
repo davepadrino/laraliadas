@@ -5,7 +5,8 @@ $(document).ready(function() {
 
 	$('#searchProf').autocomplete(
 	{
-		source: "{!! URL::route('getProf') !!}",
+		// source: "{!! URL::route('getProf') !!}",
+		source: "{{ URL::route('getProf') }}",
 		autoFocus: true,
 		select:function(e, ui){
 			var prof = ui.item.value; 
