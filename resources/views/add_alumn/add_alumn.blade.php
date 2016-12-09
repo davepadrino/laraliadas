@@ -190,7 +190,7 @@
 $(document).ready(function(){
 	var instance;
 	$('#searchAlumn').autocomplete({
-		source: '{!! URL::route('getAlumno') !!}',
+		source: "{!! URL::route('getAlumno') !!}",
 		autoFocus: true,
 		select:function(e, ui){
 			var ci = ui.item.value; 

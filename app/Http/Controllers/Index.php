@@ -160,7 +160,7 @@ class Index extends Controller {
 
 	public function edit_course()
 	{
-		return view('edit_course');
+		return view('edit_course/edit_course');
 	}
 
 	public function course()

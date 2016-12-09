@@ -20,7 +20,7 @@ class personaController extends Controller {
 	{
 		$alumnos = \Aliadas\curso::find($course_id)->personas()->paginate(6);
 		$curso = \Aliadas\curso::find($course_id);
-		return view('add_alumn', compact('alumnos','curso'));
+		return view('add_alumn/add_alumn', compact('alumnos','curso'));
 	}
 
 	/**
@@ -186,7 +186,7 @@ class personaController extends Controller {
 		$persona->materias()->detach();
 		\Aliadas\persona::destroy($id);
 		Session::flash('Delmessage', 'Alumno eliminado Correctamente');
-		return view('principal');
+		return view('principal/principal');
 	}
 
 }

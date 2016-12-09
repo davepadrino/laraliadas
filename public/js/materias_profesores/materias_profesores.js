@@ -1,12 +1,15 @@
 $(document).ready(function() {
 	var prof_instance;
 	var mat_instance;
+	var uri_get_prof = decodeURI("{!!URL::route('getProf')!!}");
+	console.log(uri_get_prof);
 	$('#searchMat').prop('disabled', true);
 
 	$('#searchProf').autocomplete(
 	{
-		// source: "{!! URL::route('getProf') !!}",
-		source: "{{ URL::route('getProf') }}",
+
+		// source: uri_get_prof,
+		source: encodeURI("{!!URL::route('getProf')!!}"),
 		autoFocus: true,
 		select:function(e, ui){
 			var prof = ui.item.value; 
