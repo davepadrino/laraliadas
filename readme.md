@@ -32,6 +32,7 @@ BE:
 
 # Pendiente Short Term
 - Busqueda de alumno por cedula en "agregar alumno" (sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso) y "buscar alumo" en la barra de búsqueda (PRIORIDAD)
+- Algunas fechas no se ponen en formato correcto sino que sale 16/07/-0001 por ejemplo
 - Cuando termine el curso según fecha de finalizado , cambiar estado de curso a finalizado
 - personalizar las vistas dependiendo del tipo de curso
 - Opcional: loading messages when submitting
