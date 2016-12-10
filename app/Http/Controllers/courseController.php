@@ -132,12 +132,29 @@ class courseController extends Controller {
 
 
 	public function  emprendedoras(){
-		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Emprendedoras en Cadena')->orderBy('created_at', 'desc')->paginate(10);
+		$sede_id = Auth::user()->sede_id;
+		if ($sede_id == 1){
+			$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Emprendedoras en Cadena')->orderBy('created_at', 'desc')->paginate(10);
+		}else{
+			$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Emprendedoras en Cadena')->where('sede_id','=',$sede_id)->orderBy('created_at', 'desc')->paginate(10);
+		}
+
 		$nombre = "Emprendedoras en Cadena";
 		return view('courses_panel/courses_panel', compact('cursos', 'nombre'));
 	}
 
 	public function  taller(){
+
+		$sede_id = Auth::user()->sede_id;
+		if ($sede_id == 1){
+			$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Escuela Taller')->orderBy('created_at', 'desc')->
+				paginate(10);
+		}else{
+			$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Escuela Taller')->where('sede_id','=',$sede_id)->
+				orderBy('created_at', 'desc')->paginate(10);
+		}
+
+
 		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Escuela Taller')->
 			orderBy('created_at', 'desc')->paginate(10);
 		$nombre = "Escuela - Taller";
@@ -145,8 +162,16 @@ class courseController extends Controller {
 	}
 
 	public function  hacedoras(){
-		$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Mujeres Hacedoras')->
-			orderBy('created_at', 'desc')->paginate(10);
+
+		$sede_id = Auth::user()->sede_id;
+		if ($sede_id == 1){
+			$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Mujeres Hacedoras')->orderBy('created_at', 'desc')->
+				paginate(10);
+		}else{
+			$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Mujeres Hacedoras')->where('sede_id','=',$sede_id)->
+				orderBy('created_at', 'desc')->paginate(10);
+		}
+
 		$nombre = "Mujeres Hacedoras";
 		return view('courses_panel/courses_panel', compact('cursos', 'nombre'));	
 	}
