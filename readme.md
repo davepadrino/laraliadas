@@ -32,33 +32,44 @@ BE:
 
 # Pendiente Short Term
 
-- Busqueda de alumno por cedula en "agregar alumno" (sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso) y "buscar alumo" en la barra de búsqueda (PRIORIDAD)
-- Cuando termine el curso según fecha de finalizado , cambiar estado de curso a finalizado
-- Personalizar las vistas dependiendo del tipo de curso (especifica!!)
-- Opcional: loading messages when submitting 
+- Búsqueda de alumno por cédula en "agregar alumno" (sino, que buscando al alumno en la barra de búsqueda pueda agregarse al curso) y "buscar alumno" en la barra de búsqueda (PRIORIDAD 1).
+- ocultar la opción de editar curso y de agregar materias a las especialistas y sólo mostrar a coordinadoras
+- Cuando termine el curso según fecha de finalizado , cambiar automática el estado del curso a finalizado. (investigar los cron).
+- Personalizar las vistas dependiendo del tipo de curso (para los 3 tipos de curso).
+- Plugin mejorado para descargar PDF.
+- Agregar todos los archivos .js a un archivo .js (casi listo, mejor dividir en varios archivos)
+- Delimitar las rutas y evitar navegar entre sesiones arbitrariamente.
+- Enviar correo de restablecimiento de contraseña en lugar de editar contraseña manualmente por el admin.
+
+
 
 
 # Pendiente Mid Term
-- Plugin mejorado para descargar PDF
-- Establecer sesiones y averiguar duracion de las sesiones
-- Permisos del admin para un usuario que pueda ver todos los cursos
-- Una vez finalizado el curso solo se puede editar el nombre
-- Una vez iniciado no deberia poder cambiarse la fecha inicio
-- Solo la coordinadora puede borrar cursos
-- Coordinadora crea materias y profesores y ve todas las sedes.
-- 
-- Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
-- Enviar correo de reestablecimiento de contraseña en lugar de editar contraseña manualmente por el admin
-- Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
-- TokenMismatch
-- Cambiar status del curso a finalizado cuando culmine la fecha de finalizacion
-- Agregar todos los archivos .js a un archivo .js
+
+- Opcional: loading messages when submitting.
+- Establecer sesiones y averiguar duración de las sesiones.
+- Permisos del admin para un usuario que pueda ver todos los cursos. (OPCIONAL / ni por el coño)
+- Una vez finalizado el curso solo se puede editar el nombre. (la especialista)
+- Una vez iniciado el curso no debería poder cambiarse la fecha inicio. (la especialista)
+- Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario.
+- Acomodar icono del calendario en la vista add_alumn.
+- Optimizar consultas.
+
+
+
+## Cosas que SÓLO puede hacer la coordinadora - tareas Mid term
+
+- Crear, update y remove materias
+- Ver todo de todas las sedes
+- Borrar cursos
+- Definir cantidad de días luego de finalizado el curso donde solo la coordinadora puede editar notas,(7 días ? )
+- Editar cursos una vez finalizados
 
 
 
 
 
-# Final
+# Relaciones 
 - CI y email prof unique
 
 1 Sede(has many) - M users *
