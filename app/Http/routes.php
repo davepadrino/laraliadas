@@ -42,6 +42,7 @@ Route::any('/curso/profMateria', array('as'=>'addProfMat', 'uses'=>'courseContro
 Route::any('/curso/delProfMateria/{id}', array('as'=>'delProfMat', 'uses'=>'courseController@delProfMat'));
 Route::any('/curso/materia-alumno/{materia_id}/{alumn_id}', array('as'=>'califMateria', 'uses'=>'courseController@califMateria'));
 Route::any('/curso/curso-alumno/{course_id}/{alumn_id}', array('as'=>'califCurso', 'uses'=>'courseController@califCurso'));
+
 Route::resource('cursos', 'courseController');
 
 Route::resource('admin', 'userController');

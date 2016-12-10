@@ -29,7 +29,9 @@ class courseController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$sedes = \Aliadas\sede::All();
+		$data = $sedes->lists('nombre_sede', 'id');
+		return  view('agregar_curso/add_course', compact('data'));
 	}
 
 
@@ -82,7 +84,7 @@ class courseController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		return view('edit_course/edit_course');
 	}
 
 

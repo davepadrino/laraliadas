@@ -103,6 +103,9 @@ esto afecta a
 -Filezilla
 http://donwebayuda.com/como-subo-mis-archivos-por-ftp-usando-filezilla/
 
+- Guía de estilo y buenas prácticas
+https://styde.net/estandares-de-programacion-en-laravel/
+
 
 - Se deben crear primero las tablas base antes que las que dependen de ellas
 - La tabla "migrations" lleva registro de las migraciones
