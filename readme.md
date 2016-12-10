@@ -33,10 +33,9 @@ BE:
 # Pendiente Short Term
 
 - Busqueda de alumno por cedula en "agregar alumno" (sino, que buscando al alumno en la barra de busqueda pueda agregarse al curso) y "buscar alumo" en la barra de búsqueda (PRIORIDAD)
-- Algunas fechas no se ponen en formato correcto sino que sale 16/07/-0001 por ejemplo, especifica donde ...
 - Cuando termine el curso según fecha de finalizado , cambiar estado de curso a finalizado
-- Personalizar las vistas dependiendo del tipo de curso
-- Opcional: loading messages when submitting
+- Personalizar las vistas dependiendo del tipo de curso (especifica!!)
+- Opcional: loading messages when submitting 
 
 
 # Pendiente Mid Term
@@ -46,13 +45,18 @@ BE:
 - Una vez finalizado el curso solo se puede editar el nombre
 - Una vez iniciado no deberia poder cambiarse la fecha inicio
 - Solo la coordinadora puede borrar cursos
-- Coordinadora crea materias y profesores y ve todas las sedes
+- Coordinadora crea materias y profesores y ve todas las sedes.
+- 
 - Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario
 - Enviar correo de reestablecimiento de contraseña en lugar de editar contraseña manualmente por el admin
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente
 - TokenMismatch
 - Cambiar status del curso a finalizado cuando culmine la fecha de finalizacion
 - Agregar todos los archivos .js a un archivo .js
+
+
+
+
 
 # Final
 - CI y email prof unique

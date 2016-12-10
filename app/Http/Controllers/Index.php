@@ -57,6 +57,8 @@ class Index extends Controller {
 			Session::flash('message-error', "Sus datos son incorrectos");
 			return Redirect::to('/');
 		}
+
+
 	}
 
 
@@ -137,12 +139,15 @@ class Index extends Controller {
 
 	public function principal()
 	{
-		$sedes = \Aliadas\sede::All();
-		$data = $sedes->lists('nombre_sede', 'id');
-		$cursos = \Aliadas\curso::orderBy('created_at', 'desc')->paginate(7);
+
+		$sede_id = Auth::user()->sede_id;
+		if ($sede_id == 1){
+			$cursos = \Aliadas\curso::orderBy('created_at', 'desc')->paginate(7);
+		}else{
+			$cursos = \Aliadas\curso::where('sede_id','=',$sede_id)->orderBy('created_at', 'desc')->paginate(7);
+		}
 		
-		//$cursos = \Aliadas\curso::where('sede_id', '=', 3)->get();
-		return  view('principal/principal', compact('cursos','data'));
+		return  view('principal/principal', compact('cursos'));
 	}
 
 	public function add_course()

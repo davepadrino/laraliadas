@@ -102,7 +102,7 @@ class profesorController extends Controller {
 		//$profesor->materias()->detach();
 		\Aliadas\profesor::destroy($id);
 		Session::flash('message', 'Profesor eliminado Correctamente');
-		return redirect()->back();
+		return redirect('/profesores');
 	}
 
 }

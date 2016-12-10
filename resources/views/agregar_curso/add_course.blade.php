@@ -49,17 +49,16 @@
 							<td>
 								{!! Form::label('Fecha de Inicio')!!}
 								<div class="input-group input-append date datePicker">
-				                    {!! Form::text('startDate',Carbon\Carbon::parse(\Carbon\Carbon::now())->format('d/m/Y'),['class'=>'form-control', 'id'=>'startDate'] )!!} 
+				                    {!! Form::date('startDate',Carbon\Carbon::parse(\Carbon\Carbon::now())->format('d/m/Y'),['class'=>'form-control', 'id'=>'startDate'] )!!} 
 				                 	<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                 				</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
-
 								{!! Form::label('Fecha de Fin')!!}
 								<div class="input-group input-append date datePicker">
-				                    {!! Form::text('endDate', null,['class'=>'form-control', 'id'=>'startDate'] )!!}
+				                    {!! Form::date('endDate', null,['class'=>'form-control', 'id'=>'startDate'] )!!}
 				                 	<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                 				</div>
 							</td>

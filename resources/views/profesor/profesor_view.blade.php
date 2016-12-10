@@ -68,13 +68,69 @@
 
     </div>
 
-	<button type="button" class="btn btn-primary btn-lg"  type="button" data-toggle="modal" data-target="#modalEditPerson">
+	<button type="button" class="btn btn-primary btn-lg"  type="button" data-toggle="modal" data-target="#modalEditProf">
 		<span class="glyphicon glyphicon-pencil"></span>
 	</button>
 
-	<button type="button" class="btn btn-danger btn-lg"  type="button" data-toggle="modal" data-target="#modalRemovePerson">
+	<button type="button" class="btn btn-danger btn-lg"  type="button" data-toggle="modal" data-target="#modalRemoveProf">
 		<span class="glyphicon glyphicon-remove"></span>
 	</button>
+
+	<div id="modalEditProf" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Editar Usuario: {{ $inforPersonal-> nombre_profesor }}</h4>
+		      </div>
+		      <div class="modal-body">
+		      {!! Form::model($inforPersonal,['route'=> ['profesores.update',$inforPersonal->id], 'method'=>'put'])!!}
+					{!! Form::label('Cédula de Identidad')!!}
+					{!! Form::text('ci_profesor',$inforPersonal->ci_profesor,['class'=>'form-control'])!!}
+
+		      		{!! Form::label('Nombre')!!}
+					{!! Form::text('nombre_profesor',$inforPersonal->nombre_profesor,['class'=>'form-control'])!!}
+
+					{!! Form::label('Correo Electrónico')!!}
+					{!! Form::text('email_profesor',$inforPersonal->email_profesor,['class'=>'form-control', 'id'=>'email_profesor'])!!}
+
+                	{!! Form::label('Número de Teléfono')!!}	
+					{!! Form::text('numero_telefonico_profesor',$inforPersonal->numero_telefonico_profesor,['class'=>'form-control'])!!}											
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		        {!! Form::submit('Editar', ['class'=>'btn btn-primary'])!!}
+		        
+		      </div>
+		     {!! Form::close() !!}
+		    </div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->	
+
+
+
+	<div id="modalRemoveProf" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Eliminar Profesor: {{ $inforPersonal-> nombre_profesor }}</h4>
+		      </div>
+		      {!! Form::open(['route'=> ['profesores.destroy',$inforPersonal->id], 'method'=>'delete'])!!}
+		      <div class="modal-body">
+		      ¿Desea eliminar el Profesor?
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		        {!! Form::submit('Eliminar', ['class'=>'btn btn btn-danger'])!!}
+		        
+		      </div>
+		     {!! Form::close() !!}
+		    </div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->	
+
+
 </div>
 
 

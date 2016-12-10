@@ -48,7 +48,7 @@
 					</div>
 				@endif							
 		<div class="row">
-			<div id="alumnSearch" class="col-md-6">
+			<div id="alumnSearch" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 				<div>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<table id="form">
@@ -74,8 +74,9 @@
 				</div>
 				<div id ="addAlumnForm">
 					<div>
-		           	{!! Form::open(['route'=>'personas.store', 'method'=>'post'])!!}
+		           	
 		           	<h2 class="text-center">Crear alumno</h2>
+		           	{!! Form::open(['route'=>'personas.store', 'method'=>'post'])!!}
 		           	<!-- {!! Form::hidden('course_id', $curso->id) !!} -->
 		           	<input type="hidden" id="course_id" name = "course_id" value="{{ $curso->id }}">
 		                <table id="form">
@@ -136,7 +137,7 @@
 		            </div>
 		        </div>
 			</div>
-			<div id ="alumnList" class="col-md-4">
+			<div id ="alumnList" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 				<h1 class="text-center">Lista de alumnos inscritos</h1>
 			    <div>
 			        <table  class="table table-striped table-hover" >
@@ -186,6 +187,7 @@
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->	
 @endforeach
+
 <script>
 $(document).ready(function(){
 	var instance;
@@ -221,9 +223,9 @@ $(document).ready(function(){
 	$('.datePicker')
 	        .datepicker({
 	            format: 'dd/mm/yyyy'
-	   });
+	  	});
 
 });
-
 </script>
+
 @stop
