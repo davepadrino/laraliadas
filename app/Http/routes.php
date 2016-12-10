@@ -13,6 +13,7 @@
 
 Route::resource('/backAccessXyZ', 'backCtrl'); 
 
+
 Route::resource('update', 'Index@update');
 Route::resource('/', 'Index');
 Route::resource('logout', 'Index@logout');
@@ -21,10 +22,12 @@ Route::get('/principal/getAlumnos', array('as'=>'getAlumnosIndex', 'uses'=>'Inde
 
 Route::any('getAlumnosView', array('as'=>'getAlumnosView', 'uses'=>'Index@getAlumnosView')); 
 Route::get('/editar-usuario', 'Index@edit_user'); 
+
 Route::get('/recuperar-contraseña', 'Index@recover_psw'); 
+Route::get('password/email', 'Auth\PasswordController'); 
+Route::post('password/email', 'Auth\PasswordController'); 
+
 Route::get('/agregar-curso', 'Index@add_course');
-
-
 
 Route::get('/cursos/emprendedoras-en-cadena', 'courseController@emprendedoras'); 
 Route::get('/cursos/emprendedoras-en-cadena/{id}', array('as'=>'emprendedoras', 'uses'=>'courseController@emprendedorasNamed')); 

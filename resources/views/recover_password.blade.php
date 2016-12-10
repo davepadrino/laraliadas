@@ -6,7 +6,8 @@
 				<h2> Recuperar Contraseña </h2>
 			</div>
 			<div>
-			{!! Form::open(['route'=>'index', 'method'=>'post'])!!}
+			<!-- {!! Form::open(['route'=>'index', 'method'=>'post'])!!} -->
+			{!! Form::open(['url' => '/password/email'])!!}
 				<!-- <form name = "passRecover" action="../index.html"> -->
 					<table id="form">
 						<tr>
@@ -26,7 +27,7 @@
 							</td>
 						</tr>
 					</table>
-					<span>Se le enviará un correo con una contraseña temporal</span>
+					<span>Se le enviará un correo con un enlace para recuperar su contraseña</span>
 				</form>
 			</div>
 		</div>

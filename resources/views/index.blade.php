@@ -35,6 +35,7 @@
 					</tr>
 					<tr>
 						<td>
+						<!-- {!! link_to('/recuperar-contraseña', $title = "Recuperar Contraseña", $attributes = ['id' => 'rec_pass']) !!} -->
 						{!! link_to('/recuperar-contraseña', $title = "Recuperar Contraseña", $attributes = ['id' => 'rec_pass']) !!}
 									
 						</td>
