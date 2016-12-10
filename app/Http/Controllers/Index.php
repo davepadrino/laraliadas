@@ -152,9 +152,7 @@ class Index extends Controller {
 
 	public function add_course()
 	{
-		$sedes = \Aliadas\sede::All();
-		$data = $sedes->lists('nombre_sede', 'id');
-		return  view('agregar_curso/add_course', compact('data'));
+		
 	}
 
 	public function edit_user()

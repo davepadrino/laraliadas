@@ -59,12 +59,15 @@
 		<nav>
 			<ul>
 				<li><a href="/principal"><span class="glyphicon glyphicon-glyphicon glyphicon-home"></span> Inicio </a></li>
-				<li><a href="/agregar-curso"><span class="glyphicon  glyphicon-new-window"></span>
+				<li><a href="/cursos/create"><span class="glyphicon  glyphicon-new-window"></span>
 				Agregar Curso </a></li>		
 				<li><a href="/profesores"><span class="glyphicon glyphicon-education"></span>
-				Profesores </a></li>	
+				Profesores </a></li>
+				@if (Auth::user()->rol === "Coordinadora") 	
 				<li><a href="/materias"><span class="glyphicon glyphicon-book"></span>
-				Materias </a></li>	
+				Materias </a></li>
+				@endif
+
 				<li id ="sm1" class="submenu">
 					<a href="#">
 						<span class="glyphicon glyphicon-grain"> Asistencia / Notas

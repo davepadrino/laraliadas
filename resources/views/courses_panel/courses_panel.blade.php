@@ -79,7 +79,7 @@
 				  		<div class="modal-content">
 						    <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        <h4 class="modal-title">Editar Usuario: {{ $curso-> name }}</h4>
+						        <h4 class="modal-title">Editar Curso: {{ $curso-> nombre_curso }}</h4>
 						    </div>
 						     	<div class="modal-body">
 								{!! Form::model($curso,['route'=> ['cursos.update',$curso->id], 'method'=>'put'])!!}
@@ -137,7 +137,7 @@
 				    <div class="modal-content">
 			            <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        <h4 class="modal-title">Eliminar Usuario: {{ $curso-> nombre_curso }}</h4>
+					        <h4 class="modal-title">Eliminar Curso: {{ $curso-> nombre_curso }}</h4>
 					    </div>
 					    {!! Form::open(['route'=> ['cursos.update',$curso->id], 'method'=>'delete'])!!}
 					        <div class="modal-body">
