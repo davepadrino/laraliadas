@@ -39,7 +39,7 @@ BE:
 - Plugin mejorado para descargar PDF.
 - Agregar todos los archivos .js a un archivo .js (casi listo, mejor dividir en varios archivos)
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente.
-- Enviar correo de restablecimiento de contraseña en lugar de editar contraseña manualmente por el admin.
+- Que el reestablecimiento FUNCIONE :(
 
 
 

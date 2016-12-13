@@ -1,59 +1,41 @@
-@extends('app')
-
+@extends('layouts.index_layout')
+@section('title', 'Resetear Contraseña')
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Reset Password</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
-
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<input type="hidden" name="token" value="{{ $token }}">
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Confirm Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password_confirmation">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Reset Password
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
+		<div class="login col-xs-8 col-sm-6 col-md-6 col-lg-4">
+			<div>
+				<h2> Resetear Contraseña </h2>
 			</div>
+			<div>
+				{!! Form::open(['url' => '/password/reset'])!!}
+						<table id="form">
+							<tr>
+								<td>
+									{!! Form::hidden('token',$token, null) !!}
+									{!! Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Escriba cuenta de correo electronico asociada'])!!}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{!! Form::password('password',['class'=>'form-control', 'placeholder'=>'Escriba nueva contraseña' ])!!}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{!! Form::password('password_confirmation',['class'=>'form-control', 'placeholder'=>'Escriba nuevamente su contraseña' ])!!}
+								</td>
+							</tr>
+							<tr>
+								<td>
+								{!! Form::submit('Enviar', ['class'=>'btn btn-primary'])!!}
+								</td>
+							</tr>
+							<tr>
+								<td>
+								{!! link_to('/', "Ir a inicio de sesión", $attributes = ['class'=> 'btn btn-success', 'style' => 'color:white']) !!}
+								</td>
+							</tr>
+						</table>
+					{!! Form::close() !!}			
+				</div>
 		</div>
-	</div>
-</div>
-@endsection
+@stop

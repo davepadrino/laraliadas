@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'davidp.dark@gmail.com', 'name' => 'Dave PAdrino'],
+	'from' => ['address' => 'sistema.correo.automatico.ve@gmail.com', 'name' => 'Sistema automatizado para el beta'],
 
 	/*
 	|--------------------------------------------------------------------------

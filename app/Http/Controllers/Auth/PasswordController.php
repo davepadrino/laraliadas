@@ -27,6 +27,14 @@ class PasswordController extends Controller {
 	 * @param  \Illuminate\Contracts\Auth\PasswordBroker  $passwords
 	 * @return void
 	 */
+	
+	protected $redirectTo = '/'; 
+	protected function resetPassword($user, $password) { 
+		$user->password = $password; 
+		$user->save(); 
+		Auth::login($user); 
+	}
+
 	public function __construct(Guard $auth, PasswordBroker $passwords)
 	{
 		$this->auth = $auth;
