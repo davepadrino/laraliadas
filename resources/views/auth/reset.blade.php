@@ -6,7 +6,7 @@
 				<h2> Resetear Contraseña </h2>
 			</div>
 			<div>
-				{!! Form::open(['url' => '/password/reset'])!!}
+				{!! Form::open(['url' => 'password/reset'])!!}
 						<table id="form">
 							<tr>
 								<td>
@@ -16,22 +16,24 @@
 							</tr>
 							<tr>
 								<td>
-									{!! Form::password('password',['class'=>'form-control', 'placeholder'=>'Escriba nueva contraseña' ])!!}
+									{!! Form::label('Indique nueva contraseña')!!}
+									{!! Form::password('password',['class'=>'form-control', 'id'=> 'newPass1', 'name' => 'newPass1'])!!}
+									<!-- {!! Form::password('password',['class'=>'form-control', 'id'=> 'newPass1', 'name' => 'newPass1'])!!} -->
+									<span id="lengthMessage">  </span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									{!! Form::password('password_confirmation',['class'=>'form-control', 'placeholder'=>'Escriba nuevamente su contraseña' ])!!}
+									{!! Form::label('Indique nuevamente contraseña')!!}
+									<!-- {!! Form::password('password',['class'=>'form-control', 'id'=> 'newPass2', 'name' => 'newPass2'])!!} -->
+									{!! 
+									Form::password('password_confirmation',['class'=>'form-control', 'id'=> 'newPass2', 'name' => 'newPass2' ])!!}
+									<span id="confirmMessage">  </span>
 								</td>
 							</tr>
 							<tr>
 								<td>
 								{!! Form::submit('Enviar', ['class'=>'btn btn-primary'])!!}
-								</td>
-							</tr>
-							<tr>
-								<td>
-								{!! link_to('/', "Ir a inicio de sesión", $attributes = ['class'=> 'btn btn-success', 'style' => 'color:white']) !!}
 								</td>
 							</tr>
 						</table>

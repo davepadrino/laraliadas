@@ -24,10 +24,10 @@ Route::any('getAlumnosView', array('as'=>'getAlumnosView', 'uses'=>'Index@getAlu
 Route::get('/editar-usuario', 'Index@edit_user'); 
 
 Route::get('/recuperar-contraseña', 'Index@recover_psw'); 
-Route::get('password/email', 'Auth\PasswordController@getEmail'); 
-Route::post('password/email', 'Auth\PasswordController@postEmail'); 
-Route::get('password/reset/{token}', 'Auth\PasswordController@getReset'); 
-Route::post('password/reset/', 'Auth\PasswordController@postReset'); 
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 Route::get('/agregar-curso', 'Index@add_course');
 

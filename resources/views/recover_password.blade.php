@@ -1,12 +1,20 @@
 @extends('layouts.index_layout')
 @section('title', 'Recuperar Contraseña')
 @section('content')
-		<div class="login col-xs-8 col-sm-6 col-md-6 col-lg-4">
+	<div class="login col-md-6 col-lg-4">
+	<!-- mensaje de edicion de usuario-->
+		@if (Session::has('status'))
+		    <div class="alert alert-success alert-dismissible" role="alert">
+		    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			       {{ Session::get('status') }}
+			</div>
+		@endif
+
 			<div>
 				<h2> Recuperar Contraseña </h2>
 			</div>
 			<div>
-				{!! Form::open(['url' => '/password/email'])!!}
+				{!! Form::open(['url' => 'password/email'])!!}
 						<table id="form">
 							<tr>
 								<td>
