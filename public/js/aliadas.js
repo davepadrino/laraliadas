@@ -56,7 +56,6 @@ $(document).ready(function(){
 		$('#newPass1').keyup(function(){
 			if (($('#newPass1').val()).length > 5) {
 				$('#lengthMessage').text("");
-				console.log($('#newPass1').length);
 			} else {
 				$('#lengthMessage').text("Contraseña tiene menos de 6 caracteres");
 			}
@@ -65,10 +64,12 @@ $(document).ready(function(){
 		$('#newPass2').keyup(function(){
 			if($('#newPass2').val() == $('#newPass1').val() 
 			  || $('#newPass2').val() == "") {
-				$('#confirmMessage').text("");
+				$('#confirmMessage').text("Correcto");
+				$('#recuperar_contraseña').prop('disabled', false);
 			} else {
 				$('#confirmMessage').text("Las contraseñas no coinciden");
 				$('#confirmMessage').css("font-weight","Bold");
+				$('#recuperar_contraseña').prop('disabled', true);
 			}
 		});
 }); 
