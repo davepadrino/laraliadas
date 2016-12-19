@@ -39,7 +39,6 @@ BE:
 - Plugin mejorado para descargar PDF.
 - Agregar todos los archivos .js a un archivo .js (casi listo, mejor dividir en varios archivos)
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente.
-- Que el reestablecimiento FUNCIONE :(
 
 
 
