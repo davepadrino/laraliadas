@@ -16,8 +16,15 @@ class materiaController extends Controller {
 	 */
 	public function index()
 	{
+		
+		// si no es coordinadora
+		if(Auth::user()->rol != 'Coordinadora'){
+			return Redirect::to('/principal');
+		}
+		
 		$mats = \Aliadas\materia::paginate(6);
 		return  view('materias/materias', compact('mats'));
+		
 	}
 
 	/**

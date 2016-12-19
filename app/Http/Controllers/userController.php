@@ -6,6 +6,7 @@ use Aliadas\Http\Requests\UserUpdateRequest;
 use Aliadas\Http\Controllers\Controller;
 use DB;
 use Session;
+use Auth;
 use Illuminate\Http\Request;
 use Redirect;
 
@@ -21,12 +22,20 @@ class userController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
+		if(Auth::user()->rol != 'Administrador'){
+			return Redirect::to('/principal');
+		}
+
 		$users = \Aliadas\user::paginate(6);
 		$sedes = \Aliadas\sede::All();
 		$data = $sedes->lists('nombre_sede', 'id');
 		return view('users_admin/manage_users', compact('users','data'));
-		//return \Aliadas\user::with('sede')->get();
 
 	}
 

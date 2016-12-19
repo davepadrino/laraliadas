@@ -140,7 +140,13 @@ class Index extends Controller {
 	public function principal()
 	{
 
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
 		$sede_id = Auth::user()->sede_id;
+
 		if ($sede_id == 1){
 			$cursos = \Aliadas\curso::orderBy('created_at', 'desc')->paginate(7);
 		}else{

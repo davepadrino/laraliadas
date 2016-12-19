@@ -5,6 +5,7 @@ use Aliadas\Http\Controllers\Controller;
 use DB;
 use Session;
 use Redirect;
+use Auth;
 use Illuminate\Http\Request;
 
 class sedeController extends Controller {
@@ -16,6 +17,15 @@ class sedeController extends Controller {
 	 */
 	public function index()
 	{
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+		
+		if(Auth::user()->rol != 'Administrador'){
+			return Redirect::to('/principal');
+		}
+
 		$sedes = \Aliadas\sede::All();
 		return view('manage_sedes/manage_sedes', compact('sedes'));	
 	}
