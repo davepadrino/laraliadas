@@ -47,10 +47,8 @@ $(document).ready(function(){
             }
         });
     });
-	
-
-
 });
+
 		/* Validación de passwords*/
 $(document).ready(function(){
 		$('#newPass1').keyup(function(){
@@ -58,6 +56,7 @@ $(document).ready(function(){
 				$('#lengthMessage').text("");
 			} else {
 				$('#lengthMessage').text("Contraseña tiene menos de 6 caracteres");
+				$('#recuperar_contraseña').prop('disabled', true);
 			}
 		});
 

@@ -18,18 +18,17 @@
 			<table id="form">
 				<tr>
 					<td colspan="2">
-						{!! Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Escriba cuenta de correo electronico asociada'])!!}
+						{!! Form::email('email',null,['class'=>'form-control', 'placeholder'=>'Escriba cuenta de correo electrónico asociada'])!!}
 					</td>
 				</tr>
 				<tr>
 					<td>
-						{!! link_to('/', "Volver", $attributes = ['id' => 'rec_pass', 'class'=> 'btn btn-danger', 'style' => 'color:white']) !!}
-					</td>
-					<td>
 						{!! Form::submit('Enviar', ['class'=>'btn btn-primary'])!!}
 					</td>
-					
 				</tr>
+					<td>
+						{!! link_to('/', "Volver", $attributes = ['id' => 'rec_pass', 'class'=> 'btn btn-danger', 'style' => 'color:white']) !!}
+					</td>
 			</table>
 			<span>Se le enviará un correo con un enlace para recuperar su contraseña</span>
 		{!! Form::close() !!}			
