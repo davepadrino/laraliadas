@@ -28,7 +28,7 @@ class PasswordController extends Controller {
 	 * @return void
 	 */
 	
-	protected $redirectTo = '/'; 
+	protected $redirectTo = '/principal'; 
 	protected function resetPassword($user, $password) { 
 		$user->password = $password; 
 		$user->save(); 
