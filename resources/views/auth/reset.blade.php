@@ -17,23 +17,21 @@
 							<tr>
 								<td>
 									{!! Form::label('Indique nueva contraseña')!!}
-									{!! Form::password('password',['class'=>'form-control', 'id'=> 'newPass1', 'name' => 'newPass1'])!!}
-									<!-- {!! Form::password('password',['class'=>'form-control', 'id'=> 'newPass1', 'name' => 'newPass1'])!!} -->
+									{!! Form::password('password',['class'=>'form-control', 'id'=> 'newPass1', 'required'])!!}
 									<span id="lengthMessage">  </span>
 								</td>
 							</tr>
 							<tr>
 								<td>
 									{!! Form::label('Indique nuevamente contraseña')!!}
-									<!-- {!! Form::password('password',['class'=>'form-control', 'id'=> 'newPass2', 'name' => 'newPass2'])!!} -->
 									{!! 
-									Form::password('password_confirmation',['class'=>'form-control', 'id'=> 'newPass2', 'name' => 'newPass2' ])!!}
+									Form::password('password_confirmation',['class'=>'form-control', 'id'=> 'newPass2', 'required'])!!}
 									<span id="confirmMessage">  </span>
 								</td>
 							</tr>
 							<tr>
 								<td>
-								{!! Form::submit('Enviar', ['class'=>'btn btn-primary'])!!}
+								{!! Form::submit('Enviar', ['class'=>'btn btn-primary', 'id'=> 'recuperar_contraseña', 'disabled'])!!}
 								</td>
 							</tr>
 						</table>
