@@ -33,6 +33,7 @@ BE:
 # Pendiente Short Term
 
 - Búsqueda de alumno por cédula en "agregar alumno" (sino, que buscando al alumno en la barra de búsqueda pueda agregarse al curso) y "buscar alumno" en la barra de búsqueda (PRIORIDAD 1).
+
 - Ocultar la opción de editar curso y de agregar materias a las especialistas y sólo mostrar a coordinadoras
 - Cuando termine el curso según fecha de finalizado , cambiar automática el estado del curso a finalizado. (investigar los cron).
 - Personalizar las vistas dependiendo del tipo de curso (para los 3 tipos de curso).
@@ -58,7 +59,7 @@ BE:
 
 ## Cosas que SÓLO puede hacer la coordinadora - tareas Mid term
 
-- Crear, update y remove materias
+- Crear, update y remove materias (LISTO).
 - Ver todo de todas las sedes
 - Borrar cursos
 - Definir cantidad de días luego de finalizado el curso donde solo la coordinadora puede editar notas,(7 días ? )
