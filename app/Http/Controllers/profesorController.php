@@ -15,6 +15,10 @@ class profesorController extends Controller {
 	public function index()
 	{
 
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
 		$profs = \Aliadas\profesor::paginate(6);
 		return  view('profesor/profesor', compact('profs'));
 	}
@@ -51,6 +55,11 @@ class profesorController extends Controller {
 	 */
 	public function show($id)
 	{
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+		
 		$inforPersonal = \Aliadas\profesor::find($id);
 		//return $result;
 		$cursosDados = DB::table('curso_materia_profesors')

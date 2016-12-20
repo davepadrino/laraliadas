@@ -18,6 +18,11 @@ class personaController extends Controller {
 	 */
 	public function index($course_id)
 	{
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+		
 		$alumnos = \Aliadas\curso::find($course_id)->personas()->paginate(6);
 		$curso = \Aliadas\curso::find($course_id);
 		return view('add_alumn/add_alumn', compact('alumnos','curso'));

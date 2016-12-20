@@ -40,7 +40,7 @@ BE:
 - Plugin mejorado para descargar PDF.
 - Agregar todos los archivos .js a un archivo .js (casi listo, mejor dividir en varios archivos)
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente.
-- PUTO MIERDO DE RECUPERAR CONRASEÑA
+- PUTO MIERDO DE RECUPERAR CONTRASEÑA
 
 
 
@@ -53,15 +53,15 @@ BE:
 - Una vez iniciado el curso no debería poder cambiarse la fecha inicio. (la especialista)
 - Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario.
 - Acomodar icono del calendario en la vista add_alumn.
-- Optimizar consultas.
+- Optimizar consultas :p
 
 
 
 ## Cosas que SÓLO puede hacer la coordinadora - tareas Mid term
 
 - Crear, update y remove materias (LISTO).
-- Ver todo de todas las sedes
-- Borrar cursos
+- Ver todo de todas las sedes (ES LA ÚNICA ESO YA ESTA LISTO)
+- Borrar cursos (LISTO)
 - Definir cantidad de días luego de finalizado el curso donde solo la coordinadora puede editar notas,(7 días ? )
 - Editar cursos una vez finalizados
 

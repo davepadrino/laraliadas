@@ -37,7 +37,9 @@
 					    <th class="text-center">Editar Información</th>
 					    <th class="text-center">Agregar Profesor-Materia</th>
 					    <th class="text-center">Agregar Alumnos</th>
+					    @if(Auth::user()->rol == 'Coordinadora')
 					    <th class="text-center">Eliminar Curso</th>
+					    @endif
 			    </thead>
 			    <tbody>
 			    @foreach($cursos as $curso)
@@ -66,7 +68,9 @@
 				       		<a id ="addAlumn" class="btn glyphicon glyphicon-user btn-success btn-sm" type="button" href="{{ route('personas', $curso->id) }}"></a>
 				        </td>
 				        
+				        @if(Auth::user()->rol == 'Coordinadora')
 				        <td class="text-center"><button id ="deleteCourse" class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDelCourse{{$curso->id}}" data-id="{{ $curso->id }}"></button></td>
+				        @endif
 			        </tr>
 			    @endforeach
 			    </tbody>

@@ -16,6 +16,11 @@ class materiaController extends Controller {
 	 */
 	public function index()
 	{
+
+		// si no es un usuario válido
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
 		
 		// si no es coordinadora
 		if(Auth::user()->rol != 'Coordinadora'){

@@ -29,6 +29,11 @@ class courseController extends Controller {
 	 */
 	public function create()
 	{
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
 		$sedes = \Aliadas\sede::All();
 		$data = $sedes->lists('nombre_sede', 'id');
 		return  view('agregar_curso/add_course', compact('data'));
@@ -84,6 +89,10 @@ class courseController extends Controller {
 	 */
 	public function edit($id)
 	{
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
 		return view('edit_course/edit_course');
 	}
 
@@ -134,6 +143,11 @@ class courseController extends Controller {
 
 
 	public function  emprendedoras(){
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
 		$sede_id = Auth::user()->sede_id;
 		if ($sede_id == 1){
 			$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Emprendedoras en Cadena')->orderBy('created_at', 'desc')->paginate(10);
@@ -146,6 +160,10 @@ class courseController extends Controller {
 	}
 
 	public function  taller(){
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
 
 		$sede_id = Auth::user()->sede_id;
 		if ($sede_id == 1){
@@ -165,6 +183,10 @@ class courseController extends Controller {
 
 	public function  hacedoras(){
 
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
 		$sede_id = Auth::user()->sede_id;
 		if ($sede_id == 1){
 			$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Mujeres Hacedoras')->orderBy('created_at', 'desc')->
@@ -180,6 +202,11 @@ class courseController extends Controller {
 
 
 	public function  emprendedorasNamed($id){
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
 		$recordsArray = array();
 		$courseArray = array();
 		$tipo_curso = "Emprendedoras en Cadena";
@@ -219,6 +246,11 @@ class courseController extends Controller {
 	}
 
 	public function  tallerNamed($id){
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
 		$recordsArray = array();
 		$courseArray = array();
 		$tipo_curso = "Escuela - Taller";
@@ -258,6 +290,11 @@ class courseController extends Controller {
 	}
 
 	public function  hacedorasNamed($id){
+
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+		
 		$recordsArray = array();	
 		$courseArray = array();	
 		$tipo_curso = "Mujeres Hacedoras";

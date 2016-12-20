@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'sistema.correo.automatico.ve@gmail.com', 'name' => 'Sistema automatizado para el beta'],
+	'from' => ['address' => 'sistema.correo.automatico.ve@gmail.com', 'name' => 'No Reply'],
 
 	/*
 	|--------------------------------------------------------------------------

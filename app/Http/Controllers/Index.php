@@ -140,7 +140,6 @@ class Index extends Controller {
 	public function principal()
 	{
 
-
 		if(!(Auth::user())){
 			return Redirect::to('/');
 		}
@@ -169,11 +168,19 @@ class Index extends Controller {
 
 	public function edit_course()
 	{
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
 		return view('edit_course/edit_course');
 	}
 
 	public function course()
 	{
+		if(!(Auth::user())){
+			return Redirect::to('/');
+		}
+
 		return view('course');
 	}
 
