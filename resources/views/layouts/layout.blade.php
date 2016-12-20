@@ -60,7 +60,7 @@
 			<ul>
 				<li><a href="/principal"><span class="glyphicon glyphicon-glyphicon glyphicon-home"></span> Inicio </a></li>
 				<li><a href="/cursos/create"><span class="glyphicon  glyphicon-new-window"></span>
-				Agregar Curso </a></li>		
+				Agregar curso </a></li>		
 				<li><a href="/profesores"><span class="glyphicon glyphicon-education"></span>
 				Profesores </a></li>
 				@if (Auth::user()->rol === "Coordinadora") 	
@@ -82,8 +82,8 @@
 				</li>
 				<div class="control-top">
 					<ul>
-						<li><a href="/editar-usuario"><span class="glyphicon glyphicon-user"></span> Editar Usuarios</a></li>
-						<li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>
+						<li><a href="/editar-usuario"><span class="glyphicon glyphicon-user"></span> Editar usuario</a></li>
+						<li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>
 					</ul>
 				</div>
 			</ul>

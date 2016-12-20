@@ -35,9 +35,9 @@
 		<nav>
 			<ul>
 				<li><a href="/admin"><span class="glyphicon  glyphicon-new-window"></span>
-				Administrar Usuarios </a></li>	
+				Administrar usuarios </a></li>	
 				<li><a href="/sedes"><span class="glyphicon  glyphicon-new-window"></span>
-				Administrar Sedes </a></li>		
+				Administrar sedes </a></li>		
 				<div class="control-top">			
 					<li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>	
 				</div>
