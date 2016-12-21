@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'sistema.correo.automatico.ve@gmail.com', 'name' => 'No Reply'],
+	'from' => ['address' => 'sistema.correo.automatico.ve@gmail.com', 'name' => 'Aliadas en Cadena'],
 
 	/*
 	|--------------------------------------------------------------------------

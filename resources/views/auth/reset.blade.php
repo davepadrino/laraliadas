@@ -11,9 +11,8 @@
 							<tr>
 								<td>
 									{!! Form::hidden('token',$token, null) !!}
-									{!! Form::label('Indique correo electrónico asociado')!!}
-									{!! 
-									{!! Form::email('email',null,['class'=>'form-control'])!!}
+									{!! Form::label('Indique correo electrónico asociado') !!}
+									{!! Form::email('email',null,['value'=> "{{old('email')}}", 'class'=>'form-control'])!!}
 								</td>
 							</tr>
 							<tr>
