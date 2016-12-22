@@ -37,7 +37,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-md-5 col-md-5">	
+			<div class="col-md-5 col-md-5 searchBar">	
 			{!! Form::open(['route'=> ['getAlumnosView'], 'method'=>'GET'])!!}
 			    <div class="input-group">
 			    {!! Form::text('buscar',null,['class'=>'form-control', 'placeholder'=>'Buscar', 'id'=>'buscar'])!!}
@@ -50,6 +50,9 @@
 			<div class="col-md-4 col-md-4">
 				<div class="control-top">Hola, {!! Auth::user()->name !!}</div>
 			</div>	
+			<div id="currentDate">
+				Fecha: {{ Carbon\Carbon::parse(\Carbon\Carbon::now())->format('d/m/Y') }}
+			</div>
 		</div>	
 		<div class="menu-bar">
 			<a href="#" class="bt-menu">
@@ -91,10 +94,10 @@
 	</header>
 	<div id="principal">
 		<div class="row">
-			<div class="col-sm-1">
+			<div class="col-md-1">
 	    	</div>
-		@yield('content')
-			<div class="col-sm-1">
+			@yield('content')
+			<div class="col-md-1">
 	    	</div>
 	    </div>
 	</div>

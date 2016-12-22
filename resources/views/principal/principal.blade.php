@@ -1,15 +1,16 @@
 @extends('layouts.layout')
 @section('title', 'Principal')
 @section('content')
-<div class="row">
+<div class="row col-md-10">
 	<div class="col-md-4">
 		<h2>Cursos Actuales</h2>
 	</div>
-	<div class="col-md-5 filterSpace">
+	<div class="col-md-4 filterSpace">
     	<fieldset>
        		<input type="text" class="text-input" id="filter" placeholder="Filtrar cursos.." />
     	</fieldset>
 	</div>
+
 </div>
 <table class="table" id="tablaprincipal">
     <thead>
@@ -21,6 +22,8 @@
     </thead>
     <tbody>
     @foreach($cursos as $curso)
+        @if ( Carbon\Carbon::parse(\Carbon\Carbon::now())->
+        	lte(Carbon\Carbon::parse($curso->fin_curso)) )
         <tr class = "currentMatches">
 			@if ( $curso->tipo_curso  == 'Emprendedoras en Cadena')
         		<td class="text-center"><a href="{{ route('emprendedoras', $curso->id) }}">{{ $curso->nombre_curso }}</a></td>
@@ -34,6 +37,7 @@
 	            <td>{{ Carbon\Carbon::parse($curso->incio_curso )->format('d/m/Y') }}</td>
 	            <td>{{ Carbon\Carbon::parse($curso->fin_curso)->format('d/m/Y') }}</td>
         </tr>
+            @endif
     @endforeach
     </tbody>
 </table>

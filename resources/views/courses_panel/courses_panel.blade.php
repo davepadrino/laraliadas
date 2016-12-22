@@ -57,7 +57,25 @@
 				        <td class="text-center">{{ $curso->estado_curso}}</td>
 				        <td class="text-center"> {{ Carbon\Carbon::parse($curso->incio_curso )->format('d/m/Y') }} - {{ Carbon\Carbon::parse($curso->fin_curso)->format('d/m/Y') }}</td>
 
-				        <td class="text-center"><button id ="editCourse" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalCourse{{$curso->id}}" data-id="{{ $curso->id }}" ></button></td>
+				        @if ( Carbon\Carbon::parse(\Carbon\Carbon::now())->
+        					gte(Carbon\Carbon::parse($curso->fin_curso)) )
+        					@if(Auth::user()->rol == 'Coordinadora')
+				      	 		<td class="text-center">
+				      	 			<button id ="editCourse" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalCourse{{$curso->id}}" data-id="{{ $curso->id }}" >
+				      	 			</button>
+				      	 		</td>
+				      	 	@else
+				      			<td class="text-center">
+				      	 			<button id ="editCourse" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" disabled alt="No puede editar un curso ya finalizado">
+				      	 			</button>
+				      	 		</td>
+				      	  	@endif
+				      	 @else
+			      	  		<td class="text-center">
+			      	 			<button id ="editCourse" class="btn glyphicon glyphicon-pencil btn-primary btn-sm" type="button" data-toggle="modal" data-target="#modalCourse{{$curso->id}}" data-id="{{ $curso->id }}" >
+			      	 			</button>
+			      	 		</td>
+				        @endif
 
 				        <td class="text-center">
 					        <a id ="addProfMateria" class="btn glyphicon glyphicon-education btn-success btn-sm" type="button" href="{{ route('prof-materia', $curso->id) }}">				        	
@@ -69,7 +87,9 @@
 				        </td>
 				        
 				        @if(Auth::user()->rol == 'Coordinadora')
-				        <td class="text-center"><button id ="deleteCourse" class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDelCourse{{$curso->id}}" data-id="{{ $curso->id }}"></button></td>
+				       		<td class="text-center">
+				       			<button id ="deleteCourse" class="btn glyphicon glyphicon-remove btn-danger btn-sm" type="button" data-toggle="modal" data-target="#modalDelCourse{{$curso->id}}" data-id="{{ $curso->id }}"></button>
+				       		</td>
 				        @endif
 			        </tr>
 			    @endforeach

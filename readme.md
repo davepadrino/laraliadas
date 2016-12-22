@@ -34,13 +34,13 @@ BE:
 
 - Búsqueda de alumno por cédula en "agregar alumno" (sino, que buscando al alumno en la barra de búsqueda pueda agregarse al curso) y "buscar alumno" en la barra de búsqueda (PRIORIDAD 1).
 
-- Ocultar la opción de editar curso y de agregar materias a las especialistas y sólo mostrar a coordinadoras
+- Ocultar la opción de editar curso y de agregar materias a las especialistas y sólo mostrar a coordinadoras (LISTO)
 - Cuando termine el curso según fecha de finalizado , cambiar automática el estado del curso a finalizado. (investigar los cron).
 - Personalizar las vistas dependiendo del tipo de curso (para los 3 tipos de curso).
 - Plugin mejorado para descargar PDF.
 - Agregar todos los archivos .js a un archivo .js (casi listo, mejor dividir en varios archivos)
 - Delimitar las rutas y evitar navegar entre sesiones arbitrariamente.
-- PUTO MIERDO DE RECUPERAR CONTRASEÑA
+- PUTO MIERDO DE RECUPERAR CONTRASEÑA ((LISTO))
 
 
 
@@ -48,10 +48,8 @@ BE:
 
 - Opcional: loading messages when submitting.
 - Establecer sesiones y averiguar duración de las sesiones.
-- Permisos del admin para un usuario que pueda ver todos los cursos. (OPCIONAL / ni por el coño)
-- Una vez finalizado el curso solo se puede editar el nombre. (la especialista)
 - Una vez iniciado el curso no debería poder cambiarse la fecha inicio. (la especialista)
-- Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario.
+- Mostrar en principal solo cursos con estado iniciado y correspondientes a la sede del usuario. (LISTO)
 - Acomodar icono del calendario en la vista add_alumn.
 - Optimizar consultas :p
 
@@ -63,7 +61,7 @@ BE:
 - Ver todo de todas las sedes (ES LA ÚNICA ESO YA ESTA LISTO)
 - Borrar cursos (LISTO)
 - Definir cantidad de días luego de finalizado el curso donde solo la coordinadora puede editar notas,(7 días ? )
-- Editar cursos una vez finalizados
+- Editar cursos una vez finalizados (LISTO)
 
 
 
@@ -142,6 +140,8 @@ how-to-add-horizontal-scroll-bar-to-specific-columns-of-html-table-without-using
 http://www.designchemical.com/blog/index.php/jquery/live-text-search-function-using-jquery/
 # AJAX
 - http://webslesson.blogspot.com/2016/03/ajax-live-data-search-using-jquery-php-mysql.html
+# Comparar fechas con "carbon"
+- http://carbon.nesbot.com/docs/#api-comparison
 
 
 
