@@ -30,7 +30,7 @@ class courseController extends Controller {
 	public function create()
 	{
 
-		if(!(Auth::user())){
+		if(!(Auth::user())) {
 			return Redirect::to('/');
 		}
 
@@ -52,10 +52,10 @@ class courseController extends Controller {
 		$request['startDate'] = DateTime::createFromFormat('d/m/Y', $request['startDate'] )->format('Y-m-d');
 		$request['endDate'] = DateTime::createFromFormat('d/m/Y', $request['endDate'] )->format('Y-m-d');
 
-		if(strtotime($request['endDate']) < strtotime($request['startDate']) ){
+		if(strtotime($request['endDate']) < strtotime($request['startDate']) ) {
 			Session::flash('date_validator', 'Fecha de finalización debe ser mayor que fecha de inicio');
 			return redirect()->back();
-		}else{
+		} else {
 			$cursos = \Aliadas\curso::All();
 			\Aliadas\curso::create([
 				'nombre_curso'=> $request['name'],
@@ -89,7 +89,7 @@ class courseController extends Controller {
 	 */
 	public function edit($id)
 	{
-		if(!(Auth::user())){
+		if(!(Auth::user())) {
 			return Redirect::to('/');
 		}
 
@@ -109,10 +109,10 @@ class courseController extends Controller {
 		$request->incio_curso = DateTime::createFromFormat('d/m/Y', $request->incio_curso )->format('Y-m-d');
 		$request->fin_curso = DateTime::createFromFormat('d/m/Y', $request->fin_curso)->format('Y-m-d');
 
-		if(strtotime($request->fin_curso) < strtotime($request->incio_curso)){
+		if(strtotime($request->fin_curso) < strtotime($request->incio_curso)) {
 			Session::flash('date_validator', 'Fecha de finalización debe ser mayor que fecha de inicio');
 			return redirect()->back();
-		}else{
+		} else {
 			$curso = \Aliadas\curso::find($id);		
 			$curso->nombre_curso = $request->nombre_curso;
 			$curso->incio_curso = $request->incio_curso;
@@ -142,16 +142,16 @@ class courseController extends Controller {
 	}
 
 
-	public function  emprendedoras(){
+	public function  emprendedoras() {
 
 		if(!(Auth::user())){
 			return Redirect::to('/');
 		}
 
 		$sede_id = Auth::user()->sede_id;
-		if ($sede_id == 1){
+		if ($sede_id == 1) {
 			$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Emprendedoras en Cadena')->orderBy('created_at', 'desc')->paginate(10);
-		}else{
+		} else {
 			$cursos = \Aliadas\curso::where('tipo_curso', '=', 'Emprendedoras en Cadena')->where('sede_id','=',$sede_id)->orderBy('created_at', 'desc')->paginate(10);
 		}
 
