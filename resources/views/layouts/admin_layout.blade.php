@@ -39,7 +39,7 @@
 				<li><a href="/sedes"><span class="glyphicon  glyphicon-new-window"></span>
 				Administrar sedes </a></li>		
 				<div class="control-top">			
-					<li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>	
+					<li><a href="/logout"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>	
 				</div>
 			</ul>
 		</nav>

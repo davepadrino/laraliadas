@@ -19,13 +19,13 @@
 					</div>
 				@endif
 				<div>
-					<h2> Administrar Usuarios </h2>
+					<h2> Administrar usuarios </h2>
 				</div>
 				<div class="row">
 					<div id = "addUsers" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<div>
 							<div>
-								<h3> Crear Usuario</h3>
+								<h3> Crear usuario</h3>
 							</div>
 						{!! Form::open(['route'=>'admin.store', 'method'=>'post'])!!}
 							<table id="form">
@@ -37,7 +37,7 @@
 				                    </tr>		                    
 				                   	<tr>
 				                        <td>
-				                        	{!! Form::label('Correo Electrónico')!!}
+				                        	{!! Form::label('Correo electrónico')!!}
 											{!! Form::text('email',null,['class'=>'form-control', 'placeholder'=>'correo@dominio.com'])!!}
 				                        </td>
 				                    </tr>
@@ -84,7 +84,7 @@
 					        <table class="table table-striped table-hover" >
 					            <thead>
 					                <th>Nombre</th>
-					                <th>Correo Electrónico</th>
+					                <th>Correo electrónico</th>
 					                <th>Rol</th>
 					                <th>Sede</th>
 					                <th>Editar</th>

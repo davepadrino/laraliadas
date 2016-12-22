@@ -1,5 +1,5 @@
 @extends('layouts.index_layout')
-@section('title', 'Recuperar Contraseña')
+@section('title', 'Recuperar contraseña')
 @section('content')
 <div class="login col-md-6 col-lg-4">
 <!-- mensaje de edicion de usuario-->
@@ -11,7 +11,7 @@
 	@endif
 
 	<div>
-		<h2> Recuperar Contraseña </h2>
+		<h2> Recuperar contraseña </h2>
 	</div>
 	<div>
 		{!! Form::open(['url' => 'password/email'])!!}
@@ -23,12 +23,13 @@
 				</tr>
 				<tr>
 					<td>
+						{!! link_to('/', "Volver", $attributes = ['id' => 'rec_pass', 'class'=> 'btn btn-danger', 'style' => 'color:white']) !!}
+					</td>
+					<td>
 						{!! Form::submit('Enviar', ['class'=>'btn btn-primary'])!!}
 					</td>
 				</tr>
-					<td>
-						{!! link_to('/', "Volver", $attributes = ['id' => 'rec_pass', 'class'=> 'btn btn-danger', 'style' => 'color:white']) !!}
-					</td>
+
 			</table>
 			<span>Se le enviará un correo con un enlace para recuperar su contraseña</span>
 		{!! Form::close() !!}			

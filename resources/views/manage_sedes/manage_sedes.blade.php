@@ -14,13 +14,13 @@
 		</div>
 	@endif
 	<div>
-		<h2> Administrar Sedes </h2>
+		<h2> Administrar sedes </h2>
 	</div>
 	<div class="row">
 		<div id = "addSede" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			<div>
 				<div>
-					<h3> Crear Sede</h3>
+					<h3> Crear sede</h3>
 				</div>
 			{!! Form::open(['route'=>'sedes.store', 'method'=>'post'])!!}
 				<table id="form">

@@ -13,11 +13,11 @@
 </div>
 <table class="table" id="tablaprincipal">
     <thead>
-		    <th>Nombre del Curso </p></th>
-		    <th>Tipo del Curso</th>
+		    <th>Nombre del curso </p></th>
+		    <th>Tipo del curso</th>
 		    <th>Sede</th>
-		    <th>Fecha de Inicio</th>
-		    <th>Fecha de Fin</th>
+		    <th>Fecha de inicio</th>
+		    <th>Fecha de fin</th>
     </thead>
     <tbody>
     @foreach($cursos as $curso)
