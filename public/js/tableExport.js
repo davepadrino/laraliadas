@@ -27,7 +27,7 @@ THE SOFTWARE.*/
 						separator: ',',
 						ignoreColumn: [],
 						tableName:'yourTableName',
-						type:'csv',
+						type:'excel',
 						pdfFontSize:14,
 						pdfLeftMargin:20,
 						escape:'true',

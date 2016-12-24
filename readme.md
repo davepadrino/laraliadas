@@ -149,3 +149,7 @@ http://www.designchemical.com/blog/index.php/jquery/live-text-search-function-us
 http://stackoverflow.com/questions/220603/is-there-a-best-practice-for-generating-html-with-javascript
 
 https://www.google.co.ve/search?client=ubuntu&channel=fs&q=concat+html+values+in+html+construction&oq=concat+html+values+in+html+construction&gs_l=serp.3...2413914.2419141.0.2419506.6.6.0.0.0.0.294.587.0j2j1.3.0....0...1c.1.64.serp..3.0.0.uPFeRU-vEm4
+
+
+## Dave
+- Trabajo front-end para reflejar notas sin necesidad de recargar la pagina y que adicionalmente se guarde en BD (maybe AJAX?)

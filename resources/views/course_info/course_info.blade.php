@@ -59,7 +59,7 @@
 				@endforeach
 			    </tbody>
 		</table>
-		<a id="downloadPDF" class="btn btn-info" onClick ="$('#notasTable').tableExport({type:'pdf',escape:'false'});" href="#" target="_blank">Descargar</a>
+		<button id="downloadPDF" class="btn btn-info" onClick ="$('#notasTable').tableExport({type:'excel', tableName:'hola'});" type="button">Descargar</button>
 	</div>
 	@foreach($alumnos as $alumno)
 		@foreach($materias as $materia)
