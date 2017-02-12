@@ -51,26 +51,26 @@
 			<div id="alumnSearch" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 				<div>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<table id="form">
-							<tr>
-								<td>
-									<h2 class="text-center">Buscar alumno</h2>
-									<div class="input-group">
+					<table id="form">
+						<tr>
+							<td>
+								<h2 class="text-center">Buscar alumno</h2>
+								<div class="input-group">
 									<input type="text" id="searchAlumn" name="searchAlumn" class="form-control" placeholder="Buscar CI...">
-								    </div>
-								    <table class="table">
-								    	<thead>
-								    		<th class="text-center">CI</th>
-								    		<th class="text-center">Agregar</th>
-								    	</thead>
-								    	<tbody>
-								    		<tr id="addToCourse" class="text-center">
-								    		</tr>
-								    	</tbody>
-								    </table>
-								</td>
-							</tr>								
-						</table>
+							    </div>
+							    <table class="table">
+							    	<thead>
+							    		<th class="text-center">CI</th>
+							    		<th class="text-center">Agregar</th>
+							    	</thead>
+							    	<tbody>
+							    		<tr id="addToCourse" class="text-center">
+							    		</tr>
+							    	</tbody>
+							    </table>
+							</td>
+						</tr>								
+					</table>
 				</div>
 				<div id ="addAlumnForm">
 					<div>

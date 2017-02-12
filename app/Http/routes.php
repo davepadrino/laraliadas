@@ -58,7 +58,7 @@ Route::resource('materias', 'materiaController');
 
 
 Route::get('{id}/personas', array('as'=>'personas', 'uses'=>'personaController@index'));
-Route::get('personas/{id}', array('as'=>'delete-alumn', 'uses'=>'personaController@destroy'));
+
 Route::any('{curso_id}/personas/{alumn_id}', array('as'=>'personaDelCurso', 
 								'uses'=>'personaController@delete_course'));
 Route::get('/personas/alumnos', array('as'=>'getAlumno', 'uses'=>'personaController@getAlumnos'));
@@ -66,6 +66,8 @@ Route::any('{curso_id}/personas/addAlumn/{ci}', array('as'=>'addAlumno',
 								'uses'=>'personaController@addAlumnos'));
 Route::resource('personas', 'personaController');
 
+
+Route::get('personas/{id}', array('as'=>'delete-alumn', 'uses'=>'personaController@destroy'));
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

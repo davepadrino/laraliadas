@@ -329,7 +329,7 @@ class courseController extends Controller {
 				->where('persona_id', $alumno->id)
 				->get();
 			$courseArray[] = $result2[0];			
-		}		
+		}
 		return view('course_info/course_info', compact('current_curso', 'tipo_curso', 'alumnos', 'materias', 'recordsArray', 'courseArray'));	
 	}
 
@@ -438,10 +438,20 @@ class courseController extends Controller {
 		$data = array();
 		$alumno = \Aliadas\persona::find($alumn_id);
 		$materia = \Aliadas\materia::find($materia_id);
+		
+		$course_id = $request->course_id;
+		$curso = \Aliadas\curso::find($course_id);
+
+		/*
+			buscar todas las notas y sacar el promedio
+		*/
+		
+
+
 		$result = DB::table('materia_persona')
-		->where('persona_id', $alumno->id)
-		->where('materia_id', $materia->id)
-		->update(['calificacion' => $request->nota_materia, 'asistencia' => $request->asistencia]); //Falta asistencia
+			->where('persona_id', $alumno->id)
+			->where('materia_id', $materia->id)
+			->update(['calificacion' => $request->nota_materia, 'asistencia' => $request->asistencia]);
 		return redirect()->back();
 		//return "alumno ".$alumno." materia ".$materia. "NOTA: ".$request->nota_materia." Asistencias: ".$request->asistencia;
 	}
@@ -452,9 +462,10 @@ class courseController extends Controller {
 		$curso = \Aliadas\curso::find($course_id);
 		//$data['asistencia'] = $request->asistencia;
 		$result = DB::table('curso_persona')
-		->where('persona_id', $alumno->id)
-		->where('curso_id', $curso->id)
-		->update(['nota_final' => $request->nota_final, 'asistencia' => $request->asistencia]); //Falta asistencia
+			->where('persona_id', $alumno->id)
+			->where('curso_id', $curso->id)
+			->update(['nota_final' => $request->nota_final, 'asistencia' => $request->asistencia]); //Falta asistencia
+		
 		return redirect()->back();
 		//return "alumno ".$alumno." materia ".$materia. "NOTA: ".$request->nota_materia." Asistencias: ".$request->asistencia;
 	}		

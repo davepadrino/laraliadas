@@ -15,7 +15,7 @@
 		</div>
 		<div class="col-md-6">
 			<h3>Estado: {{$current_curso-> estado_curso}}</h3>
-			<h3>Observaciones: {{$current_curso-> descripcion_curso}}</h3>			
+			<h3>Observaciones: {{$current_curso-> descripcion_curso}}</h3>		
 		</div>
 	</div>
 	<div>
@@ -70,13 +70,13 @@
 					    <div class="modal-content">
 				             <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        <h4 class="modal-title">Editar relación: {{ $alumno-> nombre_persona }}-{{ $materia-> nombre_materia }}</h4>
+						        <h4 class="modal-title">Editar calificación del alumno  {{ $alumno-> nombre_persona }} en la materia : {{ $materia-> nombre_materia }}</h4>
 						    </div>    
-						    {!! Form::model([$materia,$alumno], array('route' => array('califMateria', $materia->id,$alumno->id, 'method'=>'put')))!!}
+						    {!! Form::model([$materia,$alumno], array('route' => array('califMateria',$materia->id, $alumno->id,'method'=>'put')))!!}
 						        <div class="modal-body">
-							        Información<br>
 							        {!! Form::label('Nota')!!}
 									{!! Form::text('nota_materia',$record->calificacion,['class'=>'form-control', 'placeholder'=>'Nota'])!!}
+									{!! Form::hidden('course_id',$current_curso->id,['class'=>'form-control', 'placeholder'=>'Nota'])!!}
 							        {!! Form::label('Asistencia')!!}
 									{!! Form::text('asistencia',$record->asistencia,['class'=>'form-control', 'placeholder'=>'Asistencia'])!!}
 							    </div>
@@ -91,7 +91,7 @@
 				@endif
 			@endforeach
 		@endforeach
-	@endforeach	
+	@endforeach
 	@foreach($alumnos as $alumno)
 		@foreach($courseArray as $course)
 			@if($course->persona_id == $alumno->id)
@@ -111,7 +111,7 @@
 						    </div>
 						    <div class="modal-footer">
 						        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-								<button type="submit" class="btn btn-primary">Guardar</a>
+								<button type="submit" id="guardar" class="btn btn-primary">Guardar</a>
 							</div>
 						{!! Form::close() !!}
 					</div><!-- /.modal-content -->
